@@ -1,0 +1,121 @@
+/*  select plugin style  */
+
+.custom-select-native {
+	border: 0!important;
+	clip: rect(0px, 0px, 0px, 0px)!important;
+	height: 1px!important;
+	margin: -1px!important;
+	overflow: hidden!important;
+	padding: 0!important;
+	position: absolute!important;
+	width: 1px!important;
+}
+.custom-select {
+	box-sizing: border-box;
+	color: #3c464d;
+}
+.custom-select-value {
+	padding: 1rem 1.3rem 1.1rem 1.3rem;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	color: #A0A4A8;
+	cursor: pointer;
+	border: 2px solid #E2E2E2;
+	border-radius: 5px;
+	position: relative;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	user-select: none;
+	text-align: right;
+	background-color: #fff;
+	background-image: url("../img/svg/select-angle.svg");
+	background-position: 20px 50%;
+	background-repeat: no-repeat;
+	height: 4.5rem;
+}
+
+.single-product {
+	.custom-select-value {
+		border: 1px solid #E2E2E2;
+		padding: 0.7rem 1.2rem 0.6rem;
+		line-height: 2rem;
+		height: 3.5rem;
+		border-radius: 5px;
+		color: #505050;
+
+		@media screen and (max-width:1023px){
+			background-color:#fff;
+			height: 4.5rem;
+			line-height: 2rem;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+			font-size: 14px;
+			color: #505050;
+			margin: 0 1rem;
+		}
+	}
+}
+
+#insurance .custom-select-value {
+	@media screen and (max-width:1023px){
+		background-color: #fff;
+		height: 5.4rem;
+		line-height: 1.5rem;
+		padding-top: 1.5rem;
+		padding-bottom: 2rem;
+		font-size: 14px;
+		color: #25282b;
+		border-radius: 5px;
+		margin: 0;
+	}
+}
+
+.custom-select-dropdown {
+	border-radius: 2px;
+	box-shadow: 10px 1px 25px rgba(0, 0, 0, 0.08);
+	background-color:#fff ;
+	padding: 0 1rem 1rem 0.5rem;
+	z-index: 60;
+
+}
+
+.custom-select-dropdown-inner {
+	max-height: 18rem;
+	overflow-y: auto;
+	z-index: 10;
+	background-color:#fff ;
+	padding: 1rem 1rem 0 1rem;
+}
+
+.custom-select-dropdown-inner::-webkit-scrollbar {
+	width: 5px;
+}
+
+.custom-select-dropdown-inner::-webkit-scrollbar-thumb{
+	background: #ccc;
+}
+.custom-select-option {
+	padding: 10px 0px;
+	border: 1px solid transparent;
+	cursor: pointer;
+	background-color:#fff ;
+	font-size: 1.4rem;
+	border-bottom: 1px solid #DBDDE0;
+	font-weight: 700;
+}
+.custom-select-option:nth-last-of-type(1){
+	border: 0;
+}
+
+.custom-select-option:nth-of-type(1){
+	padding-top: 0;
+}
+
+.custom-select-option[disabled="disabled"] {
+	display: none;
+}
+.custom-select-option:not([disabled="disabled"]):hover {
+	background-color: #fff;
+}
+/*  /select plugin style  */

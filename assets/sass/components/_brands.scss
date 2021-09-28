@@ -1,0 +1,53 @@
+#brands_a_z {
+	.brands_index, #brands-0-9 {
+		display: none;
+	}
+
+	ul.brands {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 1rem;
+
+		@media screen and (max-width: 1023px) {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+
+		@media screen and (max-width: 767px) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+
+		@media screen and (max-width: 412px) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		li {
+			width: 100%;
+			text-align: center;
+			display: block;
+
+			a {
+				display: block;
+				text-align: center;
+				padding: 10px 0;
+				border: 1px solid #efefef;
+				transition: all linear 100ms;
+				border-radius: 5px;
+
+				&:hover {
+					background-color: #f9f9f9;
+				}
+			}
+		}
+	}
+
+	a.top {
+		padding: 15px 30px !important;
+		margin-top: 7rem !important;
+		font-size: 1.6rem !important;
+		border-radius: .5rem !important;
+		border: 0 !important;
+		background-color: $primary-color;
+		color: #fff;
+		display: none;
+	}
+}

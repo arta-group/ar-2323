@@ -1,0 +1,100 @@
+.rating-container {
+	display: flex;
+	/* remove styles below*/
+	//position: absolute;
+	//top: 50%;
+	//left: 50%;
+	transform: rotateY(180deg);
+	direction: ltr;
+}
+
+.rating-input {
+	display: none;
+}
+.rating-label {
+	display: block;
+	cursor: pointer ;
+	width: 10px;
+	margin: 0 5px;
+	@include icon( empty-star , before);
+	@include icon( filled-star , after);
+}
+.rating-label:before {
+	position: relative;
+	display: block;
+	font-style: normal;
+	top:0;
+	font-size: 14px;
+	color: #E2E2E2;
+}
+.rating-label:after {
+	position: absolute;
+	display: block;
+	font-style: normal;
+	font-weight: 900;
+	top:0;
+	font-size: 14px;
+	color: $secondary-color;
+	opacity: 0;
+	transition: 100ms linear;
+}
+
+.rating-label:hover:after ,
+.rating-label:hover ~ .rating-label:after,
+.rating-input:checked ~ .rating-label:after {
+	opacity: 1;
+}
+
+//==================================================
+// star review
+//==================================================
+
+.star-review {
+	li {
+		width: 16px;
+		height: 16px;
+
+		&::before {
+			content: "\E00F";
+			font-family: "Icons";
+			font-size: 15px ;
+			line-height: 15px;
+			letter-spacing: -1px;
+			color:#E2E2E2;
+			font-weight: 900;
+		}
+
+		&.active::before {
+			color:$secondary-color ;
+		}
+	}
+
+	&.light {
+		li {
+			width: 18px;
+			height: 18px;
+
+			&::before {
+				font-size: 18px ;
+				line-height: 18px;
+			}
+
+			&.active::before {
+				color: $secondary-color;
+			}
+		}
+	}
+
+	&.hotel-review {
+		li {
+			width: 12px;
+			height: 12px;
+
+			&::before {
+				font-size: 12px ;
+				line-height: 12px;
+			}
+
+		}
+	}
+}

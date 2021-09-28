@@ -1,0 +1,40 @@
+$primary-color :#F6412D;
+$secondary-color: #FED100;
+
+@import './base/elements.body';
+@import './base/elements';
+
+@import './components/icons';
+@import './components/slick';
+@import './components/header';
+@import './components/footer';
+@import './components/buttons';
+@import './components/intro';
+@import './components/form';
+@import './components/alerts';
+@import './components/pagination';
+
+@import './components/breadcrumb';
+@import './components/accordion';
+@import './components/tabs';
+@import './components/comment';
+@import './components/rating';
+@import './components/menu';
+@import './components/yith-wishlist-compare';
+@import './components/simplyCountdown.theme.default';
+@import './components/cart';
+@import './components/brands';
+@import './components/sticky-sidebar';
+@import './components/woocommerce-filtering';
+
+@import './layouts/home';
+@import './layouts/about';
+@import './layouts/contact';
+@import './layouts/blog';
+@import './layouts/archive';
+@import './layouts/single';
+@import './layouts/woocommerce';
+@import './layouts/sample-page';
+@import './layouts/woocommerce-order-page';
+@import './layouts/search-result';
+@import './layouts/account';

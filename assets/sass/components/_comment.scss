@@ -1,0 +1,143 @@
+
+
+
+.divide-border-bottom li{
+	border-bottom: 1px solid #E2E2E2;
+
+	&:nth-last-of-type(1) {
+		border-bottom: 0;
+	}
+}
+
+.comment-rating li{
+	border: 0 !important;
+}
+
+.comments-area {
+	.comment-list {
+
+		.comment {
+			padding: 3.3rem 3.1rem 3.7rem 3.7rem;
+			background: #F9F9F9;
+			border-radius: 5px;
+			margin-bottom: 3rem;
+			position: relative;
+
+			@media screen and (max-width: 767px) {
+				padding:3rem 2rem;
+			}
+
+			&:nth-last-of-type(1) {
+				margin-bottom: 0;
+			}
+		}
+		.comment-content {
+			padding-right: 9rem;
+			font-size: 1.4rem;
+			line-height: 2.2rem;
+			color: #505050;
+			margin-top: -2rem;
+			p {
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+				color: #505050;
+			}
+
+			a {
+				color: #f6412d;
+			}
+
+			@media screen and (max-width: 767px) {
+				margin-top: 2rem;
+				padding-right: 0;
+			}
+		}
+
+		.comment-meta {
+			display: flex;
+			font-size: 1.4rem;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 1.5rem;
+				height: 2rem;
+				background: #F9F9F9;
+				z-index: 10;
+			}
+			@media screen and (max-width: 767px) {
+				flex-direction: column;
+			}
+		}
+
+		.comment-metadata {
+			font-size: 1.2rem;
+			line-height: 2rem;
+			color: #8A8A8A;
+			margin-right: 1.5rem;
+			@media screen and (max-width: 767px) {
+				margin-right: 8.9rem;
+				margin-top: -3rem;
+			}
+		}
+
+		.comment-author {
+			display: flex;
+			@media screen and (max-width: 767px) {
+
+			}
+
+			img {
+				width:6.4rem ;
+				height: 6.4rem;
+				border-radius: 50%;
+				margin-left: 2.6rem;
+			}
+
+			.fn {
+				font-size: 1.4rem;
+				line-height: 2.2rem;
+				color: #333333;
+			}
+			.says {
+				display: none;
+			}
+		}
+
+		.comment-reply-link {
+			position: absolute;
+			top: 3.1rem;
+			left: 3.7rem;
+			font-size: 0;
+			line-height: 0;
+
+			&:before {
+				content: "\E00B";
+				font-size: 2rem;
+				height: 2rem;
+				line-height: 2rem;
+				font-family: "Icons";
+				color: #8A8A8A;
+			}
+		}
+
+	}
+}
+
+#comments .commentlist{
+	ul {
+		padding-right: 6rem;
+
+		li > div {
+			padding-right: 2rem;
+			padding-left: 2rem;
+			background-color: #f6f6f6;
+		}
+	}
+}
+
+.woocommerce-Reviews .must-log-in a {
+	color: #f6412d;
+}

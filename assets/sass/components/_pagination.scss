@@ -1,0 +1,7 @@
+.pagination li a.active {
+	background-color: $secondary-color;
+}
+
+.woocommerce-pagination a.disabled {
+	opacity: 30%;
+}

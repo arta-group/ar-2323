@@ -1,0 +1,251 @@
+.woocommerce {
+	.woocommerce-MyAccount-navigation-link .icon-wallet {
+		font-size: 2.1rem;
+	}
+}
+
+.c-content {
+	.woo-wallet-my-wallet-container {
+
+		.woo-wallet-sidebar {
+
+			ul {
+				.card {
+					border-radius: .5rem;
+
+					a p {
+						padding-top: 2rem !important;
+					}
+				}
+			}
+		}
+
+		.woo-wallet-transactions-items li div:nth-child(1) small {
+			font-size: 1.2rem;
+		}
+
+		form .woo-wallet-add-amount {
+			display: flex;
+			flex-direction: column;
+			padding: 4rem 10rem;
+			
+			@media (max-width: 767px) {
+				padding: 4rem;
+			}
+
+			label, input[type=submit] {
+				flex-shrink: 0;
+			}
+
+			label {
+				font-size: 1.4rem;
+				margin-bottom: 1rem;
+			}
+
+			input.woo-wallet-balance-to-add {
+				height: 4rem;
+				margin-bottom: 2rem;
+				width: 100%;
+				border: 1px solid #e2e2e2;
+				padding: 1rem 2rem;
+				font-size: 1.4rem;
+				border-radius: .5rem;
+			}
+
+			input[type=submit] {
+				font-size: 1.6rem;
+				padding: .5rem 3rem;
+				line-height: 3rem;
+				border-radius: .5rem;
+				background-color: $secondary-color;
+				font-weight: 700;
+				margin: 0 !important;
+			}
+		}
+	}
+
+	> p {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		width: 100%;
+		font-size: 2.2rem !important;
+		font-weight: 700;
+		margin-bottom: 8rem !important;
+		
+		@media (max-width: 1023px) {
+			flex-wrap: wrap;
+			line-height: 4rem !important;
+			
+			mark {
+				margin: 0 1rem;
+			}
+		}
+
+		> span {
+			margin-right: 2rem
+		}
+
+		> a {
+			margin-right: auto;
+			margin-left: 0;
+			background-color: $primary-color;
+			padding: .7rem 3rem;
+			border-radius: .5rem;
+			color: #fff !important;
+		}
+	}
+
+	> #wc-wallet-transaction-details_wrapper {
+
+		#wc-wallet-transaction-details_processing {
+			margin-top: -1rem;
+			min-height: 4.8rem !important;
+			padding: 0;
+			display: grid;
+			place-items: center;
+		}
+
+		#wc-wallet-transaction-details_filter.dataTables_filter {
+			margin-bottom: 2rem;
+
+			label {
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+			}
+
+			input {
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+				border: 1px solid #777;
+				padding: .5rem 1rem .3rem;
+				border-radius: .5rem;
+				margin-right: 2rem;
+			}
+		}
+
+		#wc-wallet-transaction-details_length.dataTables_length {
+			label {
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+			}
+
+			select {
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+				border: 1px solid #777;
+				padding: .5rem 1rem .3rem;
+				border-radius: .5rem;
+				margin: 0 1rem;
+			}
+		}
+
+		#wc-wallet-transaction-details.dataTable {
+			margin: 2rem 0;
+			border: 0 !important;
+
+			thead tr th {
+				border-bottom: 0;
+				font-size: 1.6rem;
+				padding: 1rem;
+				line-height: 2.8rem;
+				background-color: $secondary-color;
+
+				&:nth-last-child(1) {
+					border-bottom-left-radius: .5rem;
+					border-top-left-radius: .5rem;
+				}
+
+				&:nth-child(1) {
+					border-bottom-right-radius: .5rem;
+					border-top-right-radius: .5rem;
+				}
+			}
+
+			tbody tr td {
+				text-align: center;
+				padding: 1rem;
+				font-size: 1.4rem;
+				line-height: 2.8rem;
+
+				.woocommerce-Price-amount {
+					font-size: 1.4rem;
+					line-height: 2.8rem;
+				}
+
+				&:nth-last-child(1) {
+					border-bottom-left-radius: .5rem;
+					border-top-left-radius: .5rem;
+				}
+
+				&:nth-child(1) {
+					border-bottom-right-radius: .5rem;
+					border-top-right-radius: .5rem;
+				}
+			}
+
+			tbody tr:nth-child(2n) td {
+				background-color: #f7f7f7;
+			}
+		}
+
+		div#wc-wallet-transaction-details_info {
+			font-size: 1.4rem;
+			background-color: #f7f7f7;
+			padding: 1rem 3rem;
+			border-radius: .5rem;
+		}
+
+		div#wc-wallet-transaction-details_paginate {
+			> span a {
+				font-size: 1.4rem;
+				background: #fff !important;
+				border: 1px solid #777;
+				padding: .7rem 1rem .3rem;
+			}
+
+			> a {
+				font-size: 1.2rem;
+			}
+		}
+	}
+}
+
+.sample-page .fsmsa-address-item p {
+	margin: 0;
+}
+
+#fsmsa-shipping-address-form .woocommerce-address-fields__field-wrapper div input:focus, #fsmsa-shipping-address-form .woocommerce-address-fields__field-wrapper div select:focus, div#search-map #search-map-term {
+	border: 2px solid $secondary-color !important;
+	border-radius: 5px;
+}
+
+.fs-modal__overlay .fs-modal__container .fsmsa-content #fsmsa-shipping-address-form #fsmsa_save_address {
+	background-color: $secondary-color;
+	cursor: pointer;
+	padding: 0 3rem !important;
+	display: block;
+	width: calc(100% - 30px);
+}
+
+.fs-modal__container .fsmsa-content #fsmsa_save_address:disabled {
+	opacity: 0.5;
+}
+
+.fs-modal__overlay.fsmsa-no-map .fs-modal__container .fsmsa-content {
+	padding: 4rem !important;
+	min-height: 460px !important;
+}
+
+.fs-modal__container .fsmsa-content #fsmsa-shipping-address-form .woocommerce-address-fields > p {
+	margin: 0 !important;
+}
+
+.fs-modal__overlay:not(.fsmsa-no-map) .fs-modal__container .fsmsa-content #fsmsa-shipping-address-form .woocommerce-address-fields {
+	padding: 0 1rem 2rem;
+}
+
+.fs-modal__overlay:not(.fsmsa-no-map) .fs-modal__container .fsmsa-content #fsmsa-shipping-address-form > h3 {
+	padding: 3rem 3rem 0 !important;
+	line-height: 2.8rem !important;
+}

@@ -1,0 +1,117 @@
+.txt {
+	border: none;
+	color: #888;
+	min-width: 5px;
+}
+
+.hide {
+	position: absolute;
+	height: 0;
+	overflow: hidden;
+	white-space: pre;
+}
+
+.wpcf7-form-control {
+	line-height: 4.5rem;
+}
+
+.wpcf7-submit {
+	line-height: 2.7rem !important;
+	height: 4.7rem;
+	margin-top: 1.5rem;
+	font-size: 1.7rem;
+}
+
+.gap-15 {
+	grid-gap: 1.5rem;
+}
+
+.ajax-loader {
+	position: absolute !important;
+	margin: 0 !important;
+	background-image: url('../img/svg/loading.svg');
+}
+
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output {
+	background-color: $primary-color;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+	font-size: 1.2rem;
+	line-height: 2.2rem;
+}
+
+.wpcf7-not-valid-tip {
+	color: $primary-color;
+	font-size: 1.2rem;
+	font-weight: normal;
+	display: block;
+	margin-top: 0.5rem;
+}
+
+.custom-hidden-m {
+	@media screen and (max-width:1023px) {
+		display: none;
+	}
+}
+.custom-hidden {
+	display: none;
+}
+.sorting-overlay {
+	background-color: rgba(135, 135, 135, 0.5);
+}
+
+.custom-translate {
+	@media screen and (max-width: 370px) {
+		transform: translate(-50% , -9rem);
+	}
+}
+
+#fsmsa-shipping-address-form .woocommerce-address-fields__field-wrapper p input:focus , #fsmsa-shipping-address-form .woocommerce-address-fields__field-wrapper p select:focus {
+  border-color:$secondary-color;
+}
+
+@media screen and (max-width:767px)  {
+  #fsmsa-shipping-address-form .woocommerce-address-fields__field-wrapper {
+	padding-bottom: 0 !important;
+  }
+  
+  #fsmsa-shipping-address-form #fsmsa_save_address {
+	padding: 0;
+	background-color: $secondary-color;
+  }
+}
+
+#woo_wallet_transfer_form label[for='woo_wallet_transfer_user_id'] ,#woo_wallet_transfer_form label[for='woo_wallet_transfer_amount'], #woo_wallet_transfer_form label[for='woo_wallet_transfer_note'] {
+	margin-bottom: .7rem;
+	display: block;
+}
+
+#woo_wallet_transfer_form input[name='woo_wallet_transfer_amount'] ,#woo_wallet_transfer_form input[name='woo_wallet_transfer_user_id'] ,#woo_wallet_transfer_form textarea[name='woo_wallet_transfer_note'] {
+	display: block;
+	border: 1px solid #e2e2e2;
+	width: 100%;
+	font-size: 1.4rem;
+	border-radius: .5rem;
+	padding: 1rem;
+}
+#woo_wallet_transfer_form textarea[name='woo_wallet_transfer_note'] {
+	height: 10rem;
+}
+
+#woo_wallet_transfer_form label[for='woo_wallet_transfer_amount'] ,#woo_wallet_transfer_form label[for='woo_wallet_transfer_note']{
+	margin-top: 3rem;
+}
+
+#woo_wallet_transfer_form input[name='woo_wallet_transfer_fund'] {
+	padding: 1rem 3rem;
+	font-weight: 700;
+	font-size: 1.6rem;
+	border-radius: .5rem;
+	background-color: $secondary-color;
+	text-align: center;
+	margin-top: 3rem;
+	float: left;
+	cursor: pointer;
+}

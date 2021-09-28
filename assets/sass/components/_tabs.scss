@@ -1,0 +1,42 @@
+.c-tab-content.active {
+	display: block;
+}
+
+.c-tab-menu {
+	li.active a div {
+		color: #333333;
+	}
+}
+.c-shop-sorting {
+  
+  li{
+	height: 25px;
+	line-height: 23px;
+  }
+	li.active {
+		background-color: $secondary-color;
+		color: #333;
+	}
+}
+.account-tab.active > div {
+	color: $primary-color;
+}
+
+.cart-quantity {
+	> div {
+		font-size: 1.8rem;
+	}
+	input {
+		width: 5rem;
+		font-size: 1.8rem;
+	}
+}
+.w-405 {
+	@media screen and (min-width: 1024px) {
+		width: 405px ;
+	}
+}
+
+.fs-content-header.active {
+	color: #FED100;
+}

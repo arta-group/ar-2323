@@ -1,0 +1,46 @@
+
+
+.c-breadcrumb {
+	margin: 2.3rem 0;
+	height: 2.4rem;
+	@media screen and (max-width:1023px) {
+		margin: 1.5rem 0;
+	}
+	li {
+		padding: 0 2rem;
+		color: #000000;
+		position: relative;
+		font-size: 1.4rem;
+		line-height: 2.2rem;
+
+		@media screen and (max-width:1023px) {
+			font-size: 1.2rem;
+			line-height: 2rem;
+			padding: 0 1rem;
+		}
+		 &::before {
+			 content: "\002F";
+			 position: absolute;
+			 top: 50%;
+			 left: 0;
+			 color: #828282;
+			 transform: translateY(-50%);
+
+		 }
+		&:nth-of-type(1){
+			padding-right: 0;
+		}
+
+		&:nth-last-of-type(1) {
+			&::before {
+				display: none;
+			}
+			padding-left: 0;
+		}
+
+		a {
+			color: #828282;
+		}
+
+	}
+}
