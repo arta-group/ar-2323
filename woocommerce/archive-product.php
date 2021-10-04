@@ -39,7 +39,7 @@ if ( $current_term_id )
 							<div class="mt-1/6 w-7 h-0/5 bg-primary-main rounded-full"></div>
 							<div class="lg-hidden absolute top-3 left-3 icon-close-alt text-3/4 leading-3/4 h-3/4 cursor-pointer" id="toggle-filters-close"></div>
 						</div>
-						<div class="flex flex-col overflow-y-auto fs-products-archive-filters">
+						<div class="flex flex-col overflow-y-auto fs-products-archive-filters p-2">
 							<?php
 							dynamic_sidebar( 'shop-sidebar' );
 							//$form_id = get_field( 'filter-form-id', 'option' );
