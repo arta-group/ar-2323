@@ -53,7 +53,8 @@ if ( $fields )
 		</div>
 		<div class="w-full lg-w-auto lg-flex-1">
 			<label for="billing_city" class="block text-base mb-0/7 leading-2/2 text-gray-main">شهر / روستا</label>
-			<?php echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
+            <input type="text" name="billing_city" id="billing_city" class="rounded-xs border-2 border-border w-full w-405 text-base leading-2/2 pt-1 pb-0/9 px-1/8" style="margin-bottom: 34px;" autocomplete="given-name" placeholder="نام شهر خود را وارد نمایید " value="">
+<!--			--><?php //echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
 		</div>
 	</div>
 	<div class=" flex flex-col lg-flex-row items-center lg-space-x-reverse lg-space-x-3/2">
