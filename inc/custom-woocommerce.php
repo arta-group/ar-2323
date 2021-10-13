@@ -969,7 +969,7 @@ function fs_override_checkout_fields ( $fields )
 	unset( $fields[ 'billing' ][ 'billing_country' ] );
 	unset( $fields[ 'billing' ][ 'billing_address_2' ] );
 	unset( $fields[ 'billing' ][ 'billing_email' ] );
-	unset( $fields[ 'billing' ][ 'billing_phone' ] );
+//	unset( $fields[ 'billing' ][ 'billing_phone' ] );
 	unset( $fields[ 'shipping' ][ 'shipping_country' ] );
 	unset( $fields[ 'shipping' ][ 'shipping_address_2' ] );
 
