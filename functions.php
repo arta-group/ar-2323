@@ -159,6 +159,7 @@ function fs_scripts ()
 
 	wp_enqueue_style( 'fs-design-system-style', get_template_directory_uri() . '/assets/css/tailwind.min.css', array(), _FS_VERSION );
 	wp_enqueue_style( 'fs-style', get_template_directory_uri() . '/assets/css/main.min.css', array(), _FS_VERSION );
+	wp_enqueue_style( 'sa-style', get_template_directory_uri() . '/assets/css/mystyle.css', array(), "1.0.0" );
   wp_enqueue_script( 'fs-js', get_template_directory_uri() . '/assets/js/custom.min.js', array(), _FS_VERSION, true );
 	wp_enqueue_script( 'fs-countdown-js', get_template_directory_uri() . '/assets/js/simplyCountdown.min.js', array(
 		'jquery',
