@@ -21,7 +21,7 @@ get_header();
         <?php
         get_template_part( "template-parts/breadcrumb" );
         ?>
-        <section class="flex container mx-auto pt-1 md-pt-3 pb-5 lg-pb-10">
+        <section class="flex container mx-auto pt-1 md-pt-3 lg-10">
             <?php
             get_template_part( "page-templates/blog/amazing/amazing-sidebar" );
             get_template_part( "page-templates/blog/amazing/amazing-main" );

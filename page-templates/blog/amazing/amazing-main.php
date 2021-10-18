@@ -1,5 +1,5 @@
 <div class="w-full lg-flex-1 flex flex-col h-full px-2 md-px-3 lg-px-0">
-	<div class="flex-1 flex-col mb-5">
+	<div class="flex-1 flex-col">
 		<div class="border-b-2 border-border flex items-center">
 			<h2 class="text-lg lg-text-2/4 leading-3/8 inline-block text-center md-text-right leading-2/8 pb-1/5 title b2 text-gray-main font-bold">
 				<?php
