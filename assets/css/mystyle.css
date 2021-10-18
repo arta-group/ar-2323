@@ -20,3 +20,43 @@ div .amazing > p {
         grid-template-columns: repeat(2,minmax(0,1fr));
     }
 }
+
+div .pagination2 > ul {
+    display: flex;
+    font-size: 1.7em;
+}
+
+div .pagination2 > ul > li {
+    margin: 5px 7px 5px 7px;
+    width: 35px;
+    height: 35px;
+    border: solid 1px #cdcdcd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+div .pagination2 > ul > li .current {
+    background-color: #fed100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 33px;
+}
+
+@media (max-width: 768px) {
+    div .pagination2 > ul {
+        font-size: 1em;
+    }
+    div .pagination2 > ul > li {
+        margin: 5px 3px 5px 3px;
+        width: 20px;
+        height: 20px;
+    }
+    div .pagination2 > ul > li .current {
+        width: 18px;
+        height: 18px;
+    }
+}

@@ -17,11 +17,5 @@
 		<div class="wp-block-column">
                 <?php the_content(); ?>
 		</div>
-
-	</div>
-	<div class="mt-auto mb-0">
-		<?php
-		fs_get_pagination();
-		?>
 	</div>
 </div>
