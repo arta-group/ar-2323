@@ -69,9 +69,9 @@ div .r-filter {
 }
 
 div .r-filter > button {
-    background-color: #fed100;
-    width: 70%;
+    background-color: #fed100 !important;
+    width: 70% !important;
     height: 45px;
-    border-radius: 6px;
+    border-radius: 6px !important;
     border: none !important;
 }
