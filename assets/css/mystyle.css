@@ -60,3 +60,18 @@ div .pagination2 > ul > li .current {
         height: 18px;
     }
 }
+
+div .r-filter {
+    display: flex;
+    justify-content: center;
+    border: none;
+    padding-bottom: 0px;
+}
+
+div .r-filter > button {
+    background-color: #fed100;
+    width: 70%;
+    height: 45px;
+    border-radius: 6px;
+    border: none !important;
+}

@@ -331,7 +331,7 @@ function fs_add_schema ()
 					"worstRating": 0
 				},
 				"brand": {
-					"@type": "Thing",
+					"@type": "Brand",
 					"name": "<?php $brand = wp_get_post_terms( $product->get_id(), 'product_brand' );
 			$brand                        = reset( $brand );
 			echo $brand->name; ?>"
@@ -356,12 +356,15 @@ function fs_add_schema ()
 				},
 				"review": {
 					"@type": "Review",
-					"author": "کاربر آرتا الکتریک",
 					"reviewRating": {
 						"@type": "Rating",
 						"bestRating": 5,
 						"ratingValue": <?php echo $rate_value; ?>,
 						"worstRating": 0
+					},
+					"author": {
+					    "@type": "Person",
+					    "name": "کاربر آرتا الکتریک"
 					}
 				}
 			}
