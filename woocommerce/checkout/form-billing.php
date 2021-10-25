@@ -45,7 +45,7 @@ if ( $fields )
 			<label for="billing_company" class="block text-base mb-0/7 leading-2/2 text-gray-main">شرکت (اختیاری)</label>
 			<input type="text" name="billing_company" id="billing_company" class="rounded-xs border-2 border-border w-full w-405 text-base leading-2/2 pt-1 pb-0/9 px-1/8 " autocomplete="organization" placeholder="" value="<?php echo $checkout->get_value( 'billing_company' ) ?>">
 		</div>
-	</div><input type="hidden" name="billing_country" id="billing_country" value="IR">
+	</div><input type="hidden" name="billing_country" id="billing_country" value="IR"><input type="hidden" name="billing_phone" id="billing_phone" value="<?php echo $user_info->mobile; ?>">
 	<div class="flex flex-col lg-flex-row items-center lg-space-x-reverse lg-space-x-3/2 city-select">
 		<div class="w-full lg-w-auto lg-flex-1 mb-1/9 lg-mb-0">
 			<label for="billing_state" class="block text-base mb-0/7 leading-2/2 text-gray-main">استان</label>
@@ -53,7 +53,8 @@ if ( $fields )
 		</div>
 		<div class="w-full lg-w-auto lg-flex-1">
 			<label for="billing_city" class="block text-base mb-0/7 leading-2/2 text-gray-main">شهر / روستا</label>
-			<?php echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
+            <input type="text" name="billing_city" id="billing_city" class="rounded-xs border-2 border-border w-full w-405 text-base leading-2/2 pt-1 pb-0/9 px-1/8" style="margin-bottom: 34px;" autocomplete="given-name" placeholder="نام شهر خود را وارد نمایید " value="">
+<!--			--><?php //echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
 		</div>
 	</div>
 	<div class=" flex flex-col lg-flex-row items-center lg-space-x-reverse lg-space-x-3/2">

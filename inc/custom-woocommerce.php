@@ -160,7 +160,10 @@ function fs_save_user_mobile_meta ( $customer_id )
 	if ( isset( $_POST[ 'username' ] ) && ! empty( trim( $_POST[ 'username' ] ) ) )
 	{
 		update_user_meta( $customer_id, 'mobile', sanitize_text_field( $_POST[ 'username' ] ) );
-		do_action( 'fs_welcome_sms', $customer_id );
+		$sms = 1;
+		$sms_value = [];
+		$user_login = sanitize_text_field( $_POST[ 'username' ] );
+        sa_sms($user_login, $sms, $sms_value);
 	}
 }
 
@@ -1052,3 +1055,16 @@ function fs_admin_order_data_billing_address ( $order )
 }
 
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'fs_admin_order_data_billing_address', 10, 1 );
+
+add_action( 'woocommerce_order_status_processing', 'sa_sms_success_order', 10, 1);
+
+function sa_sms_success_order($order_id) {
+    $order = wc_get_order($order_id);
+    $price = $order->get_total();
+    $user_id = $order->get_user()->id;
+    $user_mobile = get_user_meta($user_id, 'mobile', true);
+    $user_first_name = get_user_meta($user_id, 'first_name', true);
+    $sms = 2;
+    $sms_value = [$user_first_name, $order_id, $price];
+    sa_sms($user_mobile, $sms, $sms_value);
+}

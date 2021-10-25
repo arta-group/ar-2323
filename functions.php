@@ -159,6 +159,7 @@ function fs_scripts ()
 
 	wp_enqueue_style( 'fs-design-system-style', get_template_directory_uri() . '/assets/css/tailwind.min.css', array(), _FS_VERSION );
 	wp_enqueue_style( 'fs-style', get_template_directory_uri() . '/assets/css/main.min.css', array(), _FS_VERSION );
+	wp_enqueue_style( 'sa-style', get_template_directory_uri() . '/assets/css/mystyle.css', array(), "1.0.0" );
   wp_enqueue_script( 'fs-js', get_template_directory_uri() . '/assets/js/custom.min.js', array(), _FS_VERSION, true );
 	wp_enqueue_script( 'fs-countdown-js', get_template_directory_uri() . '/assets/js/simplyCountdown.min.js', array(
 		'jquery',
@@ -208,6 +209,46 @@ if ( function_exists( 'yith_wishlist_install' ) )
 	}
 
 	add_action( 'wp_enqueue_scripts', 'yith_wcwl_remove_awesome_stylesheet', 20 );
+}
+
+function sa_sms($user_login, $sms, $sms_value) {
+
+    /*
+     * forgot_sms_code=0
+     * welcome_register=1
+     * success_order=2
+     * success_login=3
+     * register=4
+     */
+    switch ($sms) {
+        case 0:
+            $bodyId = 55844;
+            break;
+        case 1:
+            $bodyId = 55843;
+            break;
+        case 2:
+            $bodyId = 55842;
+            break;
+        case 3:
+            $bodyId = 52455;
+            break;
+        case 4:
+            $bodyId = 38919;
+            break;
+    }
+    ini_set("soap.wsdl_cache_enabled", "0");
+    $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding'=>'UTF-8'));
+
+    $parameters['username'] = "9123250115";
+    $parameters['password'] = "aTaz54*73";
+    $parameters['to'] = $user_login;
+    $parameters['from'] = "100008610000";
+    $parameters['text'] = $sms_value;
+    $parameters['isflash'] =false;
+    $parameters['bodyId'] =$bodyId;
+
+    echo $sms_client->SendByBaseNumber($parameters)->SendSimpleSMS2Result;
 }
 
 /**
