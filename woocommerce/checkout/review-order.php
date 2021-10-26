@@ -100,8 +100,6 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<?php
-            $minimum = 700000;
-            if (WC()->cart->cart_contents_total <= $minimum) {
                 global $woocommerce;
                 $items = $woocommerce->cart->get_cart();
                 $extra = 0;
@@ -123,7 +121,6 @@ defined( 'ABSPATH' ) || exit;
                             </div>
                         </div>';
                 }
-            }
 			?>
 			<div class="py-1/6 flex items-center justify-between">
 				<div class="text-lg font-bold text-primary-main">مبلغ قابل پرداخت</div>
