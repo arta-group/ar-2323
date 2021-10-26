@@ -2,8 +2,6 @@
 function fs_modify_shipping_totals ( $cart_object )
 {
 	$extra = 0;
-	$minimum = 700000;
-	if (WC()->cart->cart_contents_total <= $minimum) {
         foreach ( WC()->cart->get_cart() as $item )
         {
             $id = $item[ 'product_id' ];
@@ -11,7 +9,6 @@ function fs_modify_shipping_totals ( $cart_object )
             if ( get_post_meta( $id, '_add_shipping', true ) != null )
                 $extra = $extra + ( $item[ 'quantity' ] * get_post_meta( $id, '_shapping_cost', true ) );
         }
-    }
 
 	if ( $extra > 0 )
 		$cart_object->add_fee( 'اضافه بار حمل و نقل', $extra, true, '' );
