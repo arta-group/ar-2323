@@ -1,0 +1,89 @@
+{
+    "key": "group_617e84c3d0137",
+    "title": "اسکیما ویدئو",
+    "fields": [
+        {
+            "key": "field_617e8960c1e92",
+            "label": "آدرس ویدئو",
+            "name": "contentUrl",
+            "type": "url",
+            "instructions": "آدرس ویدئو مورد نظر را به صورت کامل وارد نمایید.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/"
+        },
+        {
+            "key": "field_617ea3355736f",
+            "label": "عکس کاور",
+            "name": "thumbnailUrl",
+            "type": "url",
+            "instructions": "آدرس عکس کاور ویدئو مورد نظر را به صورت کامل وارد نمایید.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/"
+        },
+        {
+            "key": "field_617ea44857370",
+            "label": "مدت زمان ویدئو",
+            "name": "duration",
+            "type": "text",
+            "instructions": "مدت زمان ویدئو مربوطه را طبق نمونه ( PT1H22M54S ) وارد نمایید.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "PT",
+            "prepend": "",
+            "append": "",
+            "maxlength": 15
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_cat"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "product_brand"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1635690035
+}

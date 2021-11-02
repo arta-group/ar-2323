@@ -282,6 +282,35 @@ function fs_add_schema ()
 				echo ','; ?><?php $i ++;
 			} ?>
 				]
+			<?php
+            $taxonomy = get_queried_object()->taxonomy;
+            $term_id = get_queried_object()->term_id;
+            $contentUrl = get_term_meta($term_id, 'contentUrl', true);
+            if ($contentUrl) {
+                $meta   = get_option( 'wpseo_taxonomy_meta' );
+                $title  = $meta[$taxonomy][$term_id]['wpseo_title'];
+                $description = $meta[$taxonomy][$term_id]['wpseo_desc'];
+
+                $product_update   = get_lastpostmodified();
+                $duration = get_term_meta( $term_id, 'duration', true );
+                $thumbnailUrl = get_term_meta( $term_id, 'thumbnailUrl', true );
+                ?>
+                    "@type": "VideoObject",
+                    "name": "<?php echo $title; ?>",
+                    "description": "<?php echo $description; ?>",
+                    "thumbnailUrl": "<?php echo $thumbnailUrl; ?>",
+                    "uploadDate": "<?php echo $product_update?>",
+                    "duration": "<?php echo $duration; ?>",
+                    "contentUrl": "<?php echo $contentUrl; ?>",
+                    "embedUrl": "",
+                    "interactionStatistic": {
+                        "@type": "InteractionCounter",
+                        "interactionType": { "@type": "WatchAction" },
+                        "userInteractionCount": <?php echo rand( 1000, 6000 );?>
+                        },
+                    "regionsAllowed": ""
+                <?php
+            } ?>
 			}
 
 
@@ -367,9 +396,30 @@ function fs_add_schema ()
 					    "name": "کاربر آرتا الکتریک"
 					}
 				}
+				<?php
+            $contentUrl = get_post_meta( get_the_ID(), 'contentUrl', true );
+            if ($contentUrl) {
+                    $product_update   = get_lastpostmodified();
+                    $duration = get_post_meta( get_the_ID(), 'duration', true );
+                    $thumbnailUrl = get_post_meta( get_the_ID(), 'thumbnailUrl', true );
+				    ?>
+                    "@type": "VideoObject",
+                    "name": "<?php echo $product_name; ?>",
+                    "description": "<?php echo $product_desc; ?>",
+                    "thumbnailUrl": "<?php echo $thumbnailUrl; ?>",
+                    "uploadDate": "<?php echo $product_update?>",
+                    "duration": "<?php echo $duration; ?>",
+                    "contentUrl": "<?php echo $contentUrl; ?>",
+                    "embedUrl": "",
+                    "interactionStatistic": {
+                        "@type": "InteractionCounter",
+                        "interactionType": { "@type": "WatchAction" },
+                        "userInteractionCount": <?php echo rand( 1000, 6000 );?>
+                        },
+                    "regionsAllowed": ""
+                <?php
+				} ?>
 			}
-
-
 		</script>
 		<?php
 	}
