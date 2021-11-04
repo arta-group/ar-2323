@@ -406,16 +406,16 @@ function sa_add_schema()
                 "contentUrl": "<?php echo $contentUrl; ?>",
                 "embedUrl": "",
                 "interactionStatistic": {
-                "@type": "InteractionCounter",
-                "interactionType": { "@type": "WatchAction" },
-                "userInteractionCount": <?php echo rand(1000, 6000); ?>
-                },
+                    "@type": "InteractionCounter",
+                    "interactionType": { "@type": "WatchAction" },
+                    "userInteractionCount": <?php echo rand(1000, 6000); ?>
+                    },
                 "regionsAllowed": ""
-        <?php
-        } ?>
-	        	}
+               	}
             </script>
         <?php
+        } ?>
+    <?php
     }
 
     if (have_rows('faq')) {

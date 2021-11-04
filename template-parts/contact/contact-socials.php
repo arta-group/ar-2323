@@ -1,6 +1,6 @@
 <div class="px-2 md-px-3 lg-px-0">
 	<?php section_title( "شبکه های اجتماعی" ); ?>
-	<p class="mt-3/3 mb-4 text-base md-text-medium leading-3/2 text-gray-main">برای دریافت اخبار جدید و ارتباطی پایدار، در شبکه های اجتماعی زیر ما را دنبال کنید.</p>
+	<p class="mt-3/3 mb-4 text-base md-text-medium leading-3/2 text-gray-main">برای دریافت اخبار جدید، آخرین تخفیف‌ها و ارتباطی پایدار، در شبکه‌های اجتماعی زیر با ما همراه باشید.</p>
 	<div class="grid grid-cols-2 gap-x-1/5 md-gap-x-3/2 gap-y-1/5 md-gap-y-2/6">
 		<?php
 		$socials = [
@@ -11,25 +11,25 @@
 				'url'   => get_field( 'instagram', 'option' )
 			),
 			array(
-				"title" => " تلگرام پشتیبانی ",
+				"title" => " پشتیبانی تلگرام ",
 				"icon"  => "icon-telegram",
 				"color" => "text-telegram",
 				'url'   => get_field( 'support-telegram', 'option' )
 			),
 			array(
-				"title" => " لینکداین شرکت",
+				"title" => " لینکدین",
 				"icon"  => " icon-linkedin ",
 				"color" => "text-linkedin",
 				'url'   => get_field( 'linkedin', 'option' )
 			),
 			array(
-				"title" => " تلگرام همکاران ",
+				"title" => " کانال تلگرام ",
 				"icon"  => "icon-telegram",
 				"color" => "text-telegram",
 				'url'   => get_field( 'teammate-telegram', 'option' )
 			),
 			array(
-				"title" => " حساب توئیتر ",
+				"title" => " توئیتر ",
 				"icon"  => "icon-twitter h-3/6 w-3/6 rounded-full text-twitter h-1/5 leading-1/5 bg-telegram",
 				"color" => "text-white",
 				'url'   => get_field( 'twitter', 'option' )
