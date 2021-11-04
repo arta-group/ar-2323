@@ -7,8 +7,7 @@ $work_days  = get_field( 'work-days', 'option' );
 ?>
 <div class="col-span-1 lg-col-span-2 grid grid-cols-1 lg-grid-cols-2 gap-3 lg-gap-3 px-2 md-px-3 lg-px-0">
 	<div>
-		<p class="text-base md-text-lg text-gray-main leading-2/8">خوشحال می شویم</p>
-		<p class="text-2 lg-text-2/4 text-gray-main font-bold leading-3/7">با شما دوستان بیشتر در ارتباط باشیم</p>
+		<p class="text-2 lg-text-2/4 text-gray-main font-bold leading-3/7">ارتباط با آرتا الکتریک</p>
 		<div class="grid column grid-cols-2 gap-y-2 md-gap-y-4 gap-x-6 md-gap-x-12 mt-3 lg-mt-5">
 			<?php
 			if ( $address )

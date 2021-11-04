@@ -113,7 +113,7 @@ defined( 'ABSPATH' ) || exit;
                 if ($extra > 0) {
                     echo '
                         <div class="py-1/6 flex items-center justify-between">
-                            <div class="text-base font-bold text-gray-600">اضافه هزینه حمل و نقل</div>
+                            <div class="text-base font-bold text-gray-600">اضافه هزینه بسته بندی</div>
                             <div class="text-lg font-bold text-gray-dark">
                                 <span class="ml-0/2 inline-block woocommerce-shipping-totals shipping">
                                 <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol"></span>' . wc_price($extra) . '</bdi></span></span>

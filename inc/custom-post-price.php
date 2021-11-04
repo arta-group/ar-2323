@@ -16,7 +16,7 @@ function fs_modify_shipping_totals ( $cart_object )
 
 add_action( 'woocommerce_cart_calculate_fees', 'fs_modify_shipping_totals' );
 
-function fs_add_product_info_metabox ()
+function sa_add_product_info_metabox ()
 {
 	$add_shipping  = [
 		'id'          => '_add_shipping',
@@ -32,11 +32,20 @@ function fs_add_product_info_metabox ()
 		'desc_tip'    => true,
 		'description' => __( 'مقدار هزینه اضافه بار را وارد نمایید', 'fswc' ),
 	];
+    $remove_send = [
+        'id'         => '_remove_send',
+        'label'      => __( 'حذف ارسال با پست', 'sawc' ),
+        'class'      => 'fswc-add-shipping-field',
+        'desc_tip'   => false,
+        'description' => __( 'جهت حذف گزینه ارسال با پست این تیک را بزنید.', 'sawc' ),
+    ];
+
 	woocommerce_wp_checkbox( $add_shipping );
 	woocommerce_wp_text_input( $shapping_cost );
+    woocommerce_wp_checkbox( $remove_send );
 }
 
-add_action( 'woocommerce_product_options_shipping', 'fs_add_product_info_metabox' );
+add_action( 'woocommerce_product_options_shipping', 'sa_add_product_info_metabox' );
 
 function fs_save_custom_field ( $post_id )
 {
@@ -48,32 +57,35 @@ function fs_save_custom_field ( $post_id )
 	$shapping_cost_post = isset( $_POST[ '_shapping_cost' ] ) ? $_POST[ '_shapping_cost' ] : '';
 	$product->update_meta_data( '_shapping_cost', sanitize_text_field( $shapping_cost_post ) );
 
+	$remove_send = isset( $_POST['_remove_send']) ? $_POST['_remove_send'] : '';
+	$product->update_meta_data('_remove_send', $remove_send);
+
 	$product->save();
 }
 
 add_action( 'woocommerce_process_product_meta', 'fs_save_custom_field' );
 
-// Unset other shiping rates when product is heavy.
-//add_filter( 'woocommerce_package_rates', 'fs_unset_shipping', 10, 2 );
-//
-//function fs_unset_shipping ( $rates, $package )
-//{
-//
-//	foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
-//	{
-//		$product_id = $cart_item[ 'product_id' ];
-//		if ( get_post_meta( $product_id, '_add_shipping', true ) != null )
-//			$extra_shipping_product = true;
-//	}
-//
-//	if ( $extra_shipping_product )
-//	{
-//		if ( isset( $rates[ 'flat_rate:7' ] ) || isset( $rates[ 'free_shipping:10' ] ) )
-//		{
-//			unset( $rates[ 'flat_rate:7' ] );
-//			unset( $rates[ 'free_shipping:10' ] );
-//		}
-//	}
-//
-//	return $rates;
-//}
+// Unset other shiping rates when product is checked for remove send.
+add_filter( 'woocommerce_package_rates', 'fs_unset_shipping', 10, 2 );
+
+function fs_unset_shipping ( $rates, $package )
+{
+
+	foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
+	{
+		$product_id = $cart_item[ 'product_id' ];
+		if ( get_post_meta( $product_id, '_remove_send', true ) != null )
+			$extra_shipping_product = true;
+	}
+
+	if ( $extra_shipping_product )
+	{
+		if ( isset( $rates[ 'flat_rate:16' ] ) || isset( $rates[ 'free_shipping:17' ] ) )
+		{
+			unset( $rates[ 'flat_rate:16' ] );
+			unset( $rates[ 'free_shipping:17' ] );
+		}
+	}
+
+	return $rates;
+}
