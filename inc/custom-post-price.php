@@ -70,6 +70,7 @@ add_filter( 'woocommerce_package_rates', 'fs_unset_shipping', 10, 2 );
 
 function fs_unset_shipping ( $rates, $package )
 {
+    $extra_shipping_product = false;
 
 	foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item )
 	{

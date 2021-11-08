@@ -26,7 +26,11 @@ $orders = [
 	'price-desc' => 'گران‌ترین'
 ];
 
-$order_by = $_GET[ 'orderby' ] ?: 'date';
+if (isset($_GET[ 'orderby' ])) {
+    $order_by = $_GET[ 'orderby' ];
+}else {
+    $order_by = 'date';
+}
 ?>
 <form class="woocommerce-ordering" method="get">
 	<div class="flex items-center w-full justify-center lg-justify-start">
