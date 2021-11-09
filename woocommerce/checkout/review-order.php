@@ -100,7 +100,8 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<?php
-            if (WC()->session->get('chosen_shipping_methods')[0] !== 'flat_rate:9') {
+            $flat_r = WC()->session->get('chosen_shipping_methods')[0];
+            if ( !($flat_r == 'flat_rate:9' || $flat_r == 'local_pickup:6') ) {
                 global $woocommerce;
                 $items = $woocommerce->cart->get_cart();
                 $extra = 0;

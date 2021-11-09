@@ -1,7 +1,8 @@
 <?php
 function sa_modify_shipping_totals($cart_object)
 {
-    if (WC()->session->get('chosen_shipping_methods')[0] !== 'flat_rate:9') {
+    $flat_r = WC()->session->get('chosen_shipping_methods')[0];
+    if ( !($flat_r == 'flat_rate:9' || $flat_r == 'local_pickup:6') ) {
         $extra = 0;
         foreach (WC()->cart->get_cart() as $item) {
             $id = $item['product_id'];
