@@ -100,6 +100,7 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<?php
+            if (WC()->session->get('chosen_shipping_methods')[0] !== 'flat_rate:9') {
                 global $woocommerce;
                 $items = $woocommerce->cart->get_cart();
                 $extra = 0;
@@ -121,6 +122,7 @@ defined( 'ABSPATH' ) || exit;
                             </div>
                         </div>';
                 }
+            }
 			?>
 			<div class="py-1/6 flex items-center justify-between">
 				<div class="text-lg font-bold text-primary-main">مبلغ قابل پرداخت</div>
