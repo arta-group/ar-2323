@@ -24,8 +24,6 @@
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf4e8bff-f78a-4931-934e-daa0d50e2890";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
 <?php wp_footer(); ?>
 
-<script type="text/javascript" src="https://s1.mediaad.org/serve/16367/retargeting.js"></script>
-
 <script>
 	!function (t, e, n) {
 		t.yektanetAnalyticsObject = n, t[n] = t[n] || function () {

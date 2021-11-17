@@ -160,6 +160,7 @@ function fs_scripts ()
 	wp_enqueue_style( 'fs-design-system-style', get_template_directory_uri() . '/assets/css/tailwind.min.css', array(), _FS_VERSION );
 	wp_enqueue_style( 'fs-style', get_template_directory_uri() . '/assets/css/main.min.css', array(), _FS_VERSION );
 	wp_enqueue_style( 'sa-style', get_template_directory_uri() . '/assets/css/mystyle.css', array(), "1.0.0" );
+  wp_enqueue_script( 'sa-js', get_template_directory_uri() . '/assets/js/n_custom.js', array(), "1.0.0", true );
   wp_enqueue_script( 'fs-js', get_template_directory_uri() . '/assets/js/custom.min.js', array(), _FS_VERSION, true );
 	wp_enqueue_script( 'fs-countdown-js', get_template_directory_uri() . '/assets/js/simplyCountdown.min.js', array(
 		'jquery',
@@ -219,6 +220,8 @@ function sa_sms($user_login, $sms, $sms_value) {
      * success_order=2
      * success_login=3
      * register=4
+     * send_post_code=5
+     * send_peyk=6
      */
     switch ($sms) {
         case 0:
@@ -236,7 +239,17 @@ function sa_sms($user_login, $sms, $sms_value) {
         case 4:
             $bodyId = 38919;
             break;
+        case 5:
+            $bodyId = 65333;
+            break;
+        case 6:
+            $bodyId = 65166;
+            break;
+        case 7:
+            $bodyId = 65517;
+            break;
     }
+
     ini_set("soap.wsdl_cache_enabled", "0");
     $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding'=>'UTF-8'));
 
