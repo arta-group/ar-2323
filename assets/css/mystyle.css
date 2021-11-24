@@ -88,3 +88,11 @@ div .order_tracking {
         display: block;
     }
 }
+
+div .black_c {
+    content: "";
+    height: 70px;
+    background: no-repeat url(https://artaelectric.ir/wp-content/uploads/2021/11/black-friday-desktop-banner.jpg);
+    background-position: center;
+    background-color: #0b0b09;
+}
