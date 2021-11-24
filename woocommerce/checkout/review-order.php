@@ -100,6 +100,8 @@ defined( 'ABSPATH' ) || exit;
 				</div>
 			</div>
 			<?php
+            $flat_r = WC()->session->get('chosen_shipping_methods')[0];
+            if ( !($flat_r == 'flat_rate:9' || $flat_r == 'local_pickup:6') ) {
                 global $woocommerce;
                 $items = $woocommerce->cart->get_cart();
                 $extra = 0;
@@ -121,6 +123,7 @@ defined( 'ABSPATH' ) || exit;
                             </div>
                         </div>';
                 }
+            }
 			?>
 			<div class="py-1/6 flex items-center justify-between">
 				<div class="text-lg font-bold text-primary-main">مبلغ قابل پرداخت</div>

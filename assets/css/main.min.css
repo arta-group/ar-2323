@@ -483,7 +483,7 @@ div#map{width:100% !important}
 .c-blog-content img{border-radius:5px !important;width:70% !important;margin-right:auto;margin-left:auto;margin-top:30px;margin-bottom:30px}
 .c-blog-content img figure img{margin-bottom:10px}
 .c-blog-content .wp-block-image{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}
-.c-blog-content .wp-block-image figure{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:20px}
+.c-blog-content .wp-block-image figure{display:-webkit-box;display:-ms-flexbox;display:flex;margin-bottom:20px}
 .c-blog-content .wp-block-image figure img{width:70% !important;margin-right:auto;margin-left:auto;height:auto !important;border-radius:5px !important;margin-top:30px;margin-bottom:10px}
 .c-blog-content .wp-block-image figure figcaption{display:none}
 .c-blog-content figure.wp-block-image{display:-webkit-box !important;display:-ms-flexbox !important;display:flex !important}

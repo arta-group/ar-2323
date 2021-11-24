@@ -30,7 +30,7 @@
 		}
             ?>
 
-            <a href="<?php echo site_url( '/amazing' ); ?>" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white flex items-center mr-3/2 mb-1/1">
+            <a href="<?php echo site_url( '/amazing' ); ?>" id="amazing" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white flex items-center mr-3/2 mb-1/1">
                 <span class="text-white text-xl leading-2 ml-1 icon-discount flex items-center justify-between"></span>به‌صرفه خرید کنید
             </a>
 

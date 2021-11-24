@@ -92,7 +92,7 @@ if ( defined( 'YITH_WOOCOMPARE' ) )
 							<span class="icon-angle-down text-white text-3xs pl-1/3 transform"></span>
 						</li>
 						<li class="menu__item" role="menuitem">
-							<a class="menu__link off" href="<?php echo home_url( '/amazing' ); ?>"> به‌صرفه خرید کنید </a>
+							<a class="menu__link off" id="amazing" href="<?php echo home_url( '/amazing' ); ?>"> به‌صرفه خرید کنید </a>
 						</li>
 						<?php
 						foreach ( $first_level as $item )

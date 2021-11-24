@@ -75,3 +75,16 @@ div .r-filter > button {
     border-radius: 6px !important;
     border: none !important;
 }
+
+div .order_tracking {
+    display: flex;
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    div .order_tracking {
+        display: block;
+    }
+}
