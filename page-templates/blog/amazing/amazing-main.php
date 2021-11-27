@@ -1,5 +1,10 @@
 <div class="w-full lg-flex-1 flex flex-col h-full px-2 md-px-3 lg-px-0">
 	<div class="flex-1 flex-col">
+        <div class="w-full rounded-xs overflow-hidden mb-5">
+            <a href="#">
+                <img class="object-fit object-center w-full rounded-xs overflow-hidden fs-archive-products-banner" src="https://artaelectric.ir/wp-content/uploads/2021/11/black-friday-banner.jpg"/>
+            </a>
+        </div>
 		<div class="border-b-2 border-border flex items-center">
 			<h2 class="text-lg lg-text-2/4 leading-3/8 inline-block text-center md-text-right leading-2/8 pb-1/5 title b2 text-gray-main font-bold">
 				<?php
