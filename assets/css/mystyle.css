@@ -88,3 +88,119 @@ div .order_tracking {
         display: block;
     }
 }
+
+.wa_top {
+    font-size: 52px !important;
+    color: #7b7b7b !important;
+}
+
+.wa_head {
+    font-size: 71px !important;
+}
+
+.wa_head_u {
+    font-size: 39px !important;
+    font-weight: bold;
+    text-decoration: underline #fed100 6px;
+    text-underline-position: under;
+    padding-top: 22px;
+}
+
+.wa_desc {
+    font-size: 30px !important;
+    line-height: 40px !important;
+    color: #000000 !important;
+    margin-bottom: 5px !important;
+}
+
+div .wa_box > img {
+    width: 100px;
+    height: 100px;
+    background-color: #f6412d;
+    border-radius: 20px;
+    padding: 11px;
+    margin-left: 23px;
+}
+
+div .wa_box > p {
+    font-size: 37px;
+    font-weight: bold;
+    padding-top: 17px;
+    line-height: 38px;
+}
+
+div .wa_box > p > span {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+div .wa_num {
+    display: block;
+    position: relative;
+    direction: rtl;
+    right: 45px;
+    top: 25px;
+    background-color: #fed100;
+    width: 25px;
+    height: 25px;
+    border-radius: 50px;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+@media (max-width: 768px) {
+    .wa_top {
+        font-size: 30px !important;
+        color: #7b7b7b !important;
+    }
+
+    .wa_head {
+        font-size: 37px !important;
+        line-height: 0rem !important;
+    }
+
+    .wa_head_u {
+        font-size: 29px !important;
+        font-weight: bold;
+        text-decoration: underline #fed100 6px;
+        text-underline-position: under;
+        padding-top: 10px;
+        line-height: 4.5rem !important;
+
+    }
+
+    .wa_desc {
+        font-size: 25px !important;
+        text-align: right;
+        line-height: 40px !important;
+        color: #000000 !important;
+        margin-bottom: 5px !important;
+    }
+
+    .wa_p_15 {
+        padding: 15px !important;
+    }
+
+    div .wa_box > img {
+        width: 50px;
+        height: 50px;
+        background-color: #f6412d;
+        border-radius: 20px;
+        padding: 8px;
+        margin: 10px 0px 0px 10px;
+    }
+
+    div .wa_box > p {
+        font-size: 27px;
+        font-weight: bold;
+        padding-top: 17px;
+        line-height: 38px;
+        margin-bottom: 2rem;
+    }
+
+    div .wa_box > p > span {
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+}
