@@ -326,3 +326,8 @@ require get_template_directory() . '/inc/custom-post-price.php';
  * Add icon support field to ACF plugin
  */
 require get_template_directory() . '/inc/class-fs-acf-icon-picker.php';
+/**
+ * Disable plugin and theme update
+ */
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );
