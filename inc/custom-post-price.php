@@ -8,7 +8,7 @@ function sa_modify_shipping_totals($cart_object)
             $id = $item['product_id'];
 
             if (get_post_meta($id, '_add_shipping', true) != null)
-                $extra = $extra + ($item['quantity'] * get_post_meta($id, '_shapping_cost', true));
+                $extra = $extra + (int)($item['quantity'] * get_post_meta($id, '_shapping_cost', true));
         }
 
         if ($extra > 0)
