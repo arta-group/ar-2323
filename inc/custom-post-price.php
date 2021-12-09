@@ -12,7 +12,7 @@ function sa_modify_shipping_totals($cart_object)
         }
 
         if ($extra > 0)
-            $cart_object->add_fee('اضافه بار حمل و نقل', $extra, true, '');
+            $cart_object->add_fee('اضافه هزینه بسته بندی', $extra, true, '');
     }
 }
 add_action('woocommerce_cart_calculate_fees', 'sa_modify_shipping_totals');
