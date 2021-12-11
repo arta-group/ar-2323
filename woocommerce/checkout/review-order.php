@@ -114,7 +114,7 @@ defined('ABSPATH') || exit;
             $current_wallet_amount = apply_filters( 'woo_wallet_partial_payment_amount', woo_wallet()->wallet->get_wallet_balance( get_current_user_id(), 'edit' ) );
             if ($current_wallet_amount != '0') : ?>
                 <div class="py-1/6 flex items-center justify-between">
-                    <div class="text-base font-bold text-gray-600 "><?php do_action('woocommerce_review_order_after_order_total'); ?></div>
+                    <div class="text-base font-bold text-gray-600"><?php do_action('woocommerce_review_order_after_order_total'); ?></div>
                     <div class="text-lg text-1/3 text-gray-dark">
                         (<span class="ml-0/2 inline-block"><?php echo wc_price($current_wallet_amount); ?></span>
                         <span class="text-base font-normal inline-block">تومان</span>)

@@ -204,3 +204,9 @@ div .wa_num {
     }
 
 }
+
+@media (max-width: 768px) {
+    #order_review {
+        padding: 1rem !important;
+    }
+}

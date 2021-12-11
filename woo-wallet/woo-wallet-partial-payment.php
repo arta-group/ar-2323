@@ -29,8 +29,8 @@ if ( 'on' === woo_wallet()->settings_api->get_option( 'is_auto_deduct_for_partia
 
 <?php } else { ?>
     <tr class="wallet-pay-partial">
-        <th><?php _e( 'Pay by wallet', 'woo-wallet' ); ?> <span id="partial_wallet_payment_tooltip" style="vertical-align: middle;" title="<?php echo esc_html(sprintf( __( 'با استفاده از این گزینه مبلغ '. $current_wallet_amount . ' تومان از مبلغ کل صورت حساب شما کسر خواهد شد و نهایتا مبلغ '. $rest_amount. ' تومان پرداخت خواهید کرد.' ) ) ); ?>" class="dashicons dashicons-info"></span></th>
-        <td data-title="<?php esc_attr_e( 'Pay by wallet', 'woo-wallet' ); ?>"><input type="checkbox" <?php checked( is_enable_wallet_partial_payment(), true, true ) ?> style="vertical-align: middle;" name="partial_pay_through_wallet" class="partial_pay_through_wallet" /></td>
+        <th data-title="<?php esc_attr_e( 'Pay by wallet', 'woo-wallet' ); ?>"><input type="checkbox" <?php checked( is_enable_wallet_partial_payment(), true, true ) ?> style="vertical-align: middle;" name="partial_pay_through_wallet" class="partial_pay_through_wallet" /></th>
+        <td style="direction: rtl !important;"><?php _e( 'Pay by wallet', 'woo-wallet' ); ?> <span id="partial_wallet_payment_tooltip" style="vertical-align: middle;" title="<?php echo esc_html(sprintf( __( 'با استفاده از این گزینه مبلغ '. $current_wallet_amount . ' تومان از مبلغ کل صورت حساب شما کسر خواهد شد و نهایتا مبلغ '. $rest_amount. ' تومان پرداخت خواهید کرد.' ) ) ); ?>" class="dashicons dashicons-info"></span></td>
     </tr>
 
     <script type="text/javascript">
