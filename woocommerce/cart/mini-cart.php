@@ -61,7 +61,7 @@ defined( 'ABSPATH' ) || exit;
 									<?php
 									if ( get_post_meta( $product_id, '_add_shipping', true ) != null )
 									{
-										$extra = ( (int)$cart_item[ 'quantity' ] * get_post_meta( $product_id, '_shapping_cost', true ) );
+										$extra = ( (int)$cart_item[ 'quantity' ] * (int)get_post_meta( $product_id, '_shapping_cost', true ) );
 										echo '<span class="text-1/2 text-sbase text-gray-400 leading-2 mb-3 block">(اضافه بار ارسال ' . wc_price( $extra ) . ' تومان)</span>';
 									}
 									?>

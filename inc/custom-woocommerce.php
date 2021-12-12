@@ -1056,8 +1056,6 @@ function fs_admin_order_data_billing_address ( $order )
 
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'fs_admin_order_data_billing_address', 10, 1 );
 
-add_action( 'woocommerce_order_status_processing', 'sa_sms_success_order', 10, 1);
-
 function sa_sms_success_order($order_id) {
     $order = wc_get_order($order_id);
     $price = $order->get_total();
@@ -1068,3 +1066,58 @@ function sa_sms_success_order($order_id) {
     $sms_value = [$user_first_name, $order_id, $price];
     sa_sms($user_mobile, $sms, $sms_value);
 }
+
+add_action( 'woocommerce_order_status_processing', 'sa_sms_success_order', 10, 1);
+
+/*
+ * carousel home top sales section
+ */
+function wc_get_carousel_home_top_sales_section() {
+    $args = [
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'posts_per_page' => 18,
+        'meta_key'       => 'total_sales',
+        'orderby'        => 'meta_value_num',
+        'meta_query'     => [
+            [
+                'key'     => '_stock_status',
+                'value'   => 'instock',
+                'compare' => '='
+            ]
+        ]
+    ];
+
+    $products =  get_posts( $args );
+    /* Restore original Post Data */
+    wp_reset_postdata();
+
+    /* Set Content to Option Table */
+    update_option( 'my_theme_carousel_home_top_sales_section', $products, 'no' );
+}
+
+add_action( 'save_post', 'wc_get_carousel_home_top_sales_section', 10, 3 );
+add_action('before_delete_post','wc_get_carousel_home_top_sales_section');
+
+/*
+ * carousel home new products section
+ */
+function wc_get_carousel_home_new_products() {
+    $args = array(
+        'orderby'    => 'ID',
+        'status'     => 'publish',
+        'limit'      => 12,
+        'meta_key'   => '_stock_status',
+        'meta_value' => 'instock'
+    );
+
+    $products = wc_get_products( $args );
+    /* Restore original Post Data */
+    wp_reset_postdata();
+
+    /* Set Content to Option Table */
+    update_option( 'my_theme_carousel_home_new_products', $products, 'no' );
+}
+
+add_action( 'save_post', 'wc_get_carousel_home_new_products', 10, 3 );
+add_action('before_delete_post','wc_get_carousel_home_new_products');

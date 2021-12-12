@@ -13,22 +13,8 @@
 		</div>
 		<div class="w-full relative slick-frame products-slider products-border">
 			<?php
-			$args = [
-				'post_type'      => 'product',
-				'post_status'    => 'publish',
-				'posts_per_page' => 18,
-				'meta_key'       => 'total_sales',
-				'orderby'        => 'meta_value_num',
-				'meta_query'     => [
-					[
-						'key'     => '_stock_status',
-						'value'   => 'instock',
-						'compare' => '='
-					]
-				]
-			];
 
-			$products = get_posts( $args );
+            $products = get_option('my_theme_carousel_home_top_sales_section');
 
 			foreach ( $products as $product )
 			{
