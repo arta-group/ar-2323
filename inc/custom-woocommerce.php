@@ -1096,7 +1096,7 @@ function wc_get_carousel_home_top_sales_section() {
     update_option( 'my_theme_carousel_home_top_sales_section', $products, 'no' );
 }
 
-add_action( 'save_post', 'wc_get_carousel_home_top_sales_section', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_home_top_sales_section', 10, 3 );
 add_action('before_delete_post','wc_get_carousel_home_top_sales_section');
 
 /*
@@ -1119,5 +1119,5 @@ function wc_get_carousel_home_new_products() {
     update_option( 'my_theme_carousel_home_new_products', $products, 'no' );
 }
 
-add_action( 'save_post', 'wc_get_carousel_home_new_products', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_home_new_products', 10, 3 );
 add_action('before_delete_post','wc_get_carousel_home_new_products');

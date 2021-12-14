@@ -53,7 +53,7 @@ defined('ABSPATH') || exit;
 						<?php
                         $shipping_total = 0;
 
-                        foreach (WC()->session->get('shipping_for_package_0')['rates'] as $method_id => $rate) {
+                        foreach ((array)WC()->session->get('shipping_for_package_0')['rates'] as $method_id => $rate) {
                             if (WC()->session->get('chosen_shipping_methods')[0] == $method_id) {
                                 // The shipping method label name
                                 $rate_label = $rate->label;
