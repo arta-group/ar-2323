@@ -14,15 +14,7 @@
 
 	<div class="new-product-1 w-full relative slick-frame">
 		<?php
-		$args = array(
-			'orderby'    => 'ID',
-			'status'     => 'publish',
-			'limit'      => 12,
-			'meta_key'   => '_stock_status',
-			'meta_value' => 'instock'
-		);
-
-		$products = wc_get_products( $args );
+        $products = get_option('my_theme_carousel_home_new_products');
 
 		foreach ( $products as $product )
 		{
