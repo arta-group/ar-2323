@@ -213,11 +213,6 @@ function sa_add_schema()
 					"http://t.me/arta_electric1"
 				]
 			}
-
-
-
-
-
         </script>
         <?php
     }
@@ -273,8 +268,9 @@ function sa_add_schema()
         </script>
 
         <?php
-        $taxonomy = get_queried_object()->taxonomy;
-        $term_id = get_queried_object()->term_id;
+        $queried_object = get_queried_object();
+        $taxonomy = $queried_object->taxonomy;
+        $term_id = $queried_object->term_id;
         $contentUrl = get_term_meta($term_id, 'contentUrl', true);
         if ($contentUrl) {
             $meta = get_option('wpseo_taxonomy_meta');
@@ -305,8 +301,46 @@ function sa_add_schema()
             }
             </script>
             <?php
-        } ?>
-        <?php
+        }
+        $faqextra = get_term_meta($term_id, 'faqextra_0_question', true);
+
+        if ($faqextra) {
+            $count11 = 2;
+            $i = 0;
+            ?>
+            <script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": [
+					<?php
+                for ($n = 0; $n <= 4; $n++) {
+                    $faq_question_key = 'faqextra_' . $n . '_question';
+                    $faq_answer_key = 'faqextra_' . $n . '_answer';
+
+                    $question = get_term_meta($term_id, $faq_question_key, true);
+                    $answer = get_term_meta($term_id, $faq_answer_key, true);
+
+                    if ($question) {
+                            if ($n != 0) { echo ',';}
+                        ?>
+                        {
+                            "@type": "Question",
+                            "name": "<?php echo $question; ?>",
+                            "acceptedAnswer": {
+                            "@type": "Answer",
+                                "text": "<?php echo $answer; ?>"
+                            }
+                        }
+                        <?php
+                    }
+                }
+                ?>
+				]
+			}
+            </script>
+            <?php
+        }
     }
 
     if (is_product()) {
@@ -413,9 +447,41 @@ function sa_add_schema()
                 "regionsAllowed": ""
                	}
             </script>
-        <?php
-        } ?>
-    <?php
+            <?php
+        }
+
+        if (have_rows('faqextra', get_the_ID())) {
+            $count11 = count(get_field('faqextra', get_the_ID()));
+            $i = 1;
+            ?>
+            <script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": [
+					<?php
+                while (have_rows('faqextra', get_the_ID())) {
+                    the_row();
+                    ?>
+                        {
+                            "@type": "Question",
+                            "name": "<?php echo get_sub_field('question'); ?>",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "<?php echo str_replace('"', "'", get_sub_field('answer')); ?>"
+                            }
+                        }
+                        <?php
+                    $i++;
+                    if ($i <= $count11)
+                        echo ',';
+                }
+                ?>
+				]
+			}
+            </script>
+            <?php
+        }
     }
 
     if (have_rows('faq')) {
