@@ -209,4 +209,9 @@ div .wa_num {
     #order_review {
         padding: 1rem !important;
     }
+    
+    .jashnvare {
+        width: 130px !important;
+        height: 125px !important;
+    }
 }

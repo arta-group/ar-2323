@@ -22,6 +22,11 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="bf4e8bff-f78a-4931-934e-daa0d50e2890";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+
+<a href="https://profile.iwmf.ir/organizations/artaelectric.ir?utm_source=artaelectric.ir&amp;utm_medium=iwmf&amp;utm_campaign=iwmf-people-votes&amp;utm_content=b-bottom-right" target="_blank" class="jashnvare" style="position: fixed; bottom: 0px; right: 0px; z-index: 9999; overflow: hidden; border-radius: 95% 0px 0px; width: 180px; height: 180px; border: none;">
+    <img src="/wp-content/uploads/2022/01/4-1.png" style="vertical-align: bottom;">
+</a>
+
 <?php wp_footer(); ?>
 
 <script>
