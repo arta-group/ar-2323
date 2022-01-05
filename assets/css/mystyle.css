@@ -90,48 +90,51 @@ div .order_tracking {
 }
 
 .wa_top {
-    font-size: 52px !important;
+    font-size: 24px !important;
     color: #7b7b7b !important;
+    margin-bottom: 27px !important;
 }
 
 .wa_head {
-    font-size: 71px !important;
+    font-size: 52px !important;
+    margin-bottom: 17px !important;
 }
 
 .wa_head_u {
-    font-size: 39px !important;
-    font-weight: bold;
+    font-size: 24px !important;
+    font-weight: 400;
     text-decoration: underline #fed100 6px;
     text-underline-position: under;
-    padding-top: 22px;
+    margin-bottom: 22px !important;
 }
 
-.wa_desc {
-    font-size: 30px !important;
-    line-height: 40px !important;
-    color: #000000 !important;
-    margin-bottom: 5px !important;
+.wa_button {
+    background-color: #F6412D;
+    width: 92px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    height: 28px;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    transition: width 1s;
+}
+
+.wa_button:hover {
+    width: 100%;
 }
 
 div .wa_box > img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #f6412d;
     border-radius: 20px;
     padding: 11px;
     margin-left: 23px;
-}
-
-div .wa_box > p {
-    font-size: 37px;
-    font-weight: bold;
-    padding-top: 17px;
-    line-height: 38px;
-}
-
-div .wa_box > p > span {
-    font-weight: 500;
-    font-size: 24px;
 }
 
 div .wa_num {
