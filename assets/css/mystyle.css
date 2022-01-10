@@ -151,25 +151,35 @@ div .wa_num {
     font-size: x-large;
 }
 
+.wa_p_15 {
+    background-color: #fdd1cd;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 40px 5px;
+}
+
+.wa_p_16 {
+    width: 83%;
+}
+
 @media (max-width: 768px) {
     .wa_top {
-        font-size: 30px !important;
+        font-size: 20px !important;
+        font-weight: 300;
         color: #7b7b7b !important;
     }
 
     .wa_head {
-        font-size: 37px !important;
+        font-size: 33px !important;
         line-height: 0rem !important;
     }
 
     .wa_head_u {
-        font-size: 29px !important;
+        font-size: 16px !important;
         font-weight: bold;
         text-decoration: underline #fed100 6px;
         text-underline-position: under;
-        padding-top: 10px;
-        line-height: 4.5rem !important;
-
+        padding-top: 5px;
     }
 
     .wa_desc {
@@ -182,6 +192,43 @@ div .wa_num {
 
     .wa_p_15 {
         padding: 15px !important;
+        width: 100% !important;
+        margin: 5px 0px;
+    }
+
+    .wa_p_15 .wp-block-column {
+        padding-bottom: 20px !important;
+    }
+
+    .wa_p_16 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .slide_frame {
+        padding: 15px 0px !important;
+        width: 100%;
+        margin: 5px 0px;
+        align-self: center;
+        position: absolute;
+    }
+
+    .slide_up_columns {
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    .slide_columns {
+        align-items: flex-start;
+        width: 790px;
+        overflow: auto;
+        flex-wrap: nowrap;
+        margin-bottom: 0px;
+    }
+
+    div .wa_num {
+        right: 30px;
+        top: 16px;
     }
 
     div .wa_box > img {
@@ -190,7 +237,7 @@ div .wa_num {
         background-color: #f6412d;
         border-radius: 20px;
         padding: 8px;
-        margin: 10px 0px 0px 10px;
+        margin: 0px 0px 0px 10px;
     }
 
     div .wa_box > p {
@@ -206,6 +253,30 @@ div .wa_num {
         font-size: 16px;
     }
 
+    .arrow_before:before {
+        content: '';
+        display: block;
+        max-width: 22px;
+        width: 22px;
+        height: 17px;
+        margin: 0px;
+        position: relative;
+        top: 68px;
+        right: 120px;
+        background-image: url(https://artaelectric.ir/wp-content/uploads/svg/arrow.svg);
+    }
+
+    .arrow_after:before {
+        content: '';
+        display: block;
+        max-width: 22px;
+        width: 22px;
+        height: 17px;
+        margin: 0px;
+        position: relative;
+        top: 68px;
+        right: 120px;
+    }
 }
 
 @media (max-width: 768px) {
