@@ -80,14 +80,17 @@ function fs_unset_shipping($rates, $package)
     }
 
     if ($extra_shipping_product) {
-        if (isset($rates['flat_rate:16']) || isset($rates['free_shipping:17'])) {
+        if (isset($rates['flat_rate:16']) || isset($rates['free_shipping:17']) || isset($rates['flat_rate:19']) || isset($rates['free_shipping:18'])) {
             unset($rates['flat_rate:16']);
             unset($rates['free_shipping:17']);
+            unset($rates['flat_rate:19']);
+            unset($rates['free_shipping:18']);
         }
     }
 
-    if (isset($rates['free_shipping:17'])) {
+    if (isset($rates['free_shipping:17']) || isset($rates['free_shipping:18'])) {
         unset($rates['flat_rate:16']);
+        unset($rates['flat_rate:19']);
     }
 
     return $rates;

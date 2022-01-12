@@ -211,6 +211,7 @@ div .wa_num {
         margin: 5px 0px;
         align-self: center;
         position: absolute;
+        right: 0px;
     }
 
     .slide_up_columns {
@@ -220,10 +221,16 @@ div .wa_num {
 
     .slide_columns {
         align-items: flex-start;
-        width: 790px;
-        overflow: auto;
         flex-wrap: nowrap;
         margin-bottom: 0px;
+    }
+
+    .with790 {
+        width: 790px;
+    }
+
+    .with400 {
+        width: 400px;
     }
 
     div .wa_num {
