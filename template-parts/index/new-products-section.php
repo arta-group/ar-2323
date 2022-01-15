@@ -22,35 +22,10 @@
 						<div class="flex-1 p-3 text-1/4 leading-2/2 font-bold text-gray-main">بهترین قیمت بازار</div>
 					</li>
 				</ul>
-
-				<?php
-				if ( fs_is_active_amazing_sales() )
-				{
-					?>
-					<div class="mt-7/9 grid grid-cols-1 gap-3/2">
-						<?php
-						if ( have_rows( 'sidebar-small-banners', 'option' ) )
-						{
-							while ( have_rows( 'sidebar-small-banners', 'option' ) )
-							{
-								the_row();
-								$image = get_sub_field( 'image' );
-								?>
-								<a href="<?php echo get_sub_field( 'url' ); ?>" class="h-18 w-full rounded-xs">
-									<img class="object-fit object-center rounded-xs" src="<?php echo esc_url( $image[ 'url' ] ); ?>" alt="<?php echo esc_attr( $image[ 'alt' ] ); ?>"/>
-								</a>
-								<?php
-							}
-						}
-						?>
-					</div>
-					<?php
-				}
-				?>
 			</aside>
 
 			<div class="lg-flex-1 w-full lg-w-auto lg-max-w-7xl">
-				<?php get_template_part( 'template-parts/index/new-products-carousels/new-products-carousel' ); ?><?php get_template_part( 'template-parts/index/new-products-carousels/discount-carousel' ); ?>
+				<?php get_template_part( 'template-parts/index/new-products-carousels/new-products-carousel' ); ?>
 			</div>
 
 		</div>

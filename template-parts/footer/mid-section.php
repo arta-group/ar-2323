@@ -30,6 +30,10 @@
                     <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow"
                        class="inline-block icon-whatsapp text-3 leading-3 h-3 text-whatsapp"></a>
                 </li>
+                <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
+                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow"
+                       class="flex items-center justify-center leading-3/6 icon-twitter h-3 w-3 rounded-full text-twitter bg-telegram text-white"></a>
+                </li>
             </ul>
         </div>
         <div class="lg-ml-9 mb-4/9 lg-mb-0">

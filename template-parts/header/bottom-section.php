@@ -34,17 +34,6 @@
                 <span class="text-white text-xl leading-2 ml-1 icon-discount flex items-center justify-between"></span>به‌صرفه خرید کنید
             </a>
 
-        <?php
-		if ( fs_is_active_amazing_sales() )
-		{
-			?>
-			<a href="--><?php //echo site_url( '/shop?stock-status=in-offer' ); ?>" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white flex items-center mr-3/2 mb-1/1">
-				<span class="text-white text-xl leading-2 ml-1 icon-discount flex items-center justify-between"></span> فروش شگفت انگیز
-			</a>
-			<?php
-		}
-		?>
-
 	</nav>
 	<a href="<?php echo site_url( 'my-account' ); ?>" class="flex items-center text-1/4 leading-2/2">
 		<div class="icon-user h-1/8 text-1/8 text-gray-dark ml-0/9 leading-1/8 mt-0/5"></div>
