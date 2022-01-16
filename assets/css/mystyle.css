@@ -162,6 +162,19 @@ div .wa_num {
     width: 83%;
 }
 
+.chat_whatsapp {
+    direction: ltr;
+    position: fixed;
+    bottom: 0rem;
+    left: 2rem;
+    font-size: 6rem;
+    transition: width 1s, height 1s, transform 1s;
+}
+
+.chat_whatsapp:hover {
+    transform: rotate(360deg);
+}
+
 @media (max-width: 768px) {
     .wa_top {
         font-size: 20px !important;
@@ -284,13 +297,11 @@ div .wa_num {
         top: 68px;
         right: 120px;
     }
-}
 
-@media (max-width: 768px) {
     #order_review {
         padding: 1rem !important;
     }
-    
+
     .jashnvare {
         width: 130px !important;
         height: 125px !important;

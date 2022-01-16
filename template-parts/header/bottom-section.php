@@ -2,10 +2,6 @@
 
 <div class="custom-hidden-m lg-flex items-center justify-between pt-3 w-full relative">
 	<nav class="flex flex-row items-center">
-		<?php
-		if ( has_nav_menu( 'header-category-menu' ) )
-		{
-			?>
 			<div class="group relative">
 				<a href="#" class="flex items-center cursor-pointer w-296 rounded-t-xs pt-1/4 pb-1/6 pr-2/4 pl-2/7 bg-secondary-main text-gray-main text-medium leading-2/2 ml-3/6">
 					<div class="icon-menu-ws text-2 leading-2 h-2"></div>
@@ -15,10 +11,7 @@
 				<?php get_template_part( "template-parts/header/category-menu" ); ?>
 			</div>
 			<?php
-		}
 
-		if ( has_nav_menu( 'header-menu' ) )
-		{
 			wp_nav_menu( array(
 				'theme_location' => 'header-menu',
 				'menu_class'     => 'flex flex-row c-header-menu header-menu-disc space-x-reverse space-x-3 mb-0/6 font-normal',
@@ -27,7 +20,7 @@
 				'depth'          => 1,
 				'add_li_class'   => 'text-gray-dark text-1/4 leading-2/2'
 			) );
-		}
+
             ?>
 
             <a href="<?php echo site_url( '/amazing' ); ?>" id="amazing" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white flex items-center mr-3/2 mb-1/1">
