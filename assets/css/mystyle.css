@@ -168,6 +168,7 @@ div .wa_num {
     bottom: 0rem;
     left: 2rem;
     font-size: 6rem;
+    z-index: 99999;
     transition: width 1s, height 1s, transform 1s;
 }
 

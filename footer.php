@@ -28,7 +28,7 @@
     <img src="/wp-content/uploads/2022/01/4-1.png" style="vertical-align: bottom;">
 </a>
 <div class="chat_whatsapp">
-    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow"
+    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
        class="inline-block icon-whatsapp text-whatsapp"></a>
 </div>
 <?php wp_footer(); ?>

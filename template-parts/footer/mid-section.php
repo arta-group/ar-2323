@@ -15,33 +15,33 @@
             </p>
             <ul class="flex flex-row items-center ">
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://www.instagram.com/arta_electric" rel="nofollow"
+                    <a href="https://www.instagram.com/arta_electric" rel="nofollow" target="_blank"
                        class="inline-block icon-instagram text-3 leading-3 h-3 text-primary-main"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://www.linkedin.com/company/arta-electric/" rel="nofollow"
+                    <a href="https://www.linkedin.com/company/arta-electric/" rel="nofollow" target="_blank"
                        class="inline-block icon-linkedin text-3 leading-3 h-3 text-linkedin"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://t.me/arta_electric1" rel="nofollow"
+                    <a href="https://t.me/arta_electric1" rel="nofollow" target="_blank"
                        class="inline-block icon-telegram text-3 leading-3 h-3 text-telegram"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow"
+                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
                        class="inline-block icon-whatsapp text-3 leading-3 h-3 text-whatsapp"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow"
+                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
                        class="flex items-center justify-center leading-3/6 icon-twitter h-3 w-3 rounded-full text-twitter bg-telegram text-white"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://www.aparat.com/arta_electric" rel="nofollow"
+                    <a href="https://www.aparat.com/arta_electric" rel="nofollow" target="_blank"
                        class="inline-block text-3 leading-3 h-3 text-primary-main">
                         <img src="/wp-content/uploads/svg/aparat.svg" data-src="/wp-content/uploads/svg/aparat.svg">
                     </a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://www.youtube.com/channel/UCJeUHdJYT947fwp_SckHwSg" rel="nofollow"
+                    <a href="https://www.youtube.com/channel/UCJeUHdJYT947fwp_SckHwSg" rel="nofollow" target="_blank"
                        class="inline-block text-3 leading-3 h-3 text-primary-main">
                         <img class="w-3 h-3" src="/wp-content/uploads/svg/youtube.svg" data-src="/wp-content/uploads/svg/youtube.svg">
                     </a>
