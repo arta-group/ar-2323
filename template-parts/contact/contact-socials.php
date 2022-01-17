@@ -60,7 +60,7 @@
         <a href="https://www.aparat.com/arta_electric" rel="nofollow" class="flex items-center bg-gray-50 py-1/5 pr-2 pl-1 rounded-xs">
             <div class="w-3/6 h-3/6 rounded-full flex items-center justify-center bg-white">
                 <div class="flex items-center justify-center text-3/6 leading-3/6">
-                    <img src="/wp-content/uploads/svg/aparat.svg" data-src="/wp-content/uploads/svg/aparat.svg">
+                    <img class="w-4 h-4" src="/wp-content/uploads/svg/aparat.svg" data-src="/wp-content/uploads/svg/aparat.svg">
                 </div>
             </div>
             <div class="text-sm md-text-medium leading-2/5 font-bold mr-2 text-gray-600"> آپارات</div>
@@ -68,7 +68,7 @@
         <a href="https://www.aparat.com/arta_electric" rel="nofollow" class="flex items-center bg-gray-50 py-1/5 pr-2 pl-1 rounded-xs">
             <div class="w-3/6 h-3/6 rounded-full flex items-center justify-center bg-white">
                 <div class="flex items-center justify-center text-3/6 leading-3/6">
-                    <img class="w-3 h-3" src="/wp-content/uploads/svg/youtube.svg" data-src="/wp-content/uploads/svg/youtube.svg">
+                    <img class="w-4 h-4" src="/wp-content/uploads/svg/youtube.svg" data-src="/wp-content/uploads/svg/youtube.svg">
                 </div>
             </div>
             <div class="text-sm md-text-medium leading-2/5 font-bold mr-2 text-gray-600"> یوتیوب</div>

@@ -165,8 +165,8 @@ div .wa_num {
 .chat_whatsapp {
     direction: ltr;
     position: fixed;
-    bottom: 0rem;
-    left: 2rem;
+    bottom: 3rem;
+    left: 3rem;
     font-size: 6rem;
     z-index: 99999;
     transition: width 1s, height 1s, transform 1s;
@@ -306,5 +306,10 @@ div .wa_num {
     .jashnvare {
         width: 130px !important;
         height: 125px !important;
+    }
+
+    .chat_whatsapp {
+        bottom: 2rem;
+        left: 2rem;
     }
 }
