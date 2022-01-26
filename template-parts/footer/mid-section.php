@@ -37,54 +37,60 @@
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
                     <a href="https://www.aparat.com/arta_electric" rel="nofollow" target="_blank"
                        class="inline-block text-3 leading-3 h-3 text-primary-main">
-                        <img class="w-3 h-3" src="/wp-content/uploads/svg/aparat.svg" data-src="/wp-content/uploads/svg/aparat.svg">
+                        <img class="w-3 h-3" src="/wp-content/uploads/svg/aparat.svg"
+                             data-src="/wp-content/uploads/svg/aparat.svg">
                     </a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
                     <a href="https://www.youtube.com/channel/UCJeUHdJYT947fwp_SckHwSg" rel="nofollow" target="_blank"
                        class="inline-block text-3 leading-3 h-3 text-primary-main">
-                        <img class="w-3 h-3" src="/wp-content/uploads/svg/youtube.svg" data-src="/wp-content/uploads/svg/youtube.svg">
+                        <img class="w-3 h-3" src="/wp-content/uploads/svg/youtube.svg"
+                             data-src="/wp-content/uploads/svg/youtube.svg">
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="lg-ml-9 mb-4/9 lg-mb-0">
-            <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold"> اطلاعات بیشتر</div>
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'footer-menu',
-                'menu_class' => 'flex flex-col max-h-12 lg-max-h-unset flex-wrap text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
-                'container' => '',
-                'fallback_cb' => 'false',
-                'depth' => 1
-            ));
-            ?>
-        </div>
-        <div class="flex flex-col flex-1 justify-between h-28">
-            <div>
-                <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold">دسته بندی
-                    محصولات
+        <div class="flex flex-col" style="width: 100%">
+            <div class="flex flex-col lg-flex-row" style="padding-top: 20px;">
+                <div class="lg-ml-9 mb-4/9 lg-mb-0">
+                    <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold"> اطلاعات بیشتر
+                    </div>
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'footer-menu',
+                        'menu_class' => 'flex flex-col max-h-12 lg-max-h-unset flex-wrap text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
+                        'container' => '',
+                        'fallback_cb' => 'false',
+                        'depth' => 1
+                    ));
+                    ?>
                 </div>
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'footer-category-menu',
-                    'menu_class' => 'grid grid-cols-2 lg-grid-cols-3 text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
-                    'container' => '',
-                    'fallback_cb' => 'false',
-                    'depth' => 1
-                ));
-                ?>
+                <div class="flex flex-col flex-1 justify-between h-28">
+                    <div>
+                        <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold">دسته بندی
+                            محصولات
+                        </div>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'footer-category-menu',
+                            'menu_class' => 'grid grid-cols-2 lg-grid-cols-3 text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
+                            'container' => '',
+                            'fallback_cb' => 'false',
+                            'depth' => 1
+                        ));
+                        ?>
+                    </div>
+                </div>
             </div>
             <div class="newsletter-form">
                 <?php
                 echo do_shortcode('[contact-form-7 id="13661"]');
                 ?>
             </div>
-
         </div>
     </div>
-    <div class="pt-18 lg-pt-6 flex flex-col lg-flex-row justify-between">
-        <div class="grid grid-cols-1 md-grid-cols-2 gap-1/8 lg-gap-x-4/1 lg-gap-y-3/5 absolute md-static top-46 left-0 w-full lg-w-auto">
+    <div class="pt-5 lg-pt-6 flex flex-col lg-flex-row justify-between">
+        <div class="grid grid-cols-1 md-grid-cols-2 gap-1/8 lg-gap-x-4/1 lg-gap-y-3/5 absolute md-static left-0 w-full lg-w-auto" style="top: 49rem;">
             <div class="flex flex-row items-center">
                 <div class="h-3/2 icon-phone text-3/2 leading-3/2 text-gray-main flex items-center"></div>
                 <div class="flex flex-col mr-2/5">
@@ -146,7 +152,8 @@
                              height="120"
                              alt="">
                     </a>
-                    <a href="https://logo.samandehi.ir/Verify.aspx?id=126976&p=rfthuiwkgvkapfvljyoegvka" target="_blank">
+                    <a href="https://logo.samandehi.ir/Verify.aspx?id=126976&p=rfthuiwkgvkapfvljyoegvka"
+                       target="_blank">
                         <img class="object-fit object-center w-10 h-10 lg-w-12 lg-h-12"
                              src="https://artaelectric.ir/wp-content/uploads/2021/09/samandehi.png"
                              width="120"
