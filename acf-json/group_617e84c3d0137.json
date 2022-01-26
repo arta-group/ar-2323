@@ -1,7 +1,23 @@
 {
     "key": "group_617e84c3d0137",
-    "title": "اسکیما ویدئو",
+    "title": "اسکیما",
     "fields": [
+        {
+            "key": "field_61d3fd8d98a65",
+            "label": "ویدیو",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
         {
             "key": "field_617e8960c1e92",
             "label": "آدرس ویدئو",
@@ -52,6 +68,81 @@
             "prepend": "",
             "append": "",
             "maxlength": 15
+        },
+        {
+            "key": "field_61d3fda298a66",
+            "label": "FAQ",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_61d3fdc598a67",
+            "label": "افزودن اسکیما FAQ",
+            "name": "faqextra",
+            "type": "repeater",
+            "instructions": "سوال و پاسخ خود را در این قسمت وارد نمایید.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 5,
+            "layout": "row",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_61d3fe0498a68",
+                    "label": "سوال",
+                    "name": "question",
+                    "type": "text",
+                    "instructions": "یک سوال وارد نمایید.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_61d3fe2398a69",
+                    "label": "پاسخ",
+                    "name": "answer",
+                    "type": "text",
+                    "instructions": "پاسخ را وارد نمایید.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -85,5 +176,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1635690035
+    "show_in_rest": 0,
+    "modified": 1641283209
 }

@@ -90,48 +90,51 @@ div .order_tracking {
 }
 
 .wa_top {
-    font-size: 52px !important;
+    font-size: 24px !important;
     color: #7b7b7b !important;
+    margin-bottom: 27px !important;
 }
 
 .wa_head {
-    font-size: 71px !important;
+    font-size: 52px !important;
+    margin-bottom: 17px !important;
 }
 
 .wa_head_u {
-    font-size: 39px !important;
-    font-weight: bold;
+    font-size: 24px !important;
+    font-weight: 400;
     text-decoration: underline #fed100 6px;
     text-underline-position: under;
-    padding-top: 22px;
+    margin-bottom: 22px !important;
 }
 
-.wa_desc {
-    font-size: 30px !important;
-    line-height: 40px !important;
-    color: #000000 !important;
-    margin-bottom: 5px !important;
+.wa_button {
+    background-color: #F6412D;
+    width: 92px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    height: 28px;
+    text-align: center;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    transition: width 1s;
+}
+
+.wa_button:hover {
+    width: 100%;
 }
 
 div .wa_box > img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: #f6412d;
     border-radius: 20px;
     padding: 11px;
     margin-left: 23px;
-}
-
-div .wa_box > p {
-    font-size: 37px;
-    font-weight: bold;
-    padding-top: 17px;
-    line-height: 38px;
-}
-
-div .wa_box > p > span {
-    font-weight: 500;
-    font-size: 24px;
 }
 
 div .wa_num {
@@ -148,25 +151,49 @@ div .wa_num {
     font-size: x-large;
 }
 
+.wa_p_15 {
+    background-color: #fdd1cd;
+    border-radius: 8px;
+    padding: 30px;
+    margin: 40px 5px;
+}
+
+.wa_p_16 {
+    width: 83%;
+}
+
+.chat_whatsapp {
+    direction: ltr;
+    position: fixed;
+    bottom: 3rem;
+    left: 3rem;
+    font-size: 6rem;
+    z-index: 99999;
+    transition: width 1s, height 1s, transform 1s;
+}
+
+.chat_whatsapp:hover {
+    transform: rotate(360deg);
+}
+
 @media (max-width: 768px) {
     .wa_top {
-        font-size: 30px !important;
+        font-size: 20px !important;
+        font-weight: 300;
         color: #7b7b7b !important;
     }
 
     .wa_head {
-        font-size: 37px !important;
+        font-size: 33px !important;
         line-height: 0rem !important;
     }
 
     .wa_head_u {
-        font-size: 29px !important;
+        font-size: 16px !important;
         font-weight: bold;
         text-decoration: underline #fed100 6px;
         text-underline-position: under;
-        padding-top: 10px;
-        line-height: 4.5rem !important;
-
+        padding-top: 5px;
     }
 
     .wa_desc {
@@ -179,6 +206,50 @@ div .wa_num {
 
     .wa_p_15 {
         padding: 15px !important;
+        width: 100% !important;
+        margin: 5px 0px;
+    }
+
+    .wa_p_15 .wp-block-column {
+        padding-bottom: 20px !important;
+    }
+
+    .wa_p_16 {
+        width: 100%;
+        text-align: center;
+    }
+
+    .slide_frame {
+        padding: 15px 0px !important;
+        width: 100%;
+        margin: 5px 0px;
+        align-self: center;
+        position: absolute;
+        right: 0px;
+    }
+
+    .slide_up_columns {
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    .slide_columns {
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        margin-bottom: 0px;
+    }
+
+    .with790 {
+        width: 790px;
+    }
+
+    .with400 {
+        width: 400px;
+    }
+
+    div .wa_num {
+        right: 30px;
+        top: 16px;
     }
 
     div .wa_box > img {
@@ -187,7 +258,7 @@ div .wa_num {
         background-color: #f6412d;
         border-radius: 20px;
         padding: 8px;
-        margin: 10px 0px 0px 10px;
+        margin: 0px 0px 0px 10px;
     }
 
     div .wa_box > p {
@@ -203,10 +274,42 @@ div .wa_num {
         font-size: 16px;
     }
 
-}
+    .arrow_before:before {
+        content: '';
+        display: block;
+        max-width: 22px;
+        width: 22px;
+        height: 17px;
+        margin: 0px;
+        position: relative;
+        top: 68px;
+        right: 120px;
+        background-image: url(https://artaelectric.ir/wp-content/uploads/svg/arrow.svg);
+    }
 
-@media (max-width: 768px) {
+    .arrow_after:before {
+        content: '';
+        display: block;
+        max-width: 22px;
+        width: 22px;
+        height: 17px;
+        margin: 0px;
+        position: relative;
+        top: 68px;
+        right: 120px;
+    }
+
     #order_review {
         padding: 1rem !important;
+    }
+
+    .jashnvare {
+        width: 130px !important;
+        height: 125px !important;
+    }
+
+    .chat_whatsapp {
+        bottom: 2rem;
+        left: 2rem;
     }
 }

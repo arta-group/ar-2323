@@ -100,105 +100,94 @@ if ($show_downloads) {
         <?php do_action('woocommerce_order_details_after_order_table', $order); ?>
 
     </section>
-    <section class="pt-4/9 pb-4/8 bg-gray-100  md-px-3 lg-px-0 mb-3"
-             style="border: 3px solid #fed100; border-radius: 8px;" dir="rtl">
-        <div class="container mx-auto lg-px-10">
-            <div class="order_tracking" dir="rtl">
-                <div class="w-full h-full flex flex-col items-center justify-center pb-2">
-                    <img src="<?php if ($order->get_status() == 'processing' || $order->get_status() == 'completed') {
-                             echo '/wp-content/uploads/2021/11/1.png';
-                         } else {
-                             echo '/wp-content/uploads/2021/11/2.png';
-                         }; ?>"
-                         class="object-fit object-center w-8 h-8 litespeed-loaded">
-                    <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
-                        ثبت شده
-                    </div>
-                </div>
-                <div class="w-full h-full flex flex-col items-center justify-center hide-on-mobile">
-                    <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center"
-                        <?php
-                        if ($order->get_status() == 'processing' || $order->get_status() == 'completed') {
-                            echo 'style= "color: #ff0000;"';
-                        }
-                        ?>
-                    >
-                        ----->
-                    </div>
-                </div>
-                <div class="w-full h-full flex flex-col items-center justify-center pb-2">
-                    <img src="<?php if ($order->get_status() == 'completed') {
-                             echo '/wp-content/uploads/2021/11/1.png';
-                         } else {
-                             echo '/wp-content/uploads/2021/11/2.png';
-                         }; ?>"
-                         class="object-fit object-center w-8 h-8 litespeed-loaded">
-                    <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
-                        تایید شده
-                    </div>
-                </div>
-                <div class="w-full h-full flex flex-col items-center justify-center hide-on-mobile">
-                    <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center"
-                        <?php
-                        if ($order->get_status() == 'completed') {
-                            echo 'style= "color: #ff0000;"';
-                        }
-                        ?>
-                    >
-                        ----->
-                    </div>
-                </div>
-                <div class="w-full h-full flex flex-col items-center justify-center">
-                    <?php
-                    $send_post_code = get_post_meta($order->ID, '_send_post_code', true);
-                    $send_peyk_url = get_post_meta($order->ID, '_send_peyk_url', true);
-                    ?>
-                    <img src="<?php if (($send_post_code) || ($send_peyk_url)) {
-                             echo '/wp-content/uploads/2021/11/1.png';
-                         } else {
-                             echo '/wp-content/uploads/2021/11/2.png';
-                         }; ?>"
-                         class="object-fit object-center w-8 h-8 litespeed-loaded">
-                    <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
-                        <?php
-                        $shipping_methode = $order->get_shipping_method();
 
-                        switch ($shipping_methode) {
-                            case 'پست پیشتاز رایگان' :
-                                echo 'ارسال توسط پست پیشتاز';
-                                break;
-                            case 'پست پیشتاز' :
-                                echo 'ارسال توسط پست پیشتاز ';
-                                break;
-                            case 'پیک موتوری' :
-                                echo 'ارسال توسط پیک';
-                                break;
-                            case 'تیپاکس' :
-                                echo 'ارسال توسط تیپاکس';
-                                break;
-                            case 'باربری' :
-                                echo 'ارسال توسط باربری';
-                                break;
-                            case 'تحویل حضوری' :
-                                echo 'تحویل حضوری';
-                                break;
-                        }
-                        ?>
+    <div style="height: 280px;">
+        <div class="slide_frame" style="padding-bottom: 50px !important; text-align: center; background-color: #f2f2f2; border: 3px solid #fed100; border-radius: 8px;">
+            <div class="slide_up_columns">
+                <div class="wp-block-columns slide_columns with400" style="align-items: flex-start;">
+                    <div class="wp-block-column arrow_before">
+                        <div class="wa_num amount"><bdi>1</bdi></div>
+                        <div class="" style="display: flex; flex-direction: column; align-items: center;">
+                            <img src="<?php if ($order->get_status() == 'processing' || $order->get_status() == 'completed') {
+                                echo '/wp-content/uploads/2021/11/1.png';
+                            } else {
+                                echo '/wp-content/uploads/2021/11/2.png';
+                            }; ?>"
+                                 class="object-fit object-center w-8 h-8 litespeed-loaded">
+                            <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
+                                ثبت شده
+                            </div>
+                        </div>
                     </div>
-                    <?php
-                    if ($send_peyk_url) {
-                        echo '<a href="' . $send_peyk_url . '" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white items-center" target="_blank">پیگیری
+                    <div class="wp-block-column arrow_before">
+                        <div class="wa_num amount"><bdi>2</bdi></div>
+                        <div class="" style="display: flex; flex-direction: column; align-items: center;">
+                            <img src="<?php if ($order->get_status() == 'completed') {
+                                echo '/wp-content/uploads/2021/11/1.png';
+                            } else {
+                                echo '/wp-content/uploads/2021/11/2.png';
+                            }; ?>"
+                                 class="object-fit object-center w-8 h-8 litespeed-loaded">
+                            <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
+                                تایید شده
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wp-block-column arrow_after">
+                        <div class="wa_num amount"><bdi>3</bdi></div>
+                        <div class="" style="display: flex; flex-direction: column; align-items: center;">
+                            <?php
+                            $send_post_code = get_post_meta($order->get_id(), '_send_post_code', true);
+                            $send_peyk_url = get_post_meta($order->get_id(), '_send_peyk_url', true);
+                            ?>
+                            <img src="<?php if (($send_post_code) || ($send_peyk_url)) {
+                                echo '/wp-content/uploads/2021/11/1.png';
+                            } else {
+                                echo '/wp-content/uploads/2021/11/2.png';
+                            }; ?>"
+                                 class="object-fit object-center w-8 h-8 litespeed-loaded">
+                            <div class="text-base lg-text-medium font-bold mt-2/5 leading-2/5 text-gray-700 text-center">
+                                <?php
+                                $shipping_methode = $order->get_shipping_method();
+
+                                switch ($shipping_methode) {
+                                    case 'پست پیشتاز رایگان' :
+                                        echo 'ارسال توسط پست پیشتاز';
+                                        break;
+                                    case 'پست پیشتاز' :
+                                        echo 'ارسال توسط پست پیشتاز ';
+                                        break;
+                                    case 'پیک موتوری' :
+                                        echo 'ارسال توسط پیک';
+                                        break;
+                                    case 'تیپاکس' :
+                                        echo 'ارسال توسط تیپاکس';
+                                        break;
+                                    case 'باربری' :
+                                        echo 'ارسال توسط باربری';
+                                        break;
+                                    case 'تحویل حضوری' :
+                                        echo 'تحویل حضوری';
+                                        break;
+                                }
+                                ?>
+                            </div>
+                            <?php
+                            if ($send_peyk_url) {
+                                echo '<a href="' . $send_peyk_url . '" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white items-center" target="_blank">پیگیری
                         مرسوله</a>';
-                    } elseif ($send_post_code && $send_post_code != 1) {
-                        echo '<span style="font-size: 10px;">کد رهگیری مرسوله</span>';
-                        echo '<input id="PostCode" style="text-align: center; background-color: #ffffff; border: 2px solid #d7d7d7; border-radius: 6px;" value="' . $send_post_code . '" disabled >';
-                        echo '<button onclick="CopyToClipboard()" class="px-1 mt-0/8" style="background-color: #c7c7c7; font-size: 11px; border-radius: 6px;">کپی کنید</button>';
-                    }
-                    ?>
+                            } elseif ($send_post_code && $send_post_code != 1) {
+                                echo '<span style="font-size: 10px;">کد رهگیری مرسوله</span>';
+                                echo '<input id="PostCode" style="text-align: center; background-color: #ffffff; border: 2px solid #d7d7d7; border-radius: 6px;" value="' . $send_post_code . '" disabled >';
+                                echo '<button onclick="CopyToClipboard()" class="px-1 mt-0/8" style="background-color: #c7c7c7; font-size: 11px; border-radius: 6px;">کپی کنید</button>';
+                            }
+                            ?>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 <?php
 if ($send_post_code && $send_post_code != 1) {

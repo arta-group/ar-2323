@@ -327,6 +327,10 @@ require get_template_directory() . '/inc/custom-post-price.php';
  */
 require get_template_directory() . '/inc/class-fs-acf-icon-picker.php';
 /**
+ * Functions add shortcode into WordPress.
+ */
+require get_template_directory() . '/inc/template-shortcode.php';
+/**
  * Disable plugin and theme update
  */
 add_filter( 'auto_update_plugin', '__return_false' );
