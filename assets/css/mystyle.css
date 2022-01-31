@@ -176,6 +176,11 @@ div .wa_num {
     transform: rotate(360deg);
 }
 
+.my-3 {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
 @media (max-width: 768px) {
     .wa_top {
         font-size: 20px !important;
@@ -311,5 +316,9 @@ div .wa_num {
     .chat_whatsapp {
         bottom: 2rem;
         left: 2rem;
+    }
+
+    .md-pb-1 {
+        padding-bottom: 1rem;
     }
 }
