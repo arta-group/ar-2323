@@ -583,25 +583,25 @@ function fs_logged_in_before_checkout ()
 
 add_action( 'template_redirect', 'fs_logged_in_before_checkout' );
 
-function fs_custom_pre_get_posts ( $query )
-{
-	if ( ! is_admin() && $query->is_main_query() )
-	{
-		if ( $query->is_search() )
-		{
-			$type = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_STRING );
-			if ( $type == 'product' )
-				$query->set( 'post_type', 'product' );
-			else
-				$query->set( 'post_type', array(
-					'post',
-					'page'
-				) );
-		}
-	}
-}
-
-add_action( 'pre_get_posts', 'fs_custom_pre_get_posts' );
+//function fs_custom_pre_get_posts ( $query )
+//{
+//	if ( ! is_admin() && $query->is_main_query() )
+//	{
+//		if ( $query->is_search() )
+//		{
+//			$type = filter_input( INPUT_GET, 'type', FILTER_SANITIZE_STRING );
+//			if ( $type == 'product' )
+//				$query->set( 'post_type', 'product' );
+//			else
+//				$query->set( 'post_type', array(
+//					'post',
+//					'page'
+//				) );
+//		}
+//	}
+//}
+//
+//add_action( 'pre_get_posts', 'fs_custom_pre_get_posts' );
 
 function fs_get_pagination ()
 {
