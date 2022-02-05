@@ -321,4 +321,8 @@ div .wa_num {
     .md-pb-1 {
         padding-bottom: 1rem;
     }
+
+    .woocommerce-breadcrumb {
+        height: 64px;
+    }
 }
