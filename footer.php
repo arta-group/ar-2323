@@ -22,11 +22,6 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
-<a href="https://profile.iwmf.ir/organizations/artaelectric.ir?utm_source=artaelectric.ir&amp;utm_medium=iwmf&amp;utm_campaign=iwmf-people-votes&amp;utm_content=b-bottom-right"
-   target="_blank" class="jashnvare"
-   style="position: fixed; bottom: 0px; right: 0px; z-index: 9999; overflow: hidden; border-radius: 95% 0px 0px; width: 180px; height: 180px; border: none;">
-    <img src="/wp-content/uploads/2022/01/4-1.png" style="vertical-align: bottom;">
-</a>
 <div class="chat_whatsapp w-6 rounded-full flex items-center justify-center bg-white" style="height: 6rem; padding-top: 15px;">
     <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
        class="inline-block icon-whatsapp text-whatsapp"></a>

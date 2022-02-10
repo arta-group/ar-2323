@@ -181,7 +181,78 @@ div .wa_num {
     margin-bottom: 3rem;
 }
 
+.cross-sells {
+    margin-top: 3rem;
+    background-color: #f2f2f2;
+    padding: 3rem;
+    border-radius: 8px;
+}
+
+.cross-sells > h2 {
+    color: #000000;
+    font-size: 16px;
+}
+
+.cross-sells > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.cross-sells > ul > div {
+    width: 50%;
+    margin-left: 1rem;
+    height: 19rem !important;
+}
+
+.cross-sells > ul > div > div > div {
+    flex-direction: row !important;
+}
+
+.cross-sells .product-card-btns {
+    display: none;
+}
+
+.cross-sells .icon-product-off {
+    top: 14px;
+}
+
+.top-2 {
+    top: 2rem;
+}
+
 @media (max-width: 768px) {
+    .cross-sells {
+        padding: 1rem;
+        padding: 1rem 1rem 0rem 1rem
+    }
+
+    .cross-sells > h2 {
+        font-size: 14px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .cross-sells > ul > div {
+        width: 100%;
+        margin-left: 0rem;
+        margin-bottom: 1rem;
+        height: 15rem !important;
+    }
+
+    .cross-sells > ul {
+        flex-direction: column;
+    }
+
+    .cross-sells > ul {
+        flex-direction: column;
+    }
+
+    .cross-sells > ul > div > div > div > :first-child {
+        margin-bottom: 1rem;
+        width: 6rem;
+        height: 6rem;
+    }
+
     .wa_top {
         font-size: 20px !important;
         font-weight: 300;
