@@ -220,6 +220,17 @@ div .wa_num {
     top: 2rem;
 }
 
+table {
+    border-radius: 8px;
+    border-collapse: separate !important;
+}
+
+td {
+    font-size: 14px;
+    padding: 8px 10px;
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     .cross-sells {
         padding: 1rem;
@@ -395,5 +406,11 @@ div .wa_num {
 
     .woocommerce-breadcrumb {
         height: 64px;
+    }
+}
+
+@media (min-width: 768px) {
+    .hide-on-desktop {
+        display: none;
     }
 }

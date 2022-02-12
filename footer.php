@@ -22,7 +22,11 @@
 </footer><!-- #colophon -->
 </div><!-- #page -->
 
-<div class="chat_whatsapp w-6 rounded-full flex items-center justify-center bg-white" style="height: 6rem; padding-top: 15px;">
+<div class="chat_whatsapp w-6 rounded-full flex items-center justify-center bg-white hide-on-mobile" style="height: 6rem; padding-top: 15px;">
+    <a href="https://web.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
+       class="inline-block icon-whatsapp text-whatsapp"></a>
+</div>
+<div class="chat_whatsapp w-6 rounded-full flex items-center justify-center bg-white hide-on-desktop" style="height: 6rem; padding-top: 15px;">
     <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
        class="inline-block icon-whatsapp text-whatsapp"></a>
 </div>

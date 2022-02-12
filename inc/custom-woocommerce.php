@@ -1097,7 +1097,7 @@ function wc_get_carousel_cart_down_on_sales_section()
     update_option('my_theme_carousel_cart_down_on_sales_section', $products, 'no');
 }
 
-add_action( 'save_post', 'wc_get_carousel_cart_down_on_sales_section', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_cart_down_on_sales_section', 10, 3 );
 add_action('before_delete_post', 'wc_get_carousel_cart_down_on_sales_section');
 
 /*
@@ -1109,7 +1109,12 @@ function realated_in_up()
 
     if (!$product->is_in_stock()) {
         remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
-        echo '<div class="bg-gray-100 pb-5">';
+        echo '<div class="bg-gray-100 pb-5">
+<div style="display: flex;justify-content: center;background-color: #ffffff;padding-bottom: 15px;">
+<div style="font-size: 16px;background-color: #fed100;text-align: center;border-radius: 18px;height: 32px;font-weight: 700;padding: 4px 10px 10px 10px;">
+این محصول موجود نیست
+</div>
+</div>';
         woocommerce_related_products();
         echo '</div>';
     }
