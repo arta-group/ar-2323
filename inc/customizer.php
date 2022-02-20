@@ -87,7 +87,6 @@ function mv_add_other_fields_for_packaging()
 }
 
 // Save the data of the send Meta field
-add_action('save_post', 'mv_save_wc_order_other_fields', 10, 1);
 function mv_save_wc_order_other_fields($post_id)
 {
     $order = wc_get_order($post_id);
@@ -100,13 +99,16 @@ function mv_save_wc_order_other_fields($post_id)
         $send_peyk_url = $order->get_meta('_send_peyk_url', true);
 
         if (!($send_post_code || $send_peyk_url)) {
-            if ($_POST['_send_post_code'] && $_POST['_send_post_code'] != 1) {
+            if (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] != 1) {
+
                 $sms_value = [$order_billing_name, sanitize_text_field($_POST['_send_post_code'])];
                 sa_sms($order_billing_phone, '5', $sms_value);
-            }elseif ($_POST['_send_post_code'] == 1) {
+            }elseif (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] == 1) {
+
                 $sms_value = [$order_billing_name];
                 sa_sms($order_billing_phone, '7', $sms_value);
-            } elseif ($_POST['_send_peyk_url']) {
+            } elseif (!empty($_POST['_send_peyk_url'])) {
+
                 $sms_value = [$order_billing_name, sanitize_text_field($_POST['_send_peyk_url'])];
                 sa_sms($order_billing_phone, '6', $sms_value);
             }
@@ -118,3 +120,4 @@ function mv_save_wc_order_other_fields($post_id)
         $order->save_meta_data();
     }
 }
+add_action('save_post', 'mv_save_wc_order_other_fields', 10, 1);

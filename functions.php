@@ -225,13 +225,22 @@ function sa_sms($user_login, $sms, $sms_value) {
      */
     switch ($sms) {
         case 0:
-            $bodyId = 55844;
+            $sms_value = 'رمز عبور جدید: '. $sms_value[0] .
+            '
+سلام '. $sms_value[1] . ' عزیز خوش اومدی دلمون برات تنگ شده بود. 
+artaelectric.ir';
             break;
         case 1:
-            $bodyId = 55843;
+            $sms_value = 'سلام به آرتاالکتریک، بازار برق و روشنایی خوش اومدین :)
+artaelectric.ir';
             break;
         case 2:
-            $bodyId = 55842;
+            $sms_value = 'سلام '. $sms_value[0] . ' عزیز'.
+                '
+سفارشت رو با شماره '. $sms_value[1] . ' دریافت کردیم و خیلی زود برات ارسالش میکنیم.
+مبلغ سفارش: '. $sms_value[2] .' تومان
+ممنون که مارو انتخاب کردی
+artaelectric.ir';
             break;
         case 3:
             $bodyId = 52455;
@@ -240,28 +249,36 @@ function sa_sms($user_login, $sms, $sms_value) {
             $bodyId = 38919;
             break;
         case 5:
-            $bodyId = 65333;
+            $sms_value = $sms_value[0] . ' عزیز'.
+                '
+سفارش شما ارسال شد!
+کد رهگیری پستی
+'. $sms_value[1] .'
+برای مشاهده وضعیت مرسوله از لینک زیر وارد حساب کاربری‌تان در آرتا‌الکتریک شوید.
+artaelectric.ir/my-account';
             break;
         case 6:
-            $bodyId = 65166;
-            break;
-        case 7:
-            $bodyId = 65517;
+            $sms_value = $sms_value[0] . ' عزیز'.
+                '
+سفارش شما ارسال شد!
+برای مشاهده وضعیت مرسوله وارد لینک زیر شوید
+'. $sms_value[1] .'
+آرتا‌الکتریک بازار برق و روشنایی
+artaelectric.ir';
             break;
     }
 
     ini_set("soap.wsdl_cache_enabled", "0");
     $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding'=>'UTF-8'));
 
-    $parameters['username'] = "9123250115";
-    $parameters['password'] = "aTaz54*73";
+    $parameters['username'] = "09123250115";
+    $parameters['password'] = "6a17f";
     $parameters['to'] = $user_login;
-    $parameters['from'] = "100008610000";
+    $parameters['from'] = "300012304560";
     $parameters['text'] = $sms_value;
     $parameters['isflash'] =false;
-    $parameters['bodyId'] =$bodyId;
 
-    echo $sms_client->SendByBaseNumber($parameters)->SendSimpleSMS2Result;
+    return $sms_client->SendSimpleSMS2($parameters)->SendSimpleSMS2Result;
 }
 
 /**

@@ -160,7 +160,7 @@ do_action('woocommerce_before_cart');
         if ($products) {
             ?>
             <section class="py-5 hide-on-mobile" dir="rtl">
-                <div class="container mx-auto carousel-container">
+                <div class="container carousel-container" style="max-width: 830px">
                     <div class="flex flex-row items-center mb-4/7 border-border border-b justify-between mx-2 md-mx-3 lg-mx-0">
                         <div class="text-lg lg-text-2/4 leading-2/4 lg-leading-3/8 text-gray-dark font-bold title pb-1/6">
                             لازمتون میشه
