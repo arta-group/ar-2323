@@ -65,7 +65,7 @@ get_header();
 		<!-- Chandelier carousel w/banner section -->
 		<?php
 		$products_category = get_field( 'second-row-category', 'option' );
-		get_template_part( 'template-parts/index/products-section-white', '', [ 'products_category' => $products_category ] );
+		get_template_part( 'template-parts/index/products-section-white', '', [ 'products_category' => $products_category, 'position' => 'first' ] );
 		?>
 		<!-- /Chandelier carousel w/banner section -->
 
@@ -94,7 +94,7 @@ get_header();
 		<!-- recommends carousel section -->
 		<?php
 		$products_category = get_field( 'third-row-category', 'option' );
-		get_template_part( 'template-parts/index/products-section-white', '', [ 'products_category' => $products_category ] );
+		get_template_part( 'template-parts/index/products-section-white', '', [ 'products_category' => $products_category, 'position' => 'second' ] );
 		?>
 		<!-- /recommends carousel section -->
 
