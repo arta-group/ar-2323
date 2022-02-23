@@ -1125,7 +1125,7 @@ function wc_get_carousel_cart_gray_section()
     update_option('my_theme_carousel_cart_gray_section', $products, 'no');
 }
 
-add_action( 'save_post', 'wc_get_carousel_cart_gray_section', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_cart_gray_section', 10, 3 );
 add_action('before_delete_post', 'wc_get_carousel_cart_gray_section');
 
 /*
@@ -1153,11 +1153,8 @@ function wc_get_carousel_cart_first_white_section()
     update_option('my_theme_carousel_cart_first_white_section', $products, 'no');
 }
 
-add_action( 'save_post', 'wc_get_carousel_cart_first_white_section', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_cart_first_white_section', 10, 3 );
 add_action('before_delete_post', 'wc_get_carousel_cart_first_white_section');
-
-//add_action( 'save_post', 'wc_get_carousel_cart_down_on_sales_section', 10, 3 );
-add_action('before_delete_post', 'wc_get_carousel_cart_down_on_sales_section');
 
 /*
  * carousel cart second white section
@@ -1184,7 +1181,7 @@ function wc_get_carousel_cart_second_white_section()
     update_option('my_theme_carousel_cart_second_white_section', $products, 'no');
 }
 
-add_action( 'save_post', 'wc_get_carousel_cart_second_white_section', 10, 3 );
+//add_action( 'save_post', 'wc_get_carousel_cart_second_white_section', 10, 3 );
 add_action('before_delete_post', 'wc_get_carousel_cart_second_white_section');
 
 /*
