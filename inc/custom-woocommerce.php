@@ -648,56 +648,56 @@ function fs_amazing_sale_save_fields($id, $post)
 
 add_action('woocommerce_process_product_meta', 'fs_amazing_sale_save_fields', 10, 2);
 
-function fs_get_active_valid_amazing_sales()
-{
-    date_default_timezone_set('Asia/Tehran');
-
-    $args = [
-        'post_type' => 'product',
-        'post_status' => 'publish',
-        'posts_per_page' => -1,
-        'meta_query' => [
-            'relation' => 'AND',
-            [
-                'key' => '_amazing_sale_end_date',
-                'value' => date("Y-m-d H:i"),
-                'compare' => '<=',
-                'type' => 'DATE'
-            ],
-            [
-                'key' => '_active_amazing_sale',
-                'value' => 'yes',
-                'compare' => '='
-            ]
-        ]
-    ];
-
-    $posts = get_posts($args);
-
-    wp_reset_postdata();
-
-    return $posts;
-}
-
-function fs_is_active_amazing_sales()
-{
-    $args = [
-        'post_type' => 'product',
-        'post_status' => 'publish',
-        'posts_per_page' => 1,
-        'meta_key' => '_active_amazing_sale',
-        'meta_value' => 'yes'
-    ];
-
-    $posts = get_posts($args);
-
-    wp_reset_postdata();
-
-    if ($posts)
-        return true;
-
-    return false;
-}
+//function fs_get_active_valid_amazing_sales()
+//{
+//    date_default_timezone_set('Asia/Tehran');
+//
+//    $args = [
+//        'post_type' => 'product',
+//        'post_status' => 'publish',
+//        'posts_per_page' => -1,
+//        'meta_query' => [
+//            'relation' => 'AND',
+//            [
+//                'key' => '_amazing_sale_end_date',
+//                'value' => date("Y-m-d H:i"),
+//                'compare' => '<=',
+//                'type' => 'DATE'
+//            ],
+//            [
+//                'key' => '_active_amazing_sale',
+//                'value' => 'yes',
+//                'compare' => '='
+//            ]
+//        ]
+//    ];
+//
+//    $posts = get_posts($args);
+//
+//    wp_reset_postdata();
+//
+//    return $posts;
+//}
+//
+//function fs_is_active_amazing_sales()
+//{
+//    $args = [
+//        'post_type' => 'product',
+//        'post_status' => 'publish',
+//        'posts_per_page' => 1,
+//        'meta_key' => '_active_amazing_sale',
+//        'meta_value' => 'yes'
+//    ];
+//
+//    $posts = get_posts($args);
+//
+//    wp_reset_postdata();
+//
+//    if ($posts)
+//        return true;
+//
+//    return false;
+//}
 
 /**
  * AJAX add to cart button on the single Product Page
