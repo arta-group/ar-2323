@@ -305,8 +305,6 @@ function sa_add_schema()
         $faqextra = get_term_meta($term_id, 'faqextra_0_question', true);
 
         if ($faqextra) {
-            $count11 = 2;
-            $i = 0;
             ?>
             <script type="application/ld+json">
 			{
@@ -482,51 +480,6 @@ function sa_add_schema()
             </script>
             <?php
         }
-    }
-
-    if (have_rows('faq')) {
-        $count1 = 0;
-        $count2 = count(get_field('faq'));
-        $i = 1;
-        $j = 1;
-        ?>
-        <script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "FAQPage",
-				"mainEntity": [
-					<?php
-            while (have_rows('faq')) {
-                the_row();
-
-                $count1 += count(get_sub_field('questions'));
-
-                while (have_rows('questions')) {
-                    the_row();
-                    ?>
-							{
-								"@type": "Question",
-								"name": "<?php echo get_sub_field('question'); ?>",
-								"acceptedAnswer": {
-									"@type": "Answer",
-									"text": "<?php echo str_replace('"', "'", get_sub_field('answer')); ?>"
-								}
-							}
-							<?php
-                    $i++;
-                    if ($i <= $count1)
-                        echo ',';
-                }
-
-                $j++;
-                if ($j <= $count2)
-                    echo ',';
-            }
-            ?>
-				]
-			}
-        </script>
-        <?php
     }
 }
 

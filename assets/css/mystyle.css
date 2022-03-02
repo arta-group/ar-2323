@@ -232,6 +232,11 @@ td {
 }
 
 @media (max-width: 768px) {
+
+    .md-wp-20 {
+        max-width: 20% !important;
+    }
+
     .cross-sells {
         padding: 1rem;
         padding: 1rem 1rem 0rem 1rem
@@ -407,6 +412,7 @@ td {
     .woocommerce-breadcrumb {
         height: 64px;
     }
+
 }
 
 @media (min-width: 768px) {
