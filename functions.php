@@ -225,6 +225,9 @@ function sa_sms($user_login, $sms, $sms_value) {
      */
     switch ($sms) {
         case 0:
+            $bodyId = 77433;
+            break;
+        case 10:
             $sms_value = 'رمز عبور جدید: '. $sms_value[0] .
             '
 سلام '. $sms_value[1] . ' عزیز خوش اومدی دلمون برات تنگ شده بود. 
@@ -276,9 +279,10 @@ artaelectric.ir';
     $parameters['to'] = $user_login;
     $parameters['from'] = "300012304560";
     $parameters['text'] = $sms_value;
+    $parameters['bodyId'] = $bodyId;
     $parameters['isflash'] =false;
 
-    return $sms_client->SendSimpleSMS2($parameters)->SendSimpleSMS2Result;
+    return $sms_client->SendByBaseNumber($parameters)->SendSimpleSMS2Result;
 }
 
 /**
