@@ -3,7 +3,9 @@ if ( defined( 'YITH_WOOCOMPARE' ) )
 	echo do_shortcode( '[yith_woocompare_counter]' )
 ?>
 
-<?php if ( ! wp_is_mobile() ) { ?>
+<?php
+$phone = get_field( 'phone', 'option' );
+if ( ! wp_is_mobile() ) { ?>
 
 <div class="custom-hidden-m lg-flex items-center justify-between pt-4">
 
@@ -28,7 +30,6 @@ if ( defined( 'YITH_WOOCOMPARE' ) )
 
 		<div class="flex flex-col mr-1/6">
 			<p class="text-1/2 text-gray-600 leading-1/9 mb-0/4">نیاز به راهنمایی دارید؟</p>
-			<?php $phone = get_field( 'phone', 'option' ); ?>
 			<a href="tel:<?php echo $phone; ?>" class="flex flex-row-reverse items-center text-gray-main leading-3/3 text-2/1 font-bold dir-ltr ss02"><?php echo str_replace( '021', '021 - ', $phone ); ?></a>
 		</div>
 	</div>

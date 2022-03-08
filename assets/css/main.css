@@ -568,7 +568,7 @@ ul.has-disc li:hover a { color: #F6412D; }
 
 @media screen and (max-width: 767px) { .newsletter-form .wpcf7-response-output { font-size: 1.1rem; line-height: 1.8rem; margin-top: 5px !important; } }
 
-.newsletter-form .wpcf7-form-control.wpcf7-submit { line-height: 2.2rem !important; height: 4.2rem; margin-top: 0; font-size: 1.4rem; margin-right: 1.2rem; position: relative; padding: .1rem 2rem 0; cursor: pointer; }
+.newsletter-form .wpcf7-form-control.wpcf7-submit { line-height: 2.2rem !important; height: 4.2rem; margin-top: 0; font-size: 1.4rem; margin-right: 1.2rem; position: relative; padding: .1rem 2rem 0; cursor: pointer; background-color: #fed100; }
 
 @media screen and (max-width: 767px) { .newsletter-form .wpcf7-form-control.wpcf7-submit { margin-top: 1rem; margin-right: auto !important; margin-left: 0; width: 100%; display: block; } }
 

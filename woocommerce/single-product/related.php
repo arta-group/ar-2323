@@ -59,7 +59,7 @@ if ( isset( $cat[ 'id' ] ) )
 	if ( $products->have_posts() )
 	{
 		?>
-		<section class="pt-6 " dir="rtl">
+		<section class="pt-3 " dir="rtl">
 			<div class="container mx-auto carousel-container">
 				<div class="flex flex-row items-center mb-4/7 border-border border-b justify-between mx-2 md-mx-3 lg-mx-0">
 					<div class="text-2/4 leading-3/8 text-gray-dark font-bold title pb-1/6">محصولات مشابه</div>

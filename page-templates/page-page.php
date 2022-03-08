@@ -25,8 +25,8 @@ while ( have_posts() )
 		if ( function_exists( 'woocommerce_breadcrumb' ) )
 			woocommerce_breadcrumb();
 		?>
-		<section class="container mx-auto pt-1 md-pt-2/5 pb-6 md-pb-10 px-2 lg-px-0">
-			<div class="mb-4/2">
+		<section class="container mx-auto pb-6 md-pb-10 px-2 lg-px-0">
+			<div class="mb-0">
 				<div class="border-b border-border flex items-center">
 					<h2 class="lg-text-2/4 text-2 inline-block text-center md-text-right leading-3/8 pb-1/5 title text-gray-main font-bold">
 						<?php the_title(); ?>

@@ -226,7 +226,7 @@ ul.has-disc li::before{content:"";position:absolute;top:40%;-webkit-transform:tr
 ul.has-disc li:hover{color:#f6412d}
 ul.has-disc li:hover a{color:#f6412d}
 .newsletter-form .wpcf7-response-output{background-color:#46b450;color:#fff;font-size:1.3rem;line-height:2.5rem;border-radius:5px}
-.newsletter-form .wpcf7-form-control.wpcf7-submit{line-height:2.2rem !important;height:4.2rem;margin-top:0;font-size:1.4rem;margin-right:1.2rem;position:relative;padding:.1rem 2rem 0;cursor:pointer}
+.newsletter-form .wpcf7-form-control.wpcf7-submit{line-height:2.2rem !important;height:4.2rem;margin-top:0;font-size:1.4rem;margin-right:1.2rem;position:relative;padding:.1rem 2rem 0;cursor:pointer;background-color: #fed100;}
 .newsletter-form .wpcf7-form-control{line-height:3.8rem;padding-right:4.7rem;padding-left:1.5rem;padding-top:.4rem}
 .newsletter-form .icon-classic-envelope{margin-top:1.6rem}
 .mr-1\/9{margin-right:1.9rem}
