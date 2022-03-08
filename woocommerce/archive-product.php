@@ -148,49 +148,92 @@ if ($current_term_id)
                         <?php
                         $faqextra = get_term_meta($current_term_id, 'faqextra_0_question', true);
                         if ($faqextra) { ?>
-                        <div class="content w-full rounded-xs border border-border px-2 md-px-4 py-1/5 md-pt-2/2 md-pb-2/6 mt-3"
-                             id="faq-group-1">
-                            <div class="text-2 lg-text-2/6 text-gray-700 leading-2/4 lg-leading-4/4 pb-1/2 flex items-center font-normal"
-                                 style="font-size: 1.8rem;">
-                                <img class="md-wp-20 object-fill object-center ml-2 inline-block"
-                                     style="margin: 1rem;"
-                                     src="http://artaelectric.ir/wp-content/themes/arta/assets/img/svg/Question.svg"
-                                     alt="">
-                                <span class="fs-content-header"> سوالات متداول</span>
-                            </div>
-                            <div class="divide-y divide-border">
-                                <?php
-                                for ($n = 0; $n <= 4; $n++) {
-                                    $faq_question_key = 'faqextra_' . $n . '_question';
-                                    $faq_answer_key = 'faqextra_' . $n . '_answer';
+                            <div class="content w-full rounded-xs border border-border px-2 md-px-4 py-1/5 md-pt-2/2 md-pb-2/6 mt-3"
+                                 id="faq-group-1">
+                                <div class="text-2 lg-text-2/6 text-gray-700 leading-2/4 lg-leading-4/4 pb-1/2 flex items-center font-normal"
+                                     style="font-size: 1.8rem;">
+                                    <img class="md-wp-20 object-fill object-center ml-2 inline-block"
+                                         style="margin: 1rem;"
+                                         src="http://artaelectric.ir/wp-content/themes/arta/assets/img/svg/Question.svg"
+                                         alt="">
+                                    <span class="fs-content-header"> سوالات متداول</span>
+                                </div>
+                                <div class="divide-y divide-border">
+                                    <?php
+                                    for ($n = 0; $n <= 4; $n++) {
+                                        $faq_question_key = 'faqextra_' . $n . '_question';
+                                        $faq_answer_key = 'faqextra_' . $n . '_answer';
 
-                                    $question = get_term_meta($current_term_id, $faq_question_key, true);
-                                    $answer = get_term_meta($current_term_id, $faq_answer_key, true);
+                                        $question = get_term_meta($current_term_id, $faq_question_key, true);
+                                        $answer = get_term_meta($current_term_id, $faq_answer_key, true);
 
-                                    if ($question) { ?>
-                                        <div class="faq accordion">
-                                            <div class="accordion-head flex flex-row items-center pt-1/8 pb-2 cursor-pointer">
-                                                <div class="flex-1 text-gray-600 accordion-title text-base md-text-medium leading-2/4 font-bold">
-                                                    <?php echo $question; ?>
+                                        if ($question) { ?>
+                                            <div class="faq accordion">
+                                                <div class="accordion-head flex flex-row items-center pt-1/8 pb-2 cursor-pointer">
+                                                    <div class="flex-1 text-gray-600 accordion-title text-base md-text-medium leading-2/4 font-bold">
+                                                        <?php echo $question; ?>
+                                                    </div>
+                                                    <div class="icon-plus accordion-icon text-1/7 leading-1/7 text-gray-600 flex items-center justify-center mr-2"></div>
                                                 </div>
-                                                <div class="icon-plus accordion-icon text-1/7 leading-1/7 text-gray-600 flex items-center justify-center mr-2"></div>
+                                                <div class="accordion-body active" style="max-height: 0px;">
+                                                    <p class="pb-3/7 text-base leading-2/8 text-gray-500 text-justify lg-text-right">
+                                                        <?php echo $answer; ?>
+                                                    </p>
+                                                </div>
                                             </div>
-                                            <div class="accordion-body active" style="max-height: 0px;">
-                                                <p class="pb-3/7 text-base leading-2/8 text-gray-500 text-justify lg-text-right">
-                                                    <?php echo $answer; ?>
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                    <?php }
-                                }
-                                }
-                                ?>
+                                        <?php }
+                                    } ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </section>
                 <?php
+            } else {
+                $faqextra = get_term_meta($current_term_id, 'faqextra_0_question', true);
+                if ($faqextra) { ?>
+                    <section class="py-6 bg-gray-50 px-2 md-px-3 lg-px-0">
+                        <div class="container mx-auto">
+                            <div class="content w-full rounded-xs border border-border px-2 md-px-4 py-1/5 md-pt-2/2 md-pb-2/6 mt-3"
+                                 id="faq-group-1">
+                                <div class="text-2 lg-text-2/6 text-gray-700 leading-2/4 lg-leading-4/4 pb-1/2 flex items-center font-normal"
+                                     style="font-size: 1.8rem;">
+                                    <img class="md-wp-20 object-fill object-center ml-2 inline-block"
+                                         style="margin: 1rem;"
+                                         src="http://artaelectric.ir/wp-content/themes/arta/assets/img/svg/Question.svg"
+                                         alt="">
+                                    <span class="fs-content-header"> سوالات متداول</span>
+                                </div>
+                                <div class="divide-y divide-border">
+                                    <?php
+                                    for ($n = 0; $n <= 4; $n++) {
+                                        $faq_question_key = 'faqextra_' . $n . '_question';
+                                        $faq_answer_key = 'faqextra_' . $n . '_answer';
+
+                                        $question = get_term_meta($current_term_id, $faq_question_key, true);
+                                        $answer = get_term_meta($current_term_id, $faq_answer_key, true);
+
+                                        if ($question) { ?>
+                                            <div class="faq accordion">
+                                                <div class="accordion-head flex flex-row items-center pt-1/8 pb-2 cursor-pointer">
+                                                    <div class="flex-1 text-gray-600 accordion-title text-base md-text-medium leading-2/4 font-bold">
+                                                        <?php echo $question; ?>
+                                                    </div>
+                                                    <div class="icon-plus accordion-icon text-1/7 leading-1/7 text-gray-600 flex items-center justify-center mr-2"></div>
+                                                </div>
+                                                <div class="accordion-body active" style="max-height: 0px;">
+                                                    <p class="pb-3/7 text-base leading-2/8 text-gray-500 text-justify lg-text-right">
+                                                        <?php echo $answer; ?>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        <?php }
+                                    } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <?php }
             }
         }
         get_template_part('template-parts/visited-products');
