@@ -215,7 +215,7 @@ ul.header-menu-disc li{position:relative}
 ul.header-menu-disc li::before{content:"";position:absolute;top:35%;-webkit-transform:translateY(50%);transform:translateY(50%);right:0;background-color:#f6412d;width:.5rem;height:.5rem;border-radius:2px}
 ul.header-menu-disc li:hover{color:#f6412d}
 ul.header-menu-disc li:hover a{color:#f6412d}
-.c-header-popup{background-color:#fed100;padding:2rem 2rem 2.5rem;position:relative}
+.c-header-popup{background-color:#fed100;padding:1.8rem 2rem 2.2rem;position:relative}
 .c-header-popup p{color:#333;font-size:1.8rem;line-height:2.2rem;text-align:center}
 .mini-cart-content.active #cart_overlay{opacity:.6;-webkit-transform:scale(1);transform:scale(1)}
 .mini-cart-content.active #cart-container{-webkit-transform:translateX(0);transform:translateX(0)}

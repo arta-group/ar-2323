@@ -536,7 +536,7 @@ ul.header-menu-disc li:hover a { color: #F6412D; }
   .category-menu .sub-menu > li .sub-menu > li:hover { background: none; }
   .category-menu .sub-menu > li .sub-menu > li:nth-last-of-type(1) { border: 0; border-bottom-right-radius: 0; border-bottom-left-radius: 0; } }
 
-.c-header-popup { background-color: #FED100; padding: 2rem 2rem 2.5rem; position: relative; }
+.c-header-popup { background-color: #FED100; padding: 1.8rem 2rem 2.2rem; position: relative; }
 
 @media screen and (max-width: 767px) { .c-header-popup { padding: 1.5rem 1rem; } }
 

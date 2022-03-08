@@ -42,8 +42,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			$notification = get_field( 'notification-text', 'option' );
 			if ( $notification )
 			{
+                $notification_img = get_field( 'notification-img', 'option' );
+                $size = 'full'; // (thumbnail, medium, large, full or custom size)
 				?>
-				<div class="c-header-popup">
+				<div class="c-header-popup"
+                    <?php
+                    if ($notification_img) {
+                        echo 'style = "height: 62px;background-repeat: no-repeat;background-position: center;background-image: url('. esc_url($notification_img['url']).');"';
+                    }
+                    ?>
+                >
 					<?php
 					$notification_url = get_field( 'notification-url', 'option' );
 					echo $notification_url ? '<p><a href="' . $notification_url . '">' . $notification . '</a></p>' : '<p>' . $notification . '</p>';
