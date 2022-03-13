@@ -6,7 +6,7 @@ $args = [
 	'post_status'    => 'publish',
 	'posts_per_page' => 12,
 	'meta_key'       => 'total_sales',
-	'orderby'        => 'stock_status',
+	'orderby'        => 'meta_value_num',
 	'tax_query'      => [
 		[
 			'taxonomy' => 'product_brand',

@@ -883,6 +883,9 @@ function fs_order_by_price_low_to_high($args)
 
 add_filter('woocommerce_get_catalog_ordering_args', 'fs_order_by_price_low_to_high');
 
+/**
+ * Order product collections by stock status, instock products first.
+ */
 function fs_order_by_stock_status($posts_clauses)
 {
     global $wpdb;
@@ -1105,15 +1108,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_down_on_sales_section');
  */
 function wc_get_carousel_cart_gray_section()
 {
-    $product_category = get_field( 'first-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('first-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 
@@ -1133,15 +1136,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_gray_section');
  */
 function wc_get_carousel_cart_first_white_section()
 {
-    $product_category = get_field( 'second-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('second-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 
@@ -1161,15 +1164,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_first_white_section');
  */
 function wc_get_carousel_cart_second_white_section()
 {
-    $product_category = get_field( 'third-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('third-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 

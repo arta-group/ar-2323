@@ -15,7 +15,7 @@ function frontend_faq_show($attr)
 	</div>
 	<div class="divide-y divide-border">';
 
-    for ($i = 1; $i <= 10; $i++) {
+    for ($i = 1; $i <= 20; $i++) {
         $question = $attr['q' . $i];
         $answer = $attr['a' . $i];
 
