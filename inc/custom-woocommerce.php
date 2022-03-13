@@ -861,53 +861,95 @@ add_filter('woocommerce_gallery_image_size	', function ($size) {
     return 'fs-product-main';
 });
 
-function fs_order_by_price_low_to_high($args)
-{
-    $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
-
-    if ($orderby_value == 'price') {
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'ASC';
-        $args['meta_key'] = '_price';
-    }
-
-    //	if ( $orderby_value == 'date' )
-    //	{
-    //		$args[ 'meta_key' ] = '_price';
-    //		$args[ 'orderby' ]  = 'meta_value_num date';
-    //		$args[ 'order' ]    = 'DESC';
-    //	}
-
-    return $args;
-}
-
-add_filter('woocommerce_get_catalog_ordering_args', 'fs_order_by_price_low_to_high');
+//function fs_order_by_price_low_to_high($args)
+//{
+//    $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+//
+//    if ($orderby_value == 'price') {
+//        $args['orderby'] = 'meta_value_num';
+//        $args['order'] = 'ASC';
+//        $args['meta_key'] = '_price';
+//    }
+//
+//    //	if ( $orderby_value == 'date' )
+//    //	{
+//    //		$args[ 'meta_key' ] = '_price';
+//    //		$args[ 'orderby' ]  = 'meta_value_num date';
+//    //		$args[ 'order' ]    = 'DESC';
+//    //	}
+//
+//    return $args;
+//}
+//
+//add_filter('woocommerce_get_catalog_ordering_args', 'fs_order_by_price_low_to_high');
 
 /**
  * Order product collections by stock status, instock products first.
  */
-function fs_order_by_stock_status($posts_clauses)
-{
-    global $wpdb;
+//function fs_order_by_stock_status($posts_clauses)
+//{
+//    global $wpdb;
+//
+//    if (is_woocommerce() && (is_shop() || is_product_category() || is_product_tag())) {
+//        $posts_clauses['join'] .= " INNER JOIN $wpdb->postmeta istockstatus ON ($wpdb->posts.ID = istockstatus.post_id) ";
+//        $posts_clauses['orderby'] = " istockstatus.meta_value ASC, " . $posts_clauses['orderby'];
+//        $posts_clauses['where'] = " AND istockstatus.meta_key = '_stock_status' AND istockstatus.meta_value <> '' " . $posts_clauses['where'];
+//    }
+//
+//    return $posts_clauses;
+//}
+//
+//add_filter('posts_clauses', 'fs_order_by_stock_status', 2000);
+//
+//function ws_default_catalog_orderby($sort_by)
+//{
+//    return 'date';
+//}
+//
+//add_filter('woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby');
 
-    if (is_woocommerce() && (is_shop() || is_product_category() || is_product_tag())) {
-        $posts_clauses['join'] .= " INNER JOIN $wpdb->postmeta istockstatus ON ($wpdb->posts.ID = istockstatus.post_id) ";
-        $posts_clauses['orderby'] = " istockstatus.meta_value ASC, " . $posts_clauses['orderby'];
-        $posts_clauses['where'] = " AND istockstatus.meta_key = '_stock_status' AND istockstatus.meta_value <> '' " . $posts_clauses['where'];
+/*
+ *add filter by stock and date
+ */
+function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
+    $orderby_value = isset( $_GET['orderby'] ) ? wc_clean ( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+
+    if ( 'stock' == $orderby_value ) {
+        $args['orderby'] = ['_stock_status' => 'asc', 'date' => 'dec'];
+        $args['meta_key'] = '_stock_status';
     }
+//    switch ($orderby_value) :
+//        case 'date_asc' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
+//            $args['meta_key'] = '';
+//            break;
+//        case 'price' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
+//            $args['meta_key'] = '_price';
+//            break;
+//        case 'price_desc' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'dec'];
+//            $args['meta_key'] = '_price';
+//            break;
+//        case 'stock' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'date' => 'dec'];
+//            $args['meta_key'] = '_stock_status';
+//            break;
+//    endswitch;
 
-    return $posts_clauses;
+    return $args;
 }
 
-add_filter('posts_clauses', 'fs_order_by_stock_status', 2000);
+add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args' );
 
-function ws_default_catalog_orderby($sort_by)
-{
-    return 'date';
+/*
+ *add filter to option in catalogs
+ */
+function sa_custom_woocommerce_catalog_orderby( $sortby ) {
+    $sortby['stock'] = 'مرتب سازی بر اساس موجودی';
+    return $sortby;
 }
-
-add_filter('woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby');
-
+add_filter( 'woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby' );
 
 function fs_override_checkout_fields($fields)
 {
