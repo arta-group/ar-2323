@@ -950,6 +950,7 @@ function sa_custom_woocommerce_catalog_orderby( $sortby ) {
     return $sortby;
 }
 add_filter( 'woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby' );
+add_filter( 'woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby' );
 
 function fs_override_checkout_fields($fields)
 {
