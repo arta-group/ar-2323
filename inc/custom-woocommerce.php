@@ -755,8 +755,8 @@ add_filter('woocommerce_add_to_cart_fragments', 'fs_ajax_add_to_cart_fragments')
  * Amazing sales in shop page and custom breadcrumb
  */
 
-if (!wp_next_scheduled('fs_amazing_sale_custom_cron_hook'))
-    wp_schedule_event(time(), 'hourly', 'fs_amazing_sale_custom_cron_hook');
+//if (!wp_next_scheduled('fs_amazing_sale_custom_cron_hook'))
+//    wp_schedule_event(time(), 'hourly', 'fs_amazing_sale_custom_cron_hook');
 
 function fs_check_amazing_sales()
 {
@@ -795,7 +795,7 @@ function fs_check_amazing_sales()
     wp_reset_postdata();
 }
 
-add_action('fs_amazing_sale_custom_cron_hook', 'fs_check_amazing_sales');
+//add_action('fs_amazing_sale_custom_cron_hook', 'fs_check_amazing_sales');
 
 function fs_amazing_product_query($query)
 {

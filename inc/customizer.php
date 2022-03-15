@@ -114,8 +114,10 @@ function mv_save_wc_order_other_fields($post_id)
             }
         }
 
-        $order->update_meta_data('_send_post_code', sanitize_text_field($_POST['_send_post_code']));
-        $order->update_meta_data('_send_peyk_url', sanitize_text_field($_POST['_send_peyk_url']));
+        $send_post_code = $_POST['_send_post_code'] ? $order->update_meta_data('_send_post_code', sanitize_text_field($_POST['_send_post_code'])) :
+            $order->update_meta_data('_send_post_code', '');
+        $send_peyk_url = $_POST['_send_peyk_url'] ? $order->update_meta_data('_send_peyk_url', sanitize_text_field($_POST['_send_peyk_url'])) :
+            $order->update_meta_data('_send_peyk_url', '');
 
         $order->save_meta_data();
     }
