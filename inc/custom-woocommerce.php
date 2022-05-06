@@ -385,7 +385,7 @@ function fs_get_product_prices($product)
                 $result['price'] = $price;
                 $result['regular_price'] = $regular_price;
 
-                if ($product->is_on_sale())
+                if ($regular_price > $price)
                     $result['discount'] = abs(round(($price / $regular_price - 1) * 100));
             }
         }
