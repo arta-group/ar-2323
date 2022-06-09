@@ -911,10 +911,11 @@ add_filter('woocommerce_gallery_image_size	', function ($size) {
 /*
  *add filter by stock and date
  */
-function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
-    $orderby_value = isset( $_GET['orderby'] ) ? wc_clean ( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+function sa_custom_woocommerce_get_catalog_ordering_args($args)
+{
+    $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
 
-    if ( 'stock' == $orderby_value ) {
+    if ('stock' == $orderby_value) {
         $args['orderby'] = ['_stock_status' => 'asc', 'date' => 'dec'];
         $args['meta_key'] = '_stock_status';
     }
@@ -940,17 +941,19 @@ function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
     return $args;
 }
 
-add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args' );
+add_filter('woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args');
 
 /*
  *add filter to option in catalogs
  */
-function sa_custom_woocommerce_catalog_orderby( $sortby ) {
+function sa_custom_woocommerce_catalog_orderby($sortby)
+{
     $sortby['stock'] = 'مرتب سازی بر اساس موجودی';
     return $sortby;
 }
-add_filter( 'woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby' );
-add_filter( 'woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby' );
+
+add_filter('woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby');
+add_filter('woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby');
 
 function fs_override_checkout_fields($fields)
 {

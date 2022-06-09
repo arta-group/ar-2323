@@ -51,11 +51,11 @@ if ( $fields )
 			<label for="billing_state" class="block text-base mb-0/7 leading-2/2 text-gray-main">استان</label>
 			<?php echo woocommerce_form_field( 'billing_state', $fields[ 'billing_state' ], $checkout->get_value( 'billing_state' ) ); ?>
 		</div>
-		<div class="w-full lg-w-auto lg-flex-1">
-			<label for="billing_city" class="block text-base mb-0/7 leading-2/2 text-gray-main">شهر / روستا</label>
-            <input type="text" name="billing_city" id="billing_city" class="rounded-xs border-2 border-border w-full w-405 text-base leading-2/2 pt-1 pb-0/9 px-1/8" style="margin-bottom: 34px;" autocomplete="given-name" placeholder="نام شهر خود را وارد نمایید " value="">
-<!--			--><?php //echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
-		</div>
+        <div class="w-full lg-w-auto lg-flex-1 mb-1/9 lg-mb-0">
+            <label for="billing_city" class="block text-base mb-0/7 leading-2/2 text-gray-main">شهر / روستا</label>
+            <div class="loader"></div>
+            <?php echo woocommerce_form_field( 'billing_city', $fields[ 'billing_city' ], $checkout->get_value( 'billing_city' ) ); ?>
+        </div>
 	</div>
 	<div class=" flex flex-col lg-flex-row items-center lg-space-x-reverse lg-space-x-3/2">
 		<div class="w-full lg-w-auto lg-flex-1">
@@ -69,6 +69,7 @@ if ( $fields )
 			<input type="number" name="billing_postcode" id="billing_postcode" class="rounded-xs border-2 border-border w-full w-405 text-base leading-2/2 pt-1 pb-0/9 px-1/8" autocomplete="postal-code" placeholder="کدپستی ۱۰ رقمی " value="<?php echo $checkout->get_value( 'billing_postcode' ) ?>">
 		</div>
 	</div>
+    <div id="formUserId" style="display: none"><?php echo $user_info->ID; ?></div>
 	<?php
 }
 do_action( 'woocommerce_after_checkout_billing_form', $checkout );
