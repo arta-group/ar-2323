@@ -70,7 +70,7 @@ $prices = fs_get_product_prices( $product );
 					{
 						if ( $in_stock )
 						{
-							if ( $product->is_on_sale() && $prices[ 'regular_price' ] > 0 )
+							if ( $prices[ 'discount' ] )
 							{
 								?>
 								<div class="discounted_price text-base leading-2/2 text-gray-300 text-center line-through">

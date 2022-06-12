@@ -385,7 +385,7 @@ function fs_get_product_prices($product)
                 $result['price'] = $price;
                 $result['regular_price'] = $regular_price;
 
-                if ($product->is_on_sale())
+                if ($regular_price > $price)
                     $result['discount'] = abs(round(($price / $regular_price - 1) * 100));
             }
         }
@@ -755,8 +755,8 @@ add_filter('woocommerce_add_to_cart_fragments', 'fs_ajax_add_to_cart_fragments')
  * Amazing sales in shop page and custom breadcrumb
  */
 
-if (!wp_next_scheduled('fs_amazing_sale_custom_cron_hook'))
-    wp_schedule_event(time(), 'hourly', 'fs_amazing_sale_custom_cron_hook');
+//if (!wp_next_scheduled('fs_amazing_sale_custom_cron_hook'))
+//    wp_schedule_event(time(), 'hourly', 'fs_amazing_sale_custom_cron_hook');
 
 function fs_check_amazing_sales()
 {
@@ -795,7 +795,7 @@ function fs_check_amazing_sales()
     wp_reset_postdata();
 }
 
-add_action('fs_amazing_sale_custom_cron_hook', 'fs_check_amazing_sales');
+//add_action('fs_amazing_sale_custom_cron_hook', 'fs_check_amazing_sales');
 
 function fs_amazing_product_query($query)
 {
@@ -861,50 +861,99 @@ add_filter('woocommerce_gallery_image_size	', function ($size) {
     return 'fs-product-main';
 });
 
-function fs_order_by_price_low_to_high($args)
+//function fs_order_by_price_low_to_high($args)
+//{
+//    $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
+//
+//    if ($orderby_value == 'price') {
+//        $args['orderby'] = 'meta_value_num';
+//        $args['order'] = 'ASC';
+//        $args['meta_key'] = '_price';
+//    }
+//
+//    //	if ( $orderby_value == 'date' )
+//    //	{
+//    //		$args[ 'meta_key' ] = '_price';
+//    //		$args[ 'orderby' ]  = 'meta_value_num date';
+//    //		$args[ 'order' ]    = 'DESC';
+//    //	}
+//
+//    return $args;
+//}
+//
+//add_filter('woocommerce_get_catalog_ordering_args', 'fs_order_by_price_low_to_high');
+
+/**
+ * Order product collections by stock status, instock products first.
+ */
+//function fs_order_by_stock_status($posts_clauses)
+//{
+//    global $wpdb;
+//
+//    if (is_woocommerce() && (is_shop() || is_product_category() || is_product_tag())) {
+//        $posts_clauses['join'] .= " INNER JOIN $wpdb->postmeta istockstatus ON ($wpdb->posts.ID = istockstatus.post_id) ";
+//        $posts_clauses['orderby'] = " istockstatus.meta_value ASC, " . $posts_clauses['orderby'];
+//        $posts_clauses['where'] = " AND istockstatus.meta_key = '_stock_status' AND istockstatus.meta_value <> '' " . $posts_clauses['where'];
+//    }
+//
+//    return $posts_clauses;
+//}
+//
+//add_filter('posts_clauses', 'fs_order_by_stock_status', 2000);
+//
+//function ws_default_catalog_orderby($sort_by)
+//{
+//    return 'date';
+//}
+//
+//add_filter('woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby');
+
+/*
+ *add filter by stock and date
+ */
+function sa_custom_woocommerce_get_catalog_ordering_args($args)
 {
     $orderby_value = isset($_GET['orderby']) ? wc_clean($_GET['orderby']) : apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
 
-    if ($orderby_value == 'price') {
-        $args['orderby'] = 'meta_value_num';
-        $args['order'] = 'ASC';
-        $args['meta_key'] = '_price';
+    if ('stock' == $orderby_value) {
+        $args['orderby'] = ['_stock_status' => 'asc', 'date' => 'dec'];
+        $args['meta_key'] = '_stock_status';
     }
-
-    //	if ( $orderby_value == 'date' )
-    //	{
-    //		$args[ 'meta_key' ] = '_price';
-    //		$args[ 'orderby' ]  = 'meta_value_num date';
-    //		$args[ 'order' ]    = 'DESC';
-    //	}
+//    switch ($orderby_value) :
+//        case 'date_asc' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
+//            $args['meta_key'] = '';
+//            break;
+//        case 'price' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
+//            $args['meta_key'] = '_price';
+//            break;
+//        case 'price_desc' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'dec'];
+//            $args['meta_key'] = '_price';
+//            break;
+//        case 'stock' :
+//            $args['orderby'] = ['_stock_status' => 'asc', 'date' => 'dec'];
+//            $args['meta_key'] = '_stock_status';
+//            break;
+//    endswitch;
 
     return $args;
 }
 
-add_filter('woocommerce_get_catalog_ordering_args', 'fs_order_by_price_low_to_high');
+add_filter('woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args');
 
-function fs_order_by_stock_status($posts_clauses)
+/*
+ *add filter to option in catalogs
+ */
+function sa_custom_woocommerce_catalog_orderby($sortby)
 {
-    global $wpdb;
-
-    if (is_woocommerce() && (is_shop() || is_product_category() || is_product_tag())) {
-        $posts_clauses['join'] .= " INNER JOIN $wpdb->postmeta istockstatus ON ($wpdb->posts.ID = istockstatus.post_id) ";
-        $posts_clauses['orderby'] = " istockstatus.meta_value ASC, " . $posts_clauses['orderby'];
-        $posts_clauses['where'] = " AND istockstatus.meta_key = '_stock_status' AND istockstatus.meta_value <> '' " . $posts_clauses['where'];
-    }
-
-    return $posts_clauses;
+    $sortby['stock'] = 'مرتب سازی بر اساس موجودی';
+    return $sortby;
 }
 
-add_filter('posts_clauses', 'fs_order_by_stock_status', 2000);
-
-function ws_default_catalog_orderby($sort_by)
-{
-    return 'date';
-}
-
-add_filter('woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby');
-
+add_filter('woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby');
+add_filter('woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby');
 
 function fs_override_checkout_fields($fields)
 {
@@ -1105,15 +1154,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_down_on_sales_section');
  */
 function wc_get_carousel_cart_gray_section()
 {
-    $product_category = get_field( 'first-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('first-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 
@@ -1133,15 +1182,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_gray_section');
  */
 function wc_get_carousel_cart_first_white_section()
 {
-    $product_category = get_field( 'second-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('second-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 
@@ -1161,15 +1210,15 @@ add_action('before_delete_post', 'wc_get_carousel_cart_first_white_section');
  */
 function wc_get_carousel_cart_second_white_section()
 {
-    $product_category = get_field( 'third-row-category', 'option' );
-    $category = get_term_by( 'id', $product_category, 'product_cat' );
+    $product_category = get_field('third-row-category', 'option');
+    $category = get_term_by('id', $product_category, 'product_cat');
 
-    $args     = array(
-        'category'   => $category->slug,
-        'orderby'    => 'name',
-        'status'     => 'publish',
-        'limit'      => 12,
-        'meta_key'   => '_stock_status',
+    $args = array(
+        'category' => $category->slug,
+        'orderby' => 'name',
+        'status' => 'publish',
+        'limit' => 12,
+        'meta_key' => '_stock_status',
         'meta_value' => 'instock'
     );
 

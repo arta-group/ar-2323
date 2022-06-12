@@ -1,0 +1,61 @@
+{
+    "key": "group_618f9ec95e178",
+    "title": "سفارشها",
+    "fields": [
+        {
+            "key": "field_618f9eecc9d03",
+            "label": "کد رهگیری پستی",
+            "name": "_send_post_code",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "کد 12 رقمی پستی را وارد نمایید",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
+            "key": "field_618fa07c7564c",
+            "label": "آدرس پیگیری ارسال مرسوله",
+            "name": "_send_peyk_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "آدرس اینترنتی پیگیری ارسال"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "shop_order"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1636884129
+}
