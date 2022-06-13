@@ -45,7 +45,7 @@ if ( isset( $_POST['send-password'] ) && isset( $_POST['lost-password-nonce'] ) 
 
 				$fullname  = empty( $user->first_name ) && empty( $user->last_name ) ? 'کاربر' : $user->first_name . ' ' . $user->last_name;
 				$sms       = 7;
-				$sms_value = [ $new_password, $fullname ];
+				$sms_value = $new_password. ';'. $fullname;
 				sa_sms( $user_login, $sms, $sms_value );
 			} else {
 				$message = 'این شماره موبایل موجود نیست.';

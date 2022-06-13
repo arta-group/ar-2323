@@ -202,7 +202,7 @@ if ( function_exists( 'yith_wishlist_install' ) ) {
 	add_action( 'wp_enqueue_scripts', 'yith_wcwl_remove_awesome_stylesheet', 20 );
 }
 
-function sa_sms( string $user_login, string $sms, array $sms_value ) {
+function sa_sms( string $user_login, string $sms, string $sms_value ) {
 
 	/*
 	 * forgot_sms_code=7
@@ -237,18 +237,17 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 			break;
 	}
 
-	ini_set( "soap.wsdl_cache_enabled", "0" );
-	$sms_client = new SoapClient( 'http://api.payamak-panel.com/post/send.asmx?wsdl', array( 'encoding' => 'UTF-8' ) );
+    ini_set( "soap.wsdl_cache_enabled", "0" );
+    $sms_client = new SoapClient( 'http://api.payamak-panel.com/post/send.asmx?wsdl', array( 'encoding' => 'UTF-8' ) );
 
-	$parameters['username'] = "09123250115";
-	$parameters['password'] = "6a17f";
-	$parameters['to']       = $user_login;
-	$parameters['from']     = "300012304560";
-	$parameters['text']     = $sms_value;
-	$parameters['bodyId']   = $bodyId;
-	$parameters['isflash']  = false;
+    $parameters['username'] = "09123250115";
+    $parameters['password'] = "6a17f";
+    $parameters['to']       = $user_login;
+    $parameters['from']     = "300012304560";
+    $parameters['text']     = $sms_value;
+    $parameters['bodyId']   = $bodyId;
 
-	return $sms_client->SendByBaseNumber( $parameters )->SendSimpleSMS2Result;
+    return $sms_client->SendByBaseNumber2($parameters)->SendByBaseNumber2Result;
 }
 
 /**
