@@ -102,15 +102,15 @@ function mv_save_wc_order_other_fields($post_id)
             if (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] != 1) {
 
                 $sms_value = $order_billing_name. ';'. sanitize_text_field($_POST['_send_post_code']);
-                sa_sms(intval($order_billing_phone), '5', $sms_value);
+                sa_sms($order_billing_phone, '5', $sms_value);
             }elseif (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] == 1) {
 
                 $sms_value = $order_billing_name;
-                sa_sms(intval($order_billing_phone), '7', $sms_value);
+                sa_sms($order_billing_phone, '7', $sms_value);
             } elseif (!empty($_POST['_send_peyk_url'])) {
 
                 $sms_value = $order_billing_name. ';'. sanitize_text_field($_POST['_send_peyk_url']);
-                sa_sms(intval($order_billing_phone), '6', $sms_value);
+                sa_sms($order_billing_phone, '6', $sms_value);
             }
         }
 

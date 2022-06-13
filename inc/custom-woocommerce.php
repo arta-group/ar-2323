@@ -155,7 +155,7 @@ function fs_save_user_mobile_meta($customer_id)
         $sms = 1;
         $sms_value = '';
         $user_login = sanitize_text_field($_POST['username']);
-        sa_sms(intval($user_login), $sms, $sms_value);
+        sa_sms($user_login, $sms, $sms_value);
     }
 }
 
@@ -1055,7 +1055,7 @@ function sa_sms_success_order($order_id)
     $user_first_name = get_user_meta($user_id, 'first_name', true);
     $sms = 2;
     $sms_value = $user_first_name. ';'. $order_id. ';'. $price;
-    sa_sms(intval($user_mobile), $sms, $sms_value);
+    sa_sms($user_mobile, $sms, $sms_value);
 }
 
 add_action('woocommerce_order_status_processing', 'sa_sms_success_order', 10, 1);
