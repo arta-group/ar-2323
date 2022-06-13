@@ -202,7 +202,7 @@ if ( function_exists( 'yith_wishlist_install' ) ) {
 	add_action( 'wp_enqueue_scripts', 'yith_wcwl_remove_awesome_stylesheet', 20 );
 }
 
-function sa_sms( string $user_login, string $sms, string $sms_value ) {
+function sa_sms( int $user_login, string $sms, string $sms_value ) {
 
 	/*
 	 * forgot_sms_code=7
