@@ -170,7 +170,7 @@ function fs_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if ( ! ( is_shop() || is_product_category() ) ) {
+	if ( ! ( is_shop() || is_product_category() || is_tax() ) ) {
 		wp_dequeue_style( 'wcpf-plugin-style' );
 		wp_dequeue_script( 'wcpf-plugin-polyfills-script' );
 		wp_dequeue_script( 'wcpf-plugin-vendor-script' );
@@ -273,7 +273,6 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 		return false;
 	}
 
-	logit($result);
 	return $result;
 
 }
