@@ -11,7 +11,7 @@
                        class="border border-border w-full rounded-xs text-base leading-4/5 px-2">
             </div>
             <div class="w-full md-flex-1">
-                <label class="text-base block leading-2/2 text-gray-main mb-0/7" for="l-num"> شماره تماس </label>
+                <label class="text-base block leading-2/2 text-gray-main mb-0/7" for="l-num"> شماره موبایل </label>
                 <input type="text" name="phone"
                        class="h-4/5 border border-border w-full rounded-xs text-base leading-4/5 px-2">
             </div>
