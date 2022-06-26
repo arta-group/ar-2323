@@ -442,15 +442,30 @@ td {
         height: 11px !important;
         margin-bottom: 0px !important;
     }
+
 }
 
-.mdr-note-newsletter {
+.loader-contact-us {
+    right: 33px !important;
+    top: -5px !important;
+}
+
+.mdr-note-newsletter, .mdr-note-contact-us {
     text-align: center;
 }
 
 .mdr-note-newsletter > p {
     border-radius: 12px;
-    background-color: #27ae60;
+    display: inline-flex;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.mdr-note-contact-us > p {
+    border-radius: 12px;
     display: inline-flex;
     color: #ffffff;
     padding: 10px;
