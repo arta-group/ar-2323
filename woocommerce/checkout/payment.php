@@ -44,7 +44,7 @@ if ( ! wp_doing_ajax() ) {
             </div>
             <div>
                 <input type="checkbox" id="privacyPolicyChecked" style="vertical-align: middle;" checked>
-                <a href="<?php echo get_site_url() ?>/faq/">قوانین و مقررات را مطالعه و موافقت خود را اعلام می‌کنم.</a>
+                <a href="<?php echo get_site_url() ?>/faq/" style="color: #ef4041;font-weight: bold;">قوانین و مقررات را مطالعه و موافقت خود را اعلام می‌کنم.</a>
             </div>
 		<?php endif; ?>
         <!--		<div class="form-row place-order">-->

@@ -212,6 +212,7 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 	 * register=4
 	 * send_post_code=5
 	 * send_peyk=6
+	 * send_vote_after_completed=8
 	 */
 	$bodyId = 0;
 	switch ( $sms ) {
@@ -235,6 +236,9 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 			break;
 		case 6:
 			$bodyId = 78825;
+			break;
+		case 8:
+			$bodyId = 91138;
 			break;
 	}
 

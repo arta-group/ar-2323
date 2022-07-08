@@ -27,7 +27,6 @@ $current_term_id = $current_object->term_id ?? 0;
 
 if ($current_term_id)
 	$current_term = get_term($current_term_id, 'product_tag');
-logit($current_term_id);
 
 ?>
 	<main id="primary" class="site-main">
