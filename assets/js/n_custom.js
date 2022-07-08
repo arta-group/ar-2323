@@ -7,7 +7,7 @@ $(function () {
             $("#place_order").css('background-color', '').attr('disabled', false);
 
         }
-    })
+    });
 });
 
 function CopyToClipboard() {
