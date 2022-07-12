@@ -18,7 +18,7 @@ if ( ! wp_is_mobile() ) { ?>
         <!-- /logo part -->
 
         <!-- search input part -->
-        <div>
+        <div id="search_form_product">
 			<?php get_search_form(); ?>
         </div>
         <!-- /search input part -->
