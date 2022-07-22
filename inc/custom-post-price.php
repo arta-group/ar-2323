@@ -66,7 +66,7 @@ function fs_save_custom_field($post_id)
 
 add_action('woocommerce_process_product_meta', 'fs_save_custom_field');
 
-// Unset other shiping rates when product is checked for remove send.
+// Unset other shipping rates when product is checked for remove send.
 add_filter('woocommerce_package_rates', 'fs_unset_shipping', 10, 2);
 
 function fs_unset_shipping($rates, $package)
