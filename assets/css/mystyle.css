@@ -496,3 +496,16 @@ td {
         transform: rotate(360deg);
     }
 }
+
+.mdr-add-float {
+    margin-bottom: -10px !important;
+    margin-top: -15px;
+    background-color: #fed100;
+    padding: 6px 10px;
+    font-size: 12px !important;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    width: 90%;
+    justify-self: center;
+}

@@ -25,6 +25,8 @@ if ( empty( $product ) || ! $product->is_visible() )
 
 $in_stock = $product->is_in_stock();
 
+$stock_status = $product->get_stock_status();
+
 $prices = fs_get_product_prices( $product );
 ?>
 <div <?php wc_product_class( 'product-card', $product ); ?>>
@@ -68,7 +70,7 @@ $prices = fs_get_product_prices( $product );
 					<?php
 					if ( $prices[ 'price' ] )
 					{
-						if ( $in_stock )
+						if ( $stock_status == 'instock' )
 						{
 							if ( $prices[ 'discount' ] )
 							{
@@ -85,7 +87,7 @@ $prices = fs_get_product_prices( $product );
 							</div>
 							<?php
 						}
-						else
+						elseif($stock_status == 'must_contact_us')
 						{
 							?>
 							<div class="text-base leading-11 text-gray-600 text-center font-bold">تماس بگیرید</div>

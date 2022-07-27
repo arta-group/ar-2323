@@ -21,12 +21,13 @@ if ( ! defined( 'ABSPATH' ) )
 global $product;
 
 $in_stock = $product->is_in_stock();
+$stock_status = $product->get_stock_status();
 
 $prices = fs_get_product_prices( $product );
 
 if ( $prices[ 'price' ] )
 {
-	if ( $in_stock )
+	if ( $stock_status == 'instock' )
 	{
 		if ( $product->is_on_sale() )
 		{

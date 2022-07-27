@@ -22,7 +22,7 @@ global $product;
 if ( ! $product->is_purchasable() )
 	return;
 
-if ( $product->is_in_stock() ) : ?>
+if ( $product->get_stock_status() == 'instock' ) : ?>
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
