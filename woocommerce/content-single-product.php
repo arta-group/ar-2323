@@ -162,7 +162,7 @@ if ( post_password_required() )
 				</div>
 				<div class="flex flex-col items-center justify-center">
 					<div class="mb-1/2 icon-footer-free-send text-3/4 leading-3/4 flex items-center text-gray-300"></div>
-					<div class="text-xs md-text-sm leading-11 text-gray-300 font-bold text-center"> ارسال رایگان</div>
+					<div class="text-xs md-text-sm leading-11 text-gray-300 font-bold text-center"> امکان ارسال رایگان</div>
 				</div>
 				<div class="flex flex-col items-center justify-center">
 					<div class="mb-1/2 icon-footer-insurance text-4/8 leading-4/8 flex items-center text-gray-300"></div>
