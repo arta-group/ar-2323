@@ -15,62 +15,50 @@
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 global $product;
 
-$in_stock = $product->is_in_stock();
+$in_stock     = $product->is_in_stock();
 $stock_status = $product->get_stock_status();
 
 $prices = fs_get_product_prices( $product );
 
-if ( $prices[ 'price' ] )
-{
-	if ( $stock_status == 'instock' )
-	{
-		if ( $product->is_on_sale() )
-		{
-			?>
-			<div class="discounted_price text-gray-300 text-medium lg-text-2 font-bold leading-3/9 ml-3 line-through">
-				<span class="font-bold"><?php echo wc_price( $prices[ 'regular_price' ] ); ?></span>
-				<span class="text-2">تومان</span></div>
-			<?php
-		}
+if ( $stock_status == 'instock' && $prices['regular_price'] > 0 ) {
+	if ( $product->is_on_sale() ) {
 		?>
-		<div class="final_price text-2/4 lg-text-3 font-bold text-primary-main leading-4/7 lg-ml-3">
-			<span class="font-black tracking-tighter"><?php echo wc_price( $prices[ 'price' ] ); ?></span>
-			<span class="text-2/4">تومان</span>
-		</div>
-		<?php
-		if ( $prices[ 'discount' ] )
-		{
-			?>
-			<div class="text-primary-main absolute bottom-4 left-0 lg-static">
-				<div class="relative icon-product-off leading-2/7 text-2/7">
-					<div class="text-center text-white leading-2/7 text-xl absolute top-0 right-0 z-10 w-full font-black discount-percent" dir="ltr"><?php echo sprintf( '-٪%d', $prices[ 'discount' ] ); ?></div>
-				</div>
-			</div>
-			<?php
-		}
-	}
-	else
-	{
-		?>
-		<div class="final_price text-3 font-bold text-primary-main leading-4/7 ml-3">
-			<a href="<?php echo esc_url( site_url( 'contact' ) ) ?>">تماس بگیرید</a>
-		</div>
+        <div class="discounted_price text-gray-300 text-medium lg-text-2 font-bold leading-3/9 ml-3 line-through">
+            <span class="font-bold"><?php echo wc_price( $prices['regular_price'] ); ?></span>
+            <span class="text-2">تومان</span></div>
 		<?php
 	}
-}
-else
-{
-	$status = sprintf( '<a href="%s">%s</a>', site_url( 'contact' ), 'تماس بگیرید' );
-	if ( ! $in_stock )
-		$status = 'ناموجود';
 	?>
-	<div class="final_price text-3 font-bold text-primary-main leading-4/7 ml-3">
-		<span class="text-2/4"><?php echo $status; ?></span>
-	</div>
+    <div class="final_price text-2/4 lg-text-3 font-bold text-primary-main leading-4/7 lg-ml-3">
+        <span class="font-black tracking-tighter"><?php echo wc_price( $prices['price'] ); ?></span>
+        <span class="text-2/4">تومان</span>
+    </div>
+	<?php
+	if ( $prices['discount'] ) {
+		?>
+        <div class="text-primary-main absolute bottom-4 left-0 lg-static">
+            <div class="relative icon-product-off leading-2/7 text-2/7">
+                <div class="text-center text-white leading-2/7 text-xl absolute top-0 right-0 z-10 w-full font-black discount-percent"
+                     dir="ltr"><?php echo sprintf( '-٪%d', $prices['discount'] ); ?></div>
+            </div>
+        </div>
+		<?php
+	}
+} elseif ( $stock_status == 'must_contact_us' ) {
+	?>
+    <div class="final_price text-3 font-bold text-primary-main leading-4/7 ml-3">
+        <a href="<?php echo esc_url( site_url( 'contact' ) ) ?>">تماس بگیرید</a>
+    </div>
+	<?php
+} else { ?>
+    <div class="final_price text-3 font-bold text-primary-main leading-4/7 ml-3">
+        <span class="text-2/4">ناموجود</span>
+    </div>
 	<?php
 }
