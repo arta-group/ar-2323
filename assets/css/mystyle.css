@@ -420,6 +420,10 @@ td {
         margin-top: 1rem;
     }
 
+    .order-status-height {
+        height: 580px !important;
+    }
+
 }
 
 @media (min-width: 768px) {
