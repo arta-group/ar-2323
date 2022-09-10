@@ -132,8 +132,8 @@
                 <div class="h-3/2 icon-phone text-3/2 leading-3/2 text-gray-main flex items-center"></div>
                 <div class="flex flex-col mr-2/5">
                     <div class="text-medium  leading-2/5 font-bold text-gray-600">تلفن تماس</div>
-                    <a href="tel:+982166342020"
-                       class="text-medium  leading-2/5 text-gray-600">02166342020</a>
+                    <a href="tel:+982162999487"
+                       class="text-medium  leading-2/5 text-gray-600">02162999487</a>
                 </div>
             </div>
             <div class="flex flex-row items-center">
