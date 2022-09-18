@@ -884,27 +884,37 @@ add_filter( 'woocommerce_gallery_image_size	', function ( $size ) {
 //}
 //
 //add_filter('posts_clauses', 'fs_order_by_stock_status', 2000);
-//
-//function ws_default_catalog_orderby($sort_by)
-//{
-//    return 'date';
+
+//function ws_default_catalog_orderby( $sort_by ) {
+//	return 'stock';
 //}
 //
-//add_filter('woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby');
+//add_filter( 'woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby' );
 
 /*
  *add filter by stock and date
  */
 function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
-	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : apply_filters( 'woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby' ) );
+	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : 'stock';
 
-	if ( 'stock' == $orderby_value ) {
-		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-		$args['meta_key'] = '_stock_status';
-	} elseif ( 'price' == $orderby_value ) {
-		$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
+	if ( $orderby_value == 'price' ) {
+		$args['orderby']  = 'meta_value_num';
+		$args['order']    = 'ASC';
 		$args['meta_key'] = '_price';
 	}
+
+	if ( $orderby_value == 'stock' ) {
+		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
+		$args['meta_key'] = '_stock_status';
+	}
+
+//	if ( 'stock' == $orderby_value ) {
+//		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
+//		$args['meta_key'] = '_stock_status';
+//	} elseif ( 'price' == $orderby_value ) {
+//		$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
+//		$args['meta_key'] = '_price';
+//	}
 
 //	switch ( $orderby_value ) :
 //		case 'stock' :
@@ -935,6 +945,7 @@ add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_
  */
 function sa_custom_woocommerce_catalog_orderby( $sortby ) {
 	$sortby['stock'] = 'مرتب سازی بر اساس موجودی';
+
 	return $sortby;
 }
 
