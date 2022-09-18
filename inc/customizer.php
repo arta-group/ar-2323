@@ -93,7 +93,7 @@ function mv_save_wc_order_other_fields($post_id)
     if ($order) {
         $order_user = $order->get_user();
         $order_billing_phone = $order_user->mobile;
-        $order_billing_name = $order->get_billing_first_name() . $order->get_billing_last_name();
+        $order_billing_name = $order->get_billing_first_name(). ' '. $order->get_billing_last_name();
 
         $send_post_code = $order->get_meta('_send_post_code', true);
         $send_peyk_url = $order->get_meta('_send_peyk_url', true);
