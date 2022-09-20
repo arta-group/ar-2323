@@ -231,7 +231,7 @@ function sa_add_schema()
     </script>
     <?php
 
-    if (is_product_category()) {
+    if (is_product_category() || is_product_taxonomy()) {
         $category = get_queried_object();
         $categories = [];
 
