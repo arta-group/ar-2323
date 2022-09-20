@@ -101,7 +101,7 @@ if ($show_downloads) {
 
     </section>
 
-    <div style="height: 280px;">
+    <div class="order-status-height" style="height: 280px;">
         <div class="slide_frame" style="padding-bottom: 50px !important; text-align: center; background-color: #f2f2f2; border: 3px solid #fed100; border-radius: 8px;">
             <div class="slide_up_columns">
                 <div class="wp-block-columns slide_columns with400" style="align-items: flex-start;">

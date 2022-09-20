@@ -27,11 +27,13 @@
                        class="inline-block icon-telegram text-3 leading-3 h-3 text-telegram"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
+                    <a href="https://web.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
+                       class="inline-block icon-whatsapp text-3 leading-3 h-3 text-whatsapp hide-on-mobile"></a>
                     <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
-                       class="inline-block icon-whatsapp text-3 leading-3 h-3 text-whatsapp"></a>
+                       class="inline-block icon-whatsapp text-3 leading-3 h-3 text-whatsapp hide-on-desktop"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
-                    <a href="https://api.whatsapp.com/send?phone=+989199320601" rel="nofollow" target="_blank"
+                    <a href="https://twitter.com/arta_electric" rel="nofollow" target="_blank"
                        class="flex items-center justify-center leading-3/6 icon-twitter h-3 w-3 rounded-full text-twitter bg-telegram text-white"></a>
                 </li>
                 <li class="w-3 h-3 rounded-full ml-1/5 flex items-center justify-center bg-white">
@@ -55,48 +57,83 @@
                 <div class="lg-ml-9 mb-4/9 lg-mb-0">
                     <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold"> اطلاعات بیشتر
                     </div>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer-menu',
-                        'menu_class' => 'flex flex-col max-h-12 lg-max-h-unset flex-wrap text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
-                        'container' => '',
-                        'fallback_cb' => 'false',
-                        'depth' => 1
-                    ));
-                    ?>
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'footer-menu',
+						'menu_class'     => 'flex flex-col max-h-12 lg-max-h-unset flex-wrap text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
+						'container'      => '',
+						'fallback_cb'    => 'false',
+						'depth'          => 1
+					) );
+					?>
                 </div>
                 <div class="flex flex-col flex-1 justify-between h-28">
                     <div>
                         <div class="text-medium leading-2/7 mb-1/4 lg-mb-3/1 text-primary-main font-bold">دسته بندی
                             محصولات
                         </div>
-                        <?php
-                        wp_nav_menu(array(
-                            'theme_location' => 'footer-category-menu',
-                            'menu_class' => 'grid grid-cols-2 lg-grid-cols-3 text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
-                            'container' => '',
-                            'fallback_cb' => 'false',
-                            'depth' => 1
-                        ));
-                        ?>
+						<?php
+						wp_nav_menu( array(
+							'theme_location' => 'footer-category-menu',
+							'menu_class'     => 'grid grid-cols-2 lg-grid-cols-3 text-1/5 leading-2/8 text-gray-600 has-disc pr-1/5',
+							'container'      => '',
+							'fallback_cb'    => 'false',
+							'depth'          => 1
+						) );
+						?>
                     </div>
                 </div>
             </div>
             <div class="newsletter-form">
-                <?php
-                echo do_shortcode('[contact-form-7 id="13661"]');
-                ?>
+                <!--                --><?php
+				//                echo do_shortcode('[contact-form-7 id="13661"]');
+				//                ?>
+                <form class="mdr_form">
+                    <div class="flex flex-col lg-flex-row items-center py-3 my-2 bg-gray-50 rounded-xs newsletter-form">
+                        <label for="newsletter"
+                               class="text-gray-600 text-1/4 flex lg-flex-col flex-row leading-2/6 mb-2/5 lg-mb-0 flex-shrink-0 lg-ml-2 w-auto lg-w-9 font-bold md-mt-1">
+                            اطلاع از آخرین
+                            <strong class="text-2 font-black leading-2/6 newsletter-off"> تخفیف ها </strong></label>
+                        <div class="flex flex-col lg-flex-row items-center w-full">
+                            <div class="relative w-full lg-ml-1 md-pb-1 width-lg-50">
+                                <input type="text" name="name"
+                                       class="pr-4/7 text-base w-full lg-w-36 border border-border leading-3 py-0/5 rounded-xs"
+                                       style="padding-right: 46px;" placeholder="نام">
+                                <div class="absolute top-0 mt-1/6 mr-1/9 icon-user text-base leading-1/4 text-gray-300"></div>
+                            </div>
+                            <div class="relative w-full width-lg-50">
+                                <input type="email" name="email"
+                                       class="pr-4/7 text-base w-full lg-w-36 border border-border leading-3 py-0/5 rounded-xs"
+                                       style="padding-right: 46px;padding-left: 10px;" placeholder="آدرس پست الکترونیکی">
+                                <div class="absolute top-0 mt-1/4 mr-1/9 icon-classic-envelope text-base leading-1/4 text-gray-300"></div>
+                            </div>
+                            <input type="hidden" name="form_type" value="newsletter">
+                            <input type="hidden" name="_wpnonce" value="<?php echo wp_create_nonce( 'wp_rest' ) ?>">
+                            <input type="hidden" name="noteClass" value="mdr-note-newsletter">
+                            <div class="loader loader-newsletter"></div>
+                            <button type="submit"
+                                    class="mr-1/2 text-base leading-2/6 px-2 py-0/8 bg-secondary-main rounded-xs
+                                    font-bold flex items-center width-lg-25 md-mt-1"
+                                    style="justify-content: center;">
+                                عضویت در خبرنامه
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mdr-note-newsletter" style="display: none">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
     <div class="pt-5 lg-pt-6 flex flex-col lg-flex-row justify-between">
-        <div class="grid grid-cols-1 md-grid-cols-2 gap-1/8 lg-gap-x-4/1 lg-gap-y-3/5 absolute md-static left-0 w-full lg-w-auto" style="top: 49rem;">
+        <div class="grid grid-cols-1 md-grid-cols-2 gap-1/8 lg-gap-x-4/1 lg-gap-y-3/5 absolute md-static left-0 w-full lg-w-auto"
+             style="top: 49rem;">
             <div class="flex flex-row items-center">
                 <div class="h-3/2 icon-phone text-3/2 leading-3/2 text-gray-main flex items-center"></div>
                 <div class="flex flex-col mr-2/5">
                     <div class="text-medium  leading-2/5 font-bold text-gray-600">تلفن تماس</div>
-                    <a href="tel:+982166342020"
-                       class="text-medium  leading-2/5 text-gray-600">02166342020</a>
+                    <a href="tel:+982162999487"
+                       class="text-medium  leading-2/5 text-gray-600">02162999487</a>
                 </div>
             </div>
             <div class="flex flex-row items-center">

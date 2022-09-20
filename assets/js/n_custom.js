@@ -1,3 +1,15 @@
+$(function () {
+
+    $('body').on('change', '#privacyPolicyChecked', function () {
+        if (!$("#privacyPolicyChecked").is(':checked')) {
+            $("#place_order").css('background-color', '#c1c1c1').attr('disabled', 'disabled');
+        } else {
+            $("#place_order").css('background-color', '').attr('disabled', false);
+
+        }
+    });
+});
+
 function CopyToClipboard() {
     var copyText = document.getElementById("PostCode");
 

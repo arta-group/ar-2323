@@ -93,7 +93,7 @@ function mv_save_wc_order_other_fields($post_id)
     if ($order) {
         $order_user = $order->get_user();
         $order_billing_phone = $order_user->mobile;
-        $order_billing_name = $order->get_billing_first_name() . $order->get_billing_last_name();
+        $order_billing_name = $order->get_billing_first_name(). ' '. $order->get_billing_last_name();
 
         $send_post_code = $order->get_meta('_send_post_code', true);
         $send_peyk_url = $order->get_meta('_send_peyk_url', true);
@@ -101,23 +101,24 @@ function mv_save_wc_order_other_fields($post_id)
         if (!($send_post_code || $send_peyk_url)) {
             if (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] != 1) {
 
-                $sms_value = $order_billing_name. ';'. sanitize_text_field($_POST['_send_post_code']);
-                sa_sms($order_billing_phone, '5', $sms_value);
+                $sms_value = [sanitize_text_field($order_billing_name), sanitize_text_field($_POST['_send_post_code'])];
+                sa_sms(sanitize_text_field($order_billing_phone), '5', $sms_value);
             }elseif (!empty($_POST['_send_post_code']) && $_POST['_send_post_code'] == 1) {
 
-                $sms_value = $order_billing_name;
-                sa_sms($order_billing_phone, '7', $sms_value);
+                $sms_value = [sanitize_text_field($order_billing_name)];
+                sa_sms(sanitize_text_field($order_billing_phone), '7', $sms_value);
             } elseif (!empty($_POST['_send_peyk_url'])) {
 
-                $sms_value = $order_billing_name. ';'. sanitize_text_field($_POST['_send_peyk_url']);
-                sa_sms($order_billing_phone, '6', $sms_value);
+                $sms_value = [sanitize_text_field($order_billing_name), sanitize_text_field($_POST['_send_peyk_url'])];
+                sa_sms(sanitize_text_field($order_billing_phone), '6', $sms_value);
             }
         }
 
-        $send_post_code = $_POST['_send_post_code'] ? $order->update_meta_data('_send_post_code', sanitize_text_field($_POST['_send_post_code'])) :
-            $order->update_meta_data('_send_post_code', '');
-        $send_peyk_url = $_POST['_send_peyk_url'] ? $order->update_meta_data('_send_peyk_url', sanitize_text_field($_POST['_send_peyk_url'])) :
-            $order->update_meta_data('_send_peyk_url', '');
+		$send_post_code = $_POST['_send_post_code'] ?? '';
+	    $order->update_meta_data('_send_post_code', sanitize_text_field($send_post_code));
+
+	    $send_peyk_url = $_POST['_send_peyk_url'] ?? '';
+	    $order->update_meta_data('_send_peyk_url', sanitize_text_field($send_peyk_url));
 
         $order->save_meta_data();
     }

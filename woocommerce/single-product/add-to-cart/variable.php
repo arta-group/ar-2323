@@ -35,7 +35,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		if ( empty( $available_variations ) && $available_variations !== false )
 		{
 			$status = sprintf( '<a href="%s">%s</a>', site_url( 'contact' ), 'تماس بگیرید' );
-			if ( ! $product->is_in_stock() )
+			if ( $product->get_stock_status() == 'outofstock' )
 				$status = 'ناموجود';
 			?>
 			<div class="text-3 font-bold text-primary-main leading-4/7 ml-3">

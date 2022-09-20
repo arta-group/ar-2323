@@ -17,7 +17,7 @@ div .amazing > p {
 
 @media (max-width: 768px) {
     div .amazing > ul {
-        grid-template-columns: repeat(2,minmax(0,1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -50,11 +50,13 @@ div .pagination2 > ul > li .current {
     div .pagination2 > ul {
         font-size: 1em;
     }
+
     div .pagination2 > ul > li {
         margin: 5px 3px 5px 3px;
         width: 20px;
         height: 20px;
     }
+
     div .pagination2 > ul > li .current {
         width: 18px;
         height: 18px;
@@ -84,6 +86,7 @@ div .order_tracking {
     .hide-on-mobile {
         display: none !important;
     }
+
     div .order_tracking {
         display: block;
     }
@@ -413,12 +416,66 @@ td {
         height: 64px;
     }
 
+    .md-mt-1 {
+        margin-top: 1rem;
+    }
+
+    .order-status-height {
+        height: 580px !important;
+    }
+
 }
 
 @media (min-width: 768px) {
     .hide-on-desktop {
         display: none;
     }
+
+    .width-lg-50 {
+        width: 50%;
+    }
+
+    .width-lg-25 {
+        width: 25%;
+    }
+
+    .loader-newsletter {
+        right: 29px !important;
+        top: 0px !important;
+        width: 13px !important;
+        height: 11px !important;
+        margin-bottom: 0px !important;
+    }
+
+}
+
+.loader-contact-us {
+    right: 33px !important;
+    top: -5px !important;
+}
+
+.mdr-note-newsletter, .mdr-note-contact-us {
+    text-align: center;
+}
+
+.mdr-note-newsletter > p {
+    border-radius: 12px;
+    display: inline-flex;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.mdr-note-contact-us > p {
+    border-radius: 12px;
+    display: inline-flex;
+    color: #ffffff;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: -10px;
 }
 
 .loader {
@@ -436,6 +493,23 @@ td {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.mdr-add-float {
+    margin-bottom: -10px !important;
+    margin-top: -15px;
+    background-color: #fed100;
+    padding: 6px 10px;
+    font-size: 12px !important;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    width: 98%;
+    justify-self: center;
 }
