@@ -556,6 +556,7 @@ function sa_add_schema() {
 
 		$author_data = $authordata->data;
 		$author_name = $author_data->display_name;
+		$author_url = get_site_url(). '/user-profile/?id='. $author_data->ID;
 
 		$post_title = ( get_post_meta( $post->ID, '_yoast_wpseo_title', true ) == '' ) ? $post->post_title : get_post_meta( $post->ID, '_yoast_wpseo_title', true );
 		$post_desc  = get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true ) ?? $post->post_title;
@@ -581,7 +582,7 @@ function sa_add_schema() {
                     {
                         "@type": "Person",
                         "name": "<?php echo $author_name; ?>",
-                        "url": ""
+                        "url": "<?php echo $author_url; ?>"
                     }
                 ],
                 "publisher": {
