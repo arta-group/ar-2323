@@ -1,4 +1,11 @@
-<div class="pt-3/3 pb-4 border-t border-border">
+<style>
+    @media (max-width: 768px) {
+        .footer-bottom {
+            margin-top: 256px;
+        }
+    }
+</style>
+<div class="pt-3/3 pb-4 border-t border-border footer-bottom">
 	<div class="flex flex-col lg-flex-row items-center justify-between">
 		<p class="text-base text-center lg-text-right text-gray-500 leading-2/2 mb-4 lg-mb-0 flex items-center flex-col lg-flex-row">
 			<span>۱۳۹۴-۱۴۰۰ &copy; کلیه حقوق متعلق به آرتا الکتریک می‌باشد.  </span>&nbsp;<span>استفاده از مطالب سایت تنها با ذکر منبع بلامانع است.</span>
