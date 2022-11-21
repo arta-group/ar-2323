@@ -88,31 +88,31 @@ if ( $posts ) {
     </style>
 
     <section class="px-0 container mx-auto overflow-hidden" dir="rtl">
-        <div class="hotlink-box">
-            <div><h3>داغ ترین ها :</h3></div>
-            <!--            <div>-->
-            <!--                <svg viewBox="15 0 100 100">-->
-            <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"-->
-            <!--                          transform="translate(100, 100) rotate(180) "></path>-->
-            <!--                </svg>-->
-            <!--            </div>-->
-            <div>
-				<?php if ( $hotlinks_number > 0 ) {
+		<?php if ( $hotlinks_number ) { ?>
+            <div class="hotlink-box">
+                <div><h3>داغ ترین ها :</h3></div>
+                <!--            <div>-->
+                <!--                <svg viewBox="15 0 100 100">-->
+                <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"-->
+                <!--                          transform="translate(100, 100) rotate(180) "></path>-->
+                <!--                </svg>-->
+                <!--            </div>-->
+                <div>
+					<?php
 					for ( $i = 0; $i < $hotlinks_number; $i ++ ) {
 						$hotlink_name = get_option( 'options_blog-hotlink_' . $i . '_hotlink-name' );
 						$hotlink      = get_option( 'options_blog-hotlink_' . $i . '_hotlink' );
 						?>
-                        <a href="<?php echo $hotlink  ?>" target="_blank"><?php echo $hotlink_name  ?></a>
-					<?php }
-				} ?>
+                        <a href="<?php echo $hotlink ?>" target="_blank"><?php echo $hotlink_name ?></a>
+					<?php } ?>
+                </div>
+                <!--            <div style="width: 100px">-->
+                <!--                <svg viewBox="-15 0 100 100">-->
+                <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"></path>-->
+                <!--                </svg>-->
+                <!--            </div>-->
             </div>
-            <!--            <div style="width: 100px">-->
-            <!--                <svg viewBox="-15 0 100 100">-->
-            <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"></path>-->
-            <!--                </svg>-->
-            <!--            </div>-->
-        </div>
-
+		<?php } ?>
         <div class="grid grid-cols-1 lg-grid-cols-4 lg-grid-rows-2 gap-x-3 gap-y-2 mobile-carousel"
              data-slick='{"slidesToShow":1, "slidesToScroll": 1 ,"dots": true,"infinite": true,"speed": 900 , "rtl" : true}'>
 			<?php
