@@ -97,7 +97,7 @@ if ( $posts ) {
             <!--                </svg>-->
             <!--            </div>-->
             <div>
-				<?php if ( $hotlinks_number ) {
+				<?php if ( $hotlinks_number > 0 ) {
 					for ( $i = 0; $i < $hotlinks_number; $i ++ ) {
 						$hotlink_name = get_option( 'options_blog-hotlink_' . $i . '_hotlink-name' );
 						$hotlink      = get_option( 'options_blog-hotlink_' . $i . '_hotlink' );
