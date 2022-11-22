@@ -74,35 +74,36 @@
     }
 </style>
 
-<?php
-$hotlinks_number = get_option( 'options_blog-hotlink' );
-if ( $hotlinks_number ) { ?>
-    <div class="hotlink-box">
-        <div><h3>داغ ترین ها :</h3></div>
-        <!--            <div>-->
-        <!--                <svg viewBox="15 0 100 100">-->
-        <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"-->
-        <!--                          transform="translate(100, 100) rotate(180) "></path>-->
-        <!--                </svg>-->
-        <!--            </div>-->
-        <div>
-			<?php
-			for ( $i = 0; $i < $hotlinks_number; $i ++ ) {
-				$hotlink_name = get_option( 'options_blog-hotlink_' . $i . '_hotlink-name' );
-				$hotlink      = get_option( 'options_blog-hotlink_' . $i . '_hotlink' );
-				?>
-                <a href="<?php echo $hotlink ?>" target="_blank"><?php echo $hotlink_name ?></a>
-			<?php } ?>
-        </div>
-        <!--            <div style="width: 100px">-->
-        <!--                <svg viewBox="-15 0 100 100">-->
-        <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"></path>-->
-        <!--                </svg>-->
-        <!--            </div>-->
-    </div>
-<?php } ?>
-
 <div class="w-full lg-w-auto lg-flex-1">
+    
+	<?php
+	$hotlinks_number = get_option( 'options_blog-hotlink' );
+	if ( $hotlinks_number ) { ?>
+        <div class="hotlink-box">
+            <div><h3>داغ ترین ها :</h3></div>
+            <!--            <div>-->
+            <!--                <svg viewBox="15 0 100 100">-->
+            <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"-->
+            <!--                          transform="translate(100, 100) rotate(180) "></path>-->
+            <!--                </svg>-->
+            <!--            </div>-->
+            <div>
+				<?php
+				for ( $i = 0; $i < $hotlinks_number; $i ++ ) {
+					$hotlink_name = get_option( 'options_blog-hotlink_' . $i . '_hotlink-name' );
+					$hotlink      = get_option( 'options_blog-hotlink_' . $i . '_hotlink' );
+					?>
+                    <a href="<?php echo $hotlink ?>" target="_blank"><?php echo $hotlink_name ?></a>
+				<?php } ?>
+            </div>
+            <!--            <div style="width: 100px">-->
+            <!--                <svg viewBox="-15 0 100 100">-->
+            <!--                    <path d="M 10,50 L 35,80 L 45,75 L 25,50  L 45,25 L 35,20 Z"></path>-->
+            <!--                </svg>-->
+            <!--            </div>-->
+        </div>
+	<?php } ?>
+
     <div class="px-2 md-px-3 lg-px-0 mb-1">
         <h1 class="text-xl md-text-2/4 leading-3/8 font-bold text-gray-main"><?php the_title(); ?></h1>
         <div class="flex flex-col md-flex-row items-center justify-between mt-2">
