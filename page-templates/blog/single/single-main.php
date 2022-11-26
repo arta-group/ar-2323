@@ -75,7 +75,7 @@
 </style>
 
 <div class="w-full lg-w-auto lg-flex-1">
-    
+
 	<?php
 	$hotlinks_number = get_option( 'options_blog-hotlink' );
 	if ( $hotlinks_number ) { ?>

@@ -54,7 +54,7 @@ $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_cl
 	if ( $product->get_gallery_image_ids() )
 	{
 		?>
-		<div class="single-next custom-hidden-m lg-block absolute bottom-2 opacity-25 hover-opacity-100  left-0 border-l border-b border-r border-border rounded-b-xs bg-white p-0/5 -ml-3/1 text-sm leading-1/2 icon-angle-down transform rotate-90 -translate-y-1/2 cursor-pointer"></div>
+		<div class="hide-on-mobile single-next custom-hidden-m lg-block absolute bottom-2 opacity-25 hover-opacity-100  left-0 border-l border-b border-r border-border rounded-b-xs bg-white p-0/5 -ml-3/1 text-sm leading-1/2 icon-angle-down transform rotate-90 -translate-y-1/2 cursor-pointer"></div>
 		<div class="single-prev custom-hidden-m lg-block absolute bottom-2 opacity-25 hover-opacity-100 right-0 border-l border-b border-r border-border rounded-b-xs bg-white p-0/5 -mr-2/9 text-sm leading-1/2 icon-angle-down transform -rotate-90 -translate-y-1/2 cursor-pointer"></div>
 		<?php
 	}

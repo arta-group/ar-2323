@@ -15,8 +15,9 @@
  * @version 3.8.0
  */
 
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
 
 $product_tabs = [
 	'description'            => [
@@ -33,49 +34,47 @@ $product_tabs = [
 	]
 ];
 
-if ( empty( trim( strip_tags( get_the_content() ) ) ) )
-	unset( $product_tabs[ 'description' ] );
+if ( empty( trim( strip_tags( get_the_content() ) ) ) ) {
+	unset( $product_tabs['description'] );
+}
 ?>
 <section class="py-6 bg-gray-100 px-2 md-px-3 lg-px-0">
-	<div class="mx-auto container">
-		<div class="bg-white rounded-xs pt-0/7 lg-pt-2 w-full content-wrapper">
-			<div class="flex items-center justify-center border-b border-border">
-				<ul class="flex items-center justify-center c-tabs single">
+    <div class="mx-auto container">
+        <div class="bg-white rounded-xs pt-0/7 lg-pt-2 w-full content-wrapper">
+            <div class="flex items-center justify-center border-b border-border">
+                <div style="flex-direction: column;padding-left: 10px;padding-right: 10px;"
+                     class="flex direction justify-center c-tabs single pb-md-3">
 					<?php
 					$iteration = 1;
-					foreach ( $product_tabs as $key => $product_tab )
-					{
-						if ( isset( $product_tab[ 'title' ] ) )
-						{
+					foreach ( $product_tabs as $key => $product_tab ) {
+						if ( isset( $product_tab['title'] ) ) {
+							if ( $product_tab['title'] != 'مشخصات محصول' ) {
+								?>
+                                <h3 style="width: fit-content;"
+                                    class="title lg-mr-3/2 ml-3 lg-ml-6/4 text-base md-text-lg leading-5/4 lg-leading-6 font-bold cursor-pointer">
+									<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
+                                </h3>
+								<?php
+							}
 							?>
-							<li class="ml-3 lg-ml-6/4 text-base md-text-lg leading-5/4 lg-leading-6 font-bold cursor-pointer<?php echo $iteration == 1 ? ' active' : ''; ?>" id="tab-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
-								<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab[ 'title' ], $key ) ); ?>
-							</li>
+                            <div class="c-tab-container pb-2 lg-pb-4 lg-px-4/5">
+                                <div class="c-tab-content single-product-content active"
+                                     data-id="tab-<?php echo esc_attr( $key ); ?>" role="tabpanel"
+                                     aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>">
+									<?php
+									if ( isset( $product_tab['callback'] ) ) {
+										call_user_func( $product_tab['callback'], $key, $product_tab );
+									}
+									?>
+                                </div>
+                            </div>
 							<?php
 						}
-						$iteration ++;
 					}
 					?>
-				</ul>
-			</div>
-			<div class="c-tab-container p-2 lg-py-4 lg-px-4/5">
-				<?php
-				$iteration = 1;
-				foreach ( $product_tabs as $key => $product_tab )
-				{
-					?>
-					<div class="c-tab-content single-product-content hidden <?php echo $iteration == 1 ? ' active' : ''; ?>" data-id="tab-<?php echo esc_attr( $key ); ?>" role="tabpanel" aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>">
-						<?php
-						if ( isset( $product_tab[ 'callback' ] ) )
-							call_user_func( $product_tab[ 'callback' ], $key, $product_tab );
-						?>
-					</div>
-					<?php
-					$iteration ++;
-				}
-				?>
-			</div>
+                </div>
+            </div>
 			<?php do_action( 'woocommerce_product_after_tabs' ); ?>
-		</div>
-	</div>
+        </div>
+    </div>
 </section>
