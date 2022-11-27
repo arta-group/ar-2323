@@ -49,9 +49,9 @@ if ( empty( trim( strip_tags( get_the_content() ) ) ) ) {
 					foreach ( $product_tabs as $key => $product_tab ) {
 						if ( isset( $product_tab['title'] ) ) {
 							?>
-                            <a href="#<?php echo $key ?>">
-                                <h3 style="width: fit-content;"
-                                    class="lg-mr-3/2 ml-3 lg-ml-6/4 text-base md-text-lg leading-5/4 lg-leading-6 font-bold cursor-pointer">
+                            <a href="#<?php echo $key ?>"
+                               class="lg-mr-3/2 ml-2 lg-ml-6/4 text-base md-text-lg leading-5/4 lg-leading-6 font-bold cursor-pointer" >
+                                <h3 style="">
 									<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
                                 </h3>
                             </a>
