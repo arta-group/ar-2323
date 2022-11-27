@@ -41,7 +41,25 @@ if ( empty( trim( strip_tags( get_the_content() ) ) ) ) {
 <section class="py-6 bg-gray-100 px-2 md-px-3 lg-px-0">
     <div class="mx-auto container">
         <div class="bg-white rounded-xs pt-0/7 lg-pt-2 w-full content-wrapper">
-            <div class="flex items-center justify-center border-b border-border">
+            <div style="flex-direction: column;"
+                 class="flex items-center justify-center border-b border-border">
+                <div class="flex direction items-center justify-center c-tabs single pb-md-3">
+					<?php
+					$iteration = 1;
+					foreach ( $product_tabs as $key => $product_tab ) {
+						if ( isset( $product_tab['title'] ) ) {
+							?>
+                            <a href="#<?php echo $key ?>">
+                                <h3 style="width: fit-content;"
+                                    class="lg-mr-3/2 ml-3 lg-ml-6/4 text-base md-text-lg leading-5/4 lg-leading-6 font-bold cursor-pointer">
+									<?php echo wp_kses_post( apply_filters( 'woocommerce_product_' . $key . '_tab_title', $product_tab['title'], $key ) ); ?>
+                                </h3>
+                            </a>
+							<?php
+						}
+					}
+					?>
+                </div>
                 <div style="flex-direction: column;padding-left: 10px;padding-right: 10px;"
                      class="flex direction justify-center c-tabs single pb-md-3">
 					<?php
@@ -57,7 +75,7 @@ if ( empty( trim( strip_tags( get_the_content() ) ) ) ) {
 								<?php
 							}
 							?>
-                            <div class="c-tab-container pb-2 lg-pb-4 lg-px-4/5">
+                            <div id="<?php echo $key ?>" class="c-tab-container pb-2 lg-pb-4 lg-px-4/5">
                                 <div class="c-tab-content single-product-content active"
                                      data-id="tab-<?php echo esc_attr( $key ); ?>" role="tabpanel"
                                      aria-labelledby="tab-title-<?php echo esc_attr( $key ); ?>">
