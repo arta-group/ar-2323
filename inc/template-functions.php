@@ -220,8 +220,6 @@ function sa_add_schema() {
 
 
 
-
-
         </script>
 		<?php
 	}
@@ -282,8 +280,6 @@ function sa_add_schema() {
 
 
 
-
-
         </script>
 
 		<?php
@@ -318,8 +314,6 @@ function sa_add_schema() {
                         },
                     "regionsAllowed": ""
             }
-
-
 
 
 
@@ -373,8 +367,6 @@ function sa_add_schema() {
 
 
 
-
-
             </script>
 			<?php
 		}
@@ -394,15 +386,15 @@ function sa_add_schema() {
 		$product_price = ( $product->get_price() ?: 0 ) * 10;
 		$product_sku   = $product->get_sku() ?: 0;
 
-		$rate_value = get_post_meta( get_the_ID(), 'product-rate-value', true );
-		$rate_count = get_post_meta( get_the_ID(), 'product-rate-count', true );
+//		$rate_value = get_post_meta( get_the_ID(), 'product-rate-value', true );
+//		$rate_count = get_post_meta( get_the_ID(), 'product-rate-count', true );
 
-		if ( empty( $rate_value ) ) {
-			$rate_value = rand( 40, 50 ) / 10;
-			$rate_count = rand( 50, 300 );
-			update_post_meta( get_the_ID(), 'product-rate-value', $rate_value );
-			update_post_meta( get_the_ID(), 'product-rate-count', $rate_count );
-		}
+//		if ( empty( $rate_value ) ) {
+//			$rate_value = rand( 40, 50 ) / 10;
+//			$rate_count = rand( 50, 300 );
+//			update_post_meta( get_the_ID(), 'product-rate-value', $rate_value );
+//			update_post_meta( get_the_ID(), 'product-rate-count', $rate_count );
+//		}
 		?>
         <script type="application/ld+json">
 			{
@@ -413,13 +405,6 @@ function sa_add_schema() {
 				"description": "<?php echo $product_desc; ?>",
 				"sku": "<?php echo $product_sku; ?>",
 				"mpn": "<?php echo $product_sku; ?>",
-				"aggregateRating": {
-					"@type": "AggregateRating",
-					"ratingValue": <?php echo $rate_value; ?>,
-					"reviewCount": <?php echo $rate_count; ?>,
-					"bestRating": 5,
-					"worstRating": 0
-				},
 				"brand": {
 					"@type": "Brand",
 					"name": "<?php $brand = wp_get_post_terms( $product->get_id(), 'product_brand' );
@@ -446,21 +431,12 @@ function sa_add_schema() {
 				},
 				"review": {
 					"@type": "Review",
-					"reviewRating": {
-						"@type": "Rating",
-						"bestRating": 5,
-						"ratingValue": <?php echo $rate_value; ?>,
-						"worstRating": 0
-					},
 					"author": {
 					    "@type": "Person",
 					    "name": "کاربر آرتا الکتریک"
 					}
 				}
 	    	}
-
-
-
 
 
 
@@ -496,12 +472,7 @@ function sa_add_schema() {
 
 
 
-
-
-
-
-
-
+            
             </script>
 			<?php
 		}
@@ -542,9 +513,6 @@ function sa_add_schema() {
 
 
 
-
-
-
             </script>
 			<?php
 		}
@@ -556,7 +524,7 @@ function sa_add_schema() {
 
 		$author_data = $authordata->data;
 		$author_name = $author_data->display_name;
-		$author_url = get_site_url(). '/user-profile/?id='. $author_data->ID;
+		$author_url  = get_site_url() . '/user-profile/?id=' . $author_data->ID;
 
 		$post_title = ( get_post_meta( $post->ID, '_yoast_wpseo_title', true ) == '' ) ? $post->post_title : get_post_meta( $post->ID, '_yoast_wpseo_title', true );
 		$post_desc  = get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true ) ?? $post->post_title;
@@ -591,6 +559,10 @@ function sa_add_schema() {
                         "url": "https://artaelectric.ir"
                     }
             }
+
+
+
+
 
         </script>
 		<?php
