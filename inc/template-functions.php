@@ -472,7 +472,7 @@ function sa_add_schema() {
 
 
 
-            
+
             </script>
 			<?php
 		}
