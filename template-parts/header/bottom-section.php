@@ -2,11 +2,12 @@
 
 <div class="custom-hidden-m lg-flex items-center justify-between pt-3 w-full relative">
 	<nav class="flex flex-row items-center">
-			<div class="group relative">
-				<a href="#" class="flex items-center cursor-pointer w-296 rounded-t-xs pt-1/4 pb-1/6 pr-2/4 pl-2/7 bg-secondary-main text-gray-main text-medium leading-2/2 ml-3/6">
+<!--			<div class="group relative">-->
+			<div class="relative">
+				<a href="<?php echo get_site_url()?>/menu" class="flex items-center cursor-pointer w-296 rounded-t-xs pt-1/4 pb-1/6 pr-2/4 pl-2/7 bg-secondary-main text-gray-main text-medium leading-2/2 ml-3/6">
 					<div class="icon-menu-ws text-2 leading-2 h-2"></div>
 					<div class="font-bold leading-2/5 text-1/6 mr-1/6 ml-5">دسته بندی محصولات</div>
-					<div class="icon-angle-down text-0/7 leading-2/2 transform  flex items-center justify-center transform group-hover-rotate-180 transition-all duration-100 ease-linear"></div>
+<!--					<div class="icon-angle-down text-0/7 leading-2/2 transform  flex items-center justify-center transform group-hover-rotate-180 transition-all duration-100 ease-linear"></div>-->
 				</a>
 				<?php get_template_part( "template-parts/header/category-menu" ); ?>
 			</div>

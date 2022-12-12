@@ -188,8 +188,9 @@
                 <div class="h-3/2 icon-phone text-3/2 leading-3/2 text-gray-main flex items-center"></div>
                 <div class="flex flex-col mr-2/5">
                     <div class="text-medium  leading-2/5 font-bold text-gray-600">تلفن تماس</div>
-                    <a href="tel:+982166342020"
-                       class="text-medium  leading-2/5 text-gray-600">02166342020</a>
+                    <?php $phone = get_field( 'phone', 'option' ); ?>
+                    <a href="tel:<?php echo $phone?>"
+                       class="text-medium  leading-2/5 text-gray-600"><?php echo str_replace( '021', '021 - ', $phone ); ?></a>
                 </div>
             </div>
             <div class="flex flex-row items-center width-lg-25">

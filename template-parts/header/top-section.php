@@ -94,8 +94,9 @@ if ( ! wp_is_mobile() ) { ?>
                                 <a class="menu__link" href="<?php echo home_url() ?>"> خانه </a>
                             </li>
                             <li class="menu__item flex flex-row-reverse items-center" role="menuitem">
-                                <a class="menu__link" data-submenu="submenu-categories" aria-owns="submenu-categories"
-                                   href="#"> دسته بندی محصولات </a>
+<!--                                <a class="menu__link" data-submenu="submenu-categories" aria-owns="submenu-categories"-->
+                                <a class="menu__link" data-submenu="" aria-owns="submenu-categories"
+                                   href="<?php echo get_site_url()?>/menu"> دسته بندی محصولات </a>
                                 <span class="icon-angle-down text-white text-3xs pl-1/3 transform"></span>
                             </li>
                             <li class="menu__item" role="menuitem">
