@@ -25,6 +25,7 @@ while ( have_posts() ) {
 		?>
         <style>
 
+
             .mdr-scroll {
                 overflow-y: hidden;
                 overflow-x: auto;
@@ -32,7 +33,8 @@ while ( have_posts() ) {
 
             /* width */
             .mdr-scroll::-webkit-scrollbar {
-                height: 3px;
+                height: 8px;
+                background: #d0d0d0;
             }
 
             /* Handle */
@@ -44,14 +46,6 @@ while ( have_posts() ) {
             .mdr-scroll::-webkit-scrollbar-thumb:hover {
                 background: #555;
             }
-
-            /*.hotlink-box > div:nth-child(4) {*/
-            /*    width: 55px;*/
-            /*    display: flex;*/
-            /*    flex-direction: row;*/
-            /*    align-items: center;*/
-            /*    justify-content: center;*/
-            /*}*/
 
             .menu-page-or {
                 display: none;
@@ -69,20 +63,31 @@ while ( have_posts() ) {
                 flex-direction: column;
                 justify-content: center;
                 width: 100px;
-                height: 80px;
-                background-color: #ebebeb;
+                height: 130px;
+                background-color: #dddddd;
                 margin: 10px;
                 padding: 10px;
                 border-radius: 10px;
                 text-align: center;
-                font-weight: bold;
-                font-size: 16px;
+                font-size: 15px;
                 box-shadow: rgb(0 0 0 / 15%) 0px 5px 6px 0px;
                 border: #ffffff solid 2px;
             }
 
             #menu-page > li > ul {
                 display: none;
+            }
+
+            #menu-page > li > a {
+                width: 75px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #menu-page > li > a > img {
+                padding-bottom: 5px;
             }
 
             #menu-page > li > ul > li > ul {
@@ -100,21 +105,28 @@ while ( have_posts() ) {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: fit-content;
-                height: 80px;
+                width: 100px;
+                height: 130px;
                 background-color: #ebebeb;
                 margin: 5px;
                 padding: 7px;
                 border-radius: 10px;
                 text-align: center;
-                font-weight: bold;
-                font-size: 15px;
+                font-size: 14px;
                 box-shadow: rgb(0 0 0 / 15%) 0px 5px 6px 0px;
                 border: #ffffff solid 2px;
             }
 
             #sub-menu-page > li > a {
                 width: 75px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #sub_menu-page > li > a > img {
+                padding-bottom: 5px;
             }
 
             #sub-menu-page > li > ul {
@@ -136,21 +148,47 @@ while ( have_posts() ) {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: fit-content;
-                height: 80px;
-                background-color: #ebebeb;
+                width: 100px;
+                height: 130px;
+                background-color: #f3f3f3;
                 margin: 4px;
                 padding: 5px;
                 border-radius: 10px;
                 text-align: center;
-                font-weight: bold;
-                font-size: 13px;
+                font-size: 12px;
                 box-shadow: rgb(0 0 0 / 15%) 0px 5px 6px 0px;
                 border: #ffffff solid 2px;
+                align-items: center;
             }
 
             #sub2-menu-page > li > a {
                 width: 75px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            #menu-page > li > a > img {
+                padding-bottom: 5px;
+            }
+
+            @media (max-width: 768px) {
+                /* width */
+                .mdr-scroll::-webkit-scrollbar {
+                    height: 3px;
+                    background: #d0d0d0;
+                }
+
+                /* Handle */
+                .mdr-scroll::-webkit-scrollbar-thumb {
+                    background: #888;
+                }
+
+                /* Handle on hover */
+                .mdr-scroll::-webkit-scrollbar-thumb:hover {
+                    background: #555;
+                }
             }
 
         </style>
@@ -182,7 +220,7 @@ while ( have_posts() ) {
 
                     $("body").on("click", "#menu-page > li", function (e) {
 
-                        if ($(this).find("ul").children().length > 0) {
+                        if ($(this).find("> ul").children().length > 0) {
                             e.preventDefault();
                         }
 
@@ -190,19 +228,19 @@ while ( have_posts() ) {
                         $("#sub-menu-page").children().remove()
                         $("#sub2-menu-page").slideUp("fast");
                         $("#sub2-menu-page").children().remove()
-                        $("#sub-menu-page").append($(this).find("ul").children().clone());
+                        $("#sub-menu-page").append($(this).find("> ul").children().clone());
                         $("#sub-menu-page").slideDown("slow");
                     });
 
                     $("body").on("click", "#sub-menu-page > li", function (e) {
 
-                        if ($(this).find("ul").children().length > 0) {
+                        if ($(this).find("> ul").children().length > 0) {
                             e.preventDefault();
                         }
 
                         $("#sub2-menu-page").slideUp("fast");
                         $("#sub2-menu-page").children().remove()
-                        $("#sub2-menu-page").append($(this).find("ul").children().clone().slideDown("slow"));
+                        $("#sub2-menu-page").append($(this).find("> ul").children().clone().slideDown("slow"));
                         $("#sub2-menu-page").slideDown("slow");
                     });
 

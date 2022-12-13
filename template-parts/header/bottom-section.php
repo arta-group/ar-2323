@@ -9,7 +9,7 @@
 					<div class="font-bold leading-2/5 text-1/6 mr-1/6 ml-5">دسته بندی محصولات</div>
 <!--					<div class="icon-angle-down text-0/7 leading-2/2 transform  flex items-center justify-center transform group-hover-rotate-180 transition-all duration-100 ease-linear"></div>-->
 				</a>
-				<?php get_template_part( "template-parts/header/category-menu" ); ?>
+<!--				--><?php //get_template_part( "template-parts/header/category-menu" ); ?>
 			</div>
 			<?php
 
