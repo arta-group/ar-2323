@@ -266,10 +266,11 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 		)
 	);
 	$result = json_decode( curl_exec( $ch ) );
+	$error = curl_errno( $ch );
 	curl_close( $ch );
 
 // to debug
-	if ( curl_errno( $ch ) ) {
+	if ( $error ) {
 		error_log( 'Curl error: ' . curl_error( $ch ) );
 
 		return false;
