@@ -42,14 +42,15 @@ if ( isset( $_POST['send-password'] ) && isset( $_POST['lost-password-nonce'] ) 
 
 				$fullname  = empty( $user->first_name ) && empty( $user->last_name ) ? 'کاربر' : $user->first_name . ' ' . $user->last_name;
 				$sms       = 7;
-				$sms_value = [sanitize_text_field($new_password), sanitize_text_field($fullname)];
-				$send_sms  = sa_sms( sanitize_text_field($user_login), $sms, $sms_value );
+				$sms_value = [ sanitize_text_field( $new_password ), sanitize_text_field( $fullname ) ];
+				$send_sms  = sa_sms( sanitize_text_field( $user_login ), $sms, $sms_value );
 
 				if ( $send_sms ) {
+					wp_redirect( get_site_url() . '/my-account?reset_pass=' . $user_login );
 					$message          = sprintf( "<span>کاربر گرامی رمز عبور جدید به شماره شما ارسال شد.</span> <a href='%s'>وارد شوید</a>", esc_url( site_url( 'my-account' ) ) );
 					$is_send_password = true;
-				}else {
-					$message          = "<span>کاربر گرامی متاسفانه در ارسال پیام مشکلی رخ داده، لطفا با پشتببانی تماس بفرمایید.</span>";
+				} else {
+					$message = "<span>کاربر گرامی متاسفانه در ارسال پیام مشکلی رخ داده، لطفا با پشتببانی تماس بفرمایید.</span>";
 				}
 
 			} else {
@@ -57,7 +58,7 @@ if ( isset( $_POST['send-password'] ) && isset( $_POST['lost-password-nonce'] ) 
 			}
 		}
 
-		if ( ! empty($message) ) {
+		if ( ! empty( $message ) ) {
 			$strong      = ! $is_send_password ? '<strong>' . __( 'Error:', 'woocommerce' ) . '</strong> ' : '';
 			$notice_type = $is_send_password ? 'success' : 'error';
 			wc_add_notice( $strong . $message, $notice_type );
