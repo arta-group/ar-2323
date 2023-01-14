@@ -189,7 +189,7 @@
                 <div class="flex flex-col mr-2/5">
                     <div class="text-medium  leading-2/5 font-bold text-gray-600">تلفن تماس</div>
                     <?php $phone = get_field( 'phone', 'option' ); ?>
-                    <a href="tel:<?php echo $phone?>"
+                    <a href="tel:<?php echo $phone?>" style="direction: ltr;"
                        class="text-medium  leading-2/5 text-gray-600"><?php echo str_replace( '021', '021 - ', $phone ); ?></a>
                 </div>
             </div>
