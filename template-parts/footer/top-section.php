@@ -35,17 +35,11 @@
 
 <div class="flex flex-col lg-flex-row bottom-pic">
     <div style="width: 33%;padding: 30px;">
-	    <?php
-	    $cover_image = get_field( 'advantage-cover' );
-	    if ( $cover_image )
-	    {
-		    ?>
-            <div class="w-full h-30 md-h-auto rounded-xs bg-gray-200 flex-shrink-0 lg-ml-3/2 img-frame">
-                <img src="<?php echo esc_url( $cover_image[ 'url' ] ) ?>" class="rounded-xs grayscale w-full h-full object-center object-cover" alt="<?php echo esc_attr( $cover_image[ 'alt' ] ) ?>">
-            </div>
-		    <?php
-	    }
-	    ?>
+        <div class="w-full h-30 md-h-auto rounded-xs bg-gray-200 flex-shrink-0 lg-ml-3/2 img-frame">
+            <img src="https://artaelectric.ir/wp-content/uploads/2022/03/2.jpg"
+                 class="rounded-xs grayscale w-full h-full object-center object-cover"
+                 alt="">
+        </div>
     </div>
     <div style="width: 33%;display: flex;justify-content: center;">
         <p class="mb-3 lg-w-30 text-base leading-2/2 text-gray-600 text-center lg-text-justify">
@@ -56,16 +50,10 @@
         </p>
     </div>
     <div style="width: 33%;padding: 28px;">
-	    <?php
-	    $cover_image = get_field( 'about-cover' );
-	    if ( $cover_image )
-	    {
-		    ?>
-            <div class="w-full h-30 md-h-auto rounded-xs bg-gray-200 flex-shrink-0 lg-ml-3/2 img-frame">
-                <img src="<?php echo esc_url( $cover_image[ 'url' ] ); ?>" class="rounded-xs grayscale w-full h-full object-center object-cover" alt="<?php echo esc_url( $cover_image[ 'alt' ] ); ?>">
-            </div>
-		    <?php
-	    }
-	    ?>
+        <div class="w-full h-30 md-h-auto rounded-xs bg-gray-200 flex-shrink-0 lg-ml-3/2 img-frame">
+            <img src="https://artaelectric.ir/wp-content/uploads/2022/03/3.jpg"
+                 class="rounded-xs grayscale w-full h-full object-center object-cover"
+                 alt="">
+        </div>
     </div>
 </div>
