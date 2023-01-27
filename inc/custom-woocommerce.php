@@ -1141,91 +1141,90 @@ function wc_get_carousel_cart_down_on_sales_section() {
 //add_action( 'save_post', 'wc_get_carousel_cart_down_on_sales_section', 10, 3 );
 add_action( 'before_delete_post', 'wc_get_carousel_cart_down_on_sales_section' );
 
-/*
- * carousel cart gray section
- */
-function wc_get_carousel_cart_gray_section() {
-	$product_category = get_field( 'first-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
+function mdr_save_acf_carousel_form( $post_id ) {
 
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
+	// Get newly saved values.
+	$values = get_fields( $post_id );
 
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
+	/*
+	 * carousel cart gray section
+	 */
+	$first_row_category = get_field( 'first-row-category', $post_id );
+	if ( $first_row_category ) {
+		$category = get_term_by( 'id', $first_row_category, 'product_cat' );
 
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_gray_section', $products, 'no' );
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_gray_section', $products, 'no' );
+	}
+
+	/*
+	 * carousel cart first white section
+	 */
+	$second_row_category = get_field( 'second-row-category', $post_id );
+	if ( $second_row_category ) {
+		$category = get_term_by( 'id', $second_row_category, 'product_cat' );
+
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_first_white_section', $products, 'no' );
+	}
+
+	/*
+	 * carousel cart second white section
+	 */
+	$third_row_category = get_field( 'third-row-category', $post_id );
+	if ( $third_row_category ) {
+		$category = get_term_by( 'id', $third_row_category, 'product_cat' );
+
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_second_white_section', $products, 'no' );
+	}
 }
 
-//add_action( 'save_post', 'wc_get_carousel_cart_gray_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_gray_section' );
-
-/*
- * carousel cart first white section
- */
-function wc_get_carousel_cart_first_white_section() {
-	$product_category = get_field( 'second-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
-
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
-
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
-
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_first_white_section', $products, 'no' );
-}
-
-//add_action( 'save_post', 'wc_get_carousel_cart_first_white_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_first_white_section' );
-
-/*
- * carousel cart second white section
- */
-function wc_get_carousel_cart_second_white_section() {
-	$product_category = get_field( 'third-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
-
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
-
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
-
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_second_white_section', $products, 'no' );
-}
-
-//add_action( 'save_post', 'wc_get_carousel_cart_second_white_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_second_white_section' );
+add_action( 'acf/save_post', 'mdr_save_acf_carousel_form' );
 
 /*
  * product Not available in stock show related product in up.
  */
-function realated_in_up() {
+function related_in_up() {
 	global $product;
 
 	if ( ! $product->is_in_stock() ) {
@@ -1241,7 +1240,7 @@ function realated_in_up() {
 	}
 }
 
-add_filter( 'woocommerce_before_single_product', 'realated_in_up' );
+add_filter( 'woocommerce_before_single_product', 'related_in_up' );
 
 // remove the cross sell from hook
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
