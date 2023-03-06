@@ -220,6 +220,7 @@ function sa_add_schema() {
 
 
 
+
         </script>
 		<?php
 	}
@@ -280,6 +281,7 @@ function sa_add_schema() {
 
 
 
+
         </script>
 
 		<?php
@@ -314,6 +316,7 @@ function sa_add_schema() {
                         },
                     "regionsAllowed": ""
             }
+
 
 
 
@@ -360,6 +363,7 @@ function sa_add_schema() {
 				?>
 				]
 			}
+
 
 
 
@@ -443,6 +447,7 @@ function sa_add_schema() {
 
 
 
+
         </script>
 		<?php
 		$contentUrl = get_post_meta( get_the_ID(), 'contentUrl', true );
@@ -469,6 +474,7 @@ function sa_add_schema() {
                     },
                 "regionsAllowed": ""
                	}
+
 
 
 
@@ -507,6 +513,7 @@ function sa_add_schema() {
 				?>
 				]
 			}
+
 
 
 
@@ -564,8 +571,49 @@ function sa_add_schema() {
 
 
 
+
         </script>
 		<?php
+		if ( have_rows( 'faqextra', get_the_ID() ) ) {
+			$count11 = count( get_field( 'faqextra', get_the_ID() ) );
+			$i       = 1;
+			?>
+            <script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "FAQPage",
+				"mainEntity": [
+					<?php
+				while ( have_rows( 'faqextra', get_the_ID() ) ) {
+					the_row();
+					?>
+                        {
+                            "@type": "Question",
+                            "name": "<?php echo get_sub_field( 'question' ); ?>",
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": "<?php echo str_replace( '"', "'", get_sub_field( 'answer' ) ); ?>"
+                            }
+                        }
+                        <?php
+					$i ++;
+					if ( $i <= $count11 ) {
+						echo ',';
+					}
+				}
+				?>
+				]
+			}
+
+
+
+
+
+
+
+            </script>
+			<?php
+		}
 	}
 
 	//blog page
