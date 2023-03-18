@@ -894,18 +894,19 @@ add_filter( 'woocommerce_gallery_image_size	', function ( $size ) {
 /*
  *add filter by stock and date
  */
-function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
-	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : 'stock';
+function sa_custom_woocommerce_get_catalog_ordering_args( $args, $orderby, $order ) {
+//	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : 'stock';
 
-	if ( $orderby_value == 'price' ) {
+	if ( $orderby == 'price' ) {
 		$args['orderby']  = 'meta_value_num';
 		$args['order']    = 'ASC';
 		$args['meta_key'] = '_price';
 	}
 
-	if ( $orderby_value == 'stock' ) {
-		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-		$args['meta_key'] = '_stock_status';
+	if ( $orderby == 'stock' ) {
+		$args['orderby']  = ['category_priority' => 'asc', '_stock_status' => 'asc', 'date' => 'dec' ];
+		$args['meta_key'] = '_mdr_category_priority';
+		$args['order']    = 'ASC';
 	}
 
 //	if ( 'stock' == $orderby_value ) {
@@ -938,7 +939,7 @@ function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
 	return $args;
 }
 
-add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args', 999, 1 );
+add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args', 999, 3 );
 
 /*
  *add filter to option in catalogs
