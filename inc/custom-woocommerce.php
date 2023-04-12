@@ -904,7 +904,7 @@ function sa_custom_woocommerce_get_catalog_ordering_args( $args, $orderby, $orde
 	}
 
 	if ( $orderby == 'stock' ) {
-		$args['orderby']  = ['category_priority' => 'asc', '_stock_status' => 'asc', 'date' => 'dec' ];
+		$args['orderby']  = ['_mdr_category_priority' => 'asc' ];
 		$args['meta_key'] = '_mdr_category_priority';
 		$args['order']    = 'ASC';
 	}
