@@ -169,6 +169,38 @@ while ( have_posts() ) {
                 justify-content: center;
             }
 
+            #sub3-menu-page {
+                display: flex;
+                flex-direction: row;
+                padding-bottom: 10px;
+                margin-bottom: 10px;
+            }
+
+            #sub3-menu-page > li {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 100px;
+                height: 130px;
+                background-color: #f3f3f3;
+                margin: 4px;
+                padding: 5px;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 12px;
+                box-shadow: rgb(0 0 0 / 15%) 0px 5px 6px 0px;
+                border: #ffffff solid 2px;
+                align-items: center;
+            }
+
+            #sub3-menu-page > li > a {
+                width: 75px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
             #menu-page > li > a > img {
                 padding-bottom: 5px;
             }
@@ -200,7 +232,7 @@ while ( have_posts() ) {
 				'menu_class'     => 'menu-page-or',
 				'container'      => '',
 				'fallback_cb'    => 'false',
-				'depth'          => 3,
+				'depth'          => 4,
 			) );
 			?>
             <div>
@@ -211,6 +243,9 @@ while ( have_posts() ) {
 
                 </div>
                 <div id="sub2-menu-page" class="mdr-scroll">
+
+                </div>
+                <div id="sub3-menu-page" class="mdr-scroll">
 
                 </div>
             </div>
@@ -242,6 +277,18 @@ while ( have_posts() ) {
                         $("#sub2-menu-page").children().remove()
                         $("#sub2-menu-page").append($(this).find("> ul").children().clone().slideDown("slow"));
                         $("#sub2-menu-page").slideDown("slow");
+                    });
+
+                    $("body").on("click", "#sub2-menu-page > li", function (e) {
+
+                        if ($(this).find("> ul").children().length > 0) {
+                            e.preventDefault();
+                        }
+
+                        $("#sub3-menu-page").slideUp("fast");
+                        $("#sub3-menu-page").children().remove()
+                        $("#sub3-menu-page").append($(this).find("> ul").children().clone().slideDown("slow"));
+                        $("#sub3-menu-page").slideDown("slow");
                     });
 
                 });

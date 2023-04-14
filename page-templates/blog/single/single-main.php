@@ -110,17 +110,17 @@
             <div class="flex flex-wrap items-center justify-between lg-space-x-reverse lg-space-x-2">
                 <div class="flex items-center mb-1/5 lg-mb-0">
                     <div class="icon-calendar ml-1 mb-0/3 text-1/9 leading-1/9 flex items-center  text-gray-500"></div>
-                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0">تاریخ انتشار:</div>
+                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0" style="padding-left: 5px;">تاریخ انتشار:</div>
                     <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0 ss02"><?php echo get_the_date( 'Y/m/d' ); ?></div>
                 </div>
                 <div class="flex items-center mb-1/5 lg-mb-0">
                     <div class="icon-square-user ml-0/7 text-2/4 leading-2/4 h-2/4 text-gray-500"></div>
-                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0">نویسنده:</div>
+                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0" style="padding-left: 5px;">نویسنده:</div>
                     <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0 ss02"><?php echo get_the_author(); ?></div>
                 </div>
                 <div class="flex items-center mb-1/5 lg-mb-0">
                     <div class="icon-timer ml-0/7 text-2/4 leading-2/4 h-2/4 text-gray-500"></div>
-                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0">مدت مطالعه:&nbsp</div>
+                    <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0" style="padding-left: 5px;">مدت مطالعه:</div>
                     <div class="text-sm md-text-sbase leading-2 text-gray-400 flex-shrink-0 ss02"><?php echo fs_estimated_reading_time(); ?></div>
                 </div>
 				<?php
