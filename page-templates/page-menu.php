@@ -169,6 +169,10 @@ while ( have_posts() ) {
                 justify-content: center;
             }
 
+            #sub2-menu-page > li > ul {
+                display: none;
+            }
+
             #sub3-menu-page {
                 display: flex;
                 flex-direction: row;
