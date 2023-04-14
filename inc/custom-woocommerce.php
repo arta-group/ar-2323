@@ -891,68 +891,6 @@ add_filter( 'woocommerce_gallery_image_size	', function ( $size ) {
 //
 //add_filter( 'woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby' );
 
-/*
- *add filter by stock and date
- */
-function sa_custom_woocommerce_get_catalog_ordering_args( $args, $orderby, $order ) {
-//	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : 'stock';
-
-	if ( $orderby == 'price' ) {
-		$args['orderby']  = 'meta_value_num';
-		$args['order']    = 'ASC';
-		$args['meta_key'] = '_price';
-	}
-
-	if ( $orderby == 'stock' ) {
-		$args['orderby']  = ['_mdr_category_priority' => 'asc' ];
-		$args['meta_key'] = '_mdr_category_priority';
-		$args['order']    = 'ASC';
-	}
-
-//	if ( 'stock' == $orderby_value ) {
-//		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-//		$args['meta_key'] = '_stock_status';
-//	} elseif ( 'price' == $orderby_value ) {
-//		$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
-//		$args['meta_key'] = '_price';
-//	}
-
-//	switch ( $orderby_value ) :
-//		case 'stock' :
-//			$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-//			$args['meta_key'] = '_stock_status';
-//			break;
-//		case 'price' :
-//			$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
-//			$args['meta_key'] = '_price';
-//			break;
-//        case 'date_asc' :
-//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
-//            $args['meta_key'] = '';
-//            break;
-//        case 'price_desc' :
-//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'dec'];
-//            $args['meta_key'] = '_price';
-//            break;
-//	endswitch;
-
-	return $args;
-}
-
-add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args', 999, 3 );
-
-/*
- *add filter to option in catalogs
- */
-function sa_custom_woocommerce_catalog_orderby( $sortby ) {
-	$sortby['stock'] = 'مرتب سازی بر اساس موجودی';
-
-	return $sortby;
-}
-
-add_filter( 'woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby' );
-add_filter( 'woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby' );
-
 function fs_override_checkout_fields( $fields ) {
 	unset( $fields['billing']['billing_country'] );
 	unset( $fields['billing']['billing_address_2'] );
