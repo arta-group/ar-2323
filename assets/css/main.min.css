@@ -332,7 +332,7 @@ ul.sub-menu li:last-child{border:0}
 .c-header-mobile-menu .menu__level:focus{outline:0}
 .c-header-mobile-menu .menu__level--current{visibility:visible}
 .c-header-mobile-menu .menu__item{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;border-bottom:1px solid rgba(51,51,51,0.2)}
-.c-header-mobile-menu .menu__item .menu__link{font-size:1.4rem;line-height:2.2rem;padding-top:1rem;padding-bottom:1.1rem;display:block;text-align:right;font-weight:bold;padding-right:3.2rem;width:100%;position:relative}
+.c-header-mobile-menu .menu__item .menu__link{font-size:1.5rem;line-height:2.2rem;padding-top:1rem;padding-bottom:1.1rem;display:block;text-align:right;font-weight:bold;padding-right:3.2rem;width:100%;position:relative}
 .c-header-mobile-menu .menu__item .menu__link:before{content:"";position:absolute;right:1.3rem;left:auto !important;top:1.9rem;width:.5rem;height:.5rem;background-color:#f6412d;border-radius:2px}
 .c-header-mobile-menu .menu__item .menu__link.off:before{content:""}
 .c-header-mobile-menu .menu__item .menu__link.off::before{font-size:1.7rem;line-height:1.7rem;height:1.7rem;width:1.7rem;position:absolute;right:1rem;left:auto !important;top:1.3rem;color:#f6412d;background-color:transparent}
@@ -495,7 +495,7 @@ div#map{width:100% !important}
 .c-blog-content h4{font-style:normal;font-weight:700;font-size:14px;line-height:25px;text-align:right;color:#505050;margin-bottom:1rem}
 .c-blog-content ul{padding-right:1.5rem;margin:2rem 0}
 .c-blog-content ul li{position:relative;font-size:1.4rem;line-height:2.2rem;margin-bottom:1rem}
-.c-blog-content ul li::before{content:"";position:absolute;top:40%;-webkit-transform:translateY(50%);transform:translateY(50%);right:-1.5rem;background-color:#f6412d;width:.5rem;height:.5rem;border-radius:2px}
+.c-blog-content ul li::before{content:"";position:absolute;top:12%;-webkit-transform:translateY(50%);transform:translateY(50%);right:-1.5rem;background-color:#f6412d;width:.5rem;height:.5rem;border-radius:2px}
 .c-blog-content ol{padding-right:1.5rem;margin:2rem 0;list-style:arabic-indic}
 .c-blog-content ol li{position:relative;font-size:1.4rem;line-height:2.2rem;margin-bottom:1rem}
 .c-blog-content .wp-block-video{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex}

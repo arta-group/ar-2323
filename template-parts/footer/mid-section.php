@@ -89,7 +89,7 @@
                         <form class="mdr_form">
                             <div class="flex flex-col lg-flex-row items-center py-3 my-2 bg-gray-50 rounded-xs newsletter-form">
                                 <label for="newsletter"
-                                       class="text-gray-600 text-1/4 flex lg-flex-col flex-row leading-2/6 mb-2/5 lg-mb-0 flex-shrink-0 lg-ml-2 w-auto lg-w-9 font-bold md-mt-1">
+                                       class="text-gray-600 text-1/5 flex lg-flex-col flex-row leading-2/6 mb-2/5 lg-mb-0 flex-shrink-0 lg-ml-2 w-auto lg-w-9 font-bold md-mt-1">
                                     اطلاع از آخرین
                                     <strong class="text-2 font-black leading-2/6 newsletter-off"> تخفیف ها </strong></label>
                                 <div class="flex flex-col lg-flex-row items-center w-full">
