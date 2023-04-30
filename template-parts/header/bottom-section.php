@@ -13,14 +13,14 @@
 			</div>
 			<?php
 
-			wp_nav_menu( array(
-				'theme_location' => 'header-menu',
-				'menu_class'     => 'flex flex-row c-header-menu header-menu-disc space-x-reverse space-x-3 mb-0/6 font-normal',
-				'container'      => '',
-				'fallback_cb'    => 'false',
-				'depth'          => 1,
-				'add_li_class'   => 'text-gray-dark text-1/4 leading-2/2'
-			) );
+//			wp_nav_menu( array(
+//				'theme_location' => 'header-menu',
+//				'menu_class'     => 'flex flex-row c-header-menu header-menu-disc space-x-reverse space-x-3 mb-0/6 font-normal',
+//				'container'      => '',
+//				'fallback_cb'    => 'false',
+//				'depth'          => 1,
+//				'add_li_class'   => 'text-gray-dark text-1/4 leading-2/2'
+//			) );
 
             ?>
 
