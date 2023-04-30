@@ -113,6 +113,72 @@ if ( ! wp_is_mobile() ) { ?>
 							}
 							?>
                         </ul>
+                        <ul data-menu="submenu-categories" id="submenu-categories" class="menu__level" tabindex="-2"
+                            role="menu" aria-label="All">
+							<?php
+							$category_parents = array_filter( $all_categories, function ( $var ) {
+								return ( $var->menu_item_parent == 0 );
+							} );
+
+							foreach ( $category_parents as $category_parent ) {
+								$last_child = array_filter( $all_categories, function ( $var ) use ( $category_parent ) {
+									return ( $var->menu_item_parent == $category_parent->ID );
+								} );
+								$data_child = $last_child ? 'data-submenu="submenu-' . $category_parent->ID . '" aria-owns="submenu-' . $category_parent->ID . '"' : '';
+								?>
+                                <li class="menu__item flex flex-row-reverse items-center" role="menuitem">
+                                    <a class="menu__link" <?php echo $data_child; ?>
+                                       href="<?php echo $category_parent->url ?>"><?php echo $category_parent->title ?></a>
+									<?php
+									if ( $data_child ) {
+										?>
+                                        <span class="icon-angle-down text-white text-3xs pl-1/3 transform"></span>
+										<?php
+									}
+									?>
+                                </li>
+								<?php
+							}
+							?>
+                        </ul>
+						<?php
+
+						foreach ( $all_categories as $item ) {
+							$children = array_filter( $all_categories, function ( $var ) use ( $item ) {
+								return ( $var->menu_item_parent == $item->ID );
+							} );
+
+							if ( $children ) {
+								?>
+                                <ul data-menu="submenu-<?php echo $item->ID ?>" id="submenu-<?php echo $item->ID ?>"
+                                    class="menu__level" tabindex="-3" role="menu" aria-label="All">
+									<?php
+									foreach ( $children as $child ) {
+										$last_child = array_filter( $all_categories, function ( $var ) use ( $child ) {
+											return ( $var->menu_item_parent == $child->ID );
+										} );
+
+										$data_child = $last_child ? 'data-submenu="submenu-' . $child->ID . '" aria-owns="submenu-' . $child->ID . '"' : '';
+										?>
+                                        <li class="menu__item flex flex-row-reverse items-center" role="menuitem">
+                                            <a class="menu__link" <?php echo $data_child; ?>
+                                               href="<?php echo $child->url ?>"><?php echo $child->title ?></a>
+											<?php
+											if ( $data_child ) {
+												?>
+                                                <span class="icon-angle-down text-white text-3xs pl-1/3 transform"></span>
+												<?php
+											}
+											?>
+                                        </li>
+										<?php
+									}
+									?>
+                                </ul>
+								<?php
+							}
+						}
+						?>
                     </div>
                     <div class="absolute -mr-1 bottom-0 left-0 right-0 w-full flex items-center justify-between pb-3 px-4/5 dir-rtl">
                         <div class="text-base leading-1/9 text-gray-main">نیاز به راهنمایی دارید؟</div>
