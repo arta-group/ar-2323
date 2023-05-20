@@ -525,3 +525,9 @@ td {
     width: 98%;
     justify-self: center;
 }
+
+.intro-content > table {
+    display: flex;
+    justify-content: center;
+    margin: 30px 20px;
+}
