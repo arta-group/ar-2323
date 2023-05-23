@@ -749,9 +749,9 @@ ul.has-disc li:hover a { color: #F6412D; }
 
 .comments-area .comment-list .comment-author .says { display: none; }
 
-.comments-area .comment-list .comment-reply-link { position: absolute; top: 3.1rem; left: 3.7rem; font-size: 0; line-height: 0; }
+.comments-area .comment-list .comment-reply-link { position: absolute; top: 3.1rem; left: 3.7rem; font-size: 0; line-height: 0; font-size: 1.3rem; height: 2rem; line-height: 0rem; color: #8a8a8a; border: 1px solid; border-radius: 4px; padding: 12px; }
 
-.comments-area .comment-list .comment-reply-link:before { content: "\E00B"; font-size: 2rem; height: 2rem; line-height: 2rem; font-family: "Icons"; color: #8A8A8A; }
+/*.comments-area .comment-list .comment-reply-link:before { content: "\E00B"; font-size: 2rem; height: 2rem; line-height: 2rem; font-family: "Icons"; color: #8A8A8A; }*/
 
 #comments .commentlist ul { padding-right: 6rem; }
 
