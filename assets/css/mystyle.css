@@ -530,6 +530,7 @@ td {
     display: flex;
     justify-content: center;
     margin: 30px 20px;
+    border:none;
 }
 
 .intro-content > table > tbody {
