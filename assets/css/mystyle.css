@@ -531,3 +531,13 @@ td {
     justify-content: center;
     margin: 30px 20px;
 }
+
+.intro-content > table > tbody {
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.intro-content > table > tbody > tr > td {
+    border-left: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+}
