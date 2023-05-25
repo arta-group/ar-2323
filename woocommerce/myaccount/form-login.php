@@ -19,9 +19,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 do_action( 'woocommerce_before_customer_login_form' );
 ?>
+<style>
+    #register_mo {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        #register_mo {
+            display: block;
+        }
+
+        .c-register {
+            display: none;
+        }
+
+        .border-t {
+            border: none;
+        }
+    }
+
+</style>
+
 <section
         class="container mx-auto grid grid-cols-1 lg-grid-cols-2 pt-3/3 pb-10 relative form-divider px-2 md-px-3 lg-px-0">
-    <div class="c-login pb-5 lg-pb-0 lg-pl-13">
+    <div class="c-login lg-pb-0 lg-pl-13">
         <div class="flex items-center">
             <div class="icon-identification text-xl leading-2 flex items-center justify-center flex-shrink-0"></div>
             <div class="text-lg font-bold leading-2/8 flex-shrink-0 mr-1/5 ml-2/5">ورود</div>
@@ -65,15 +86,18 @@ do_action( 'woocommerce_before_customer_login_form' );
             </div>
 			<?php wp_nonce_field( 'woocommerce-login', 'woocommerce-login-nonce' ); ?>
             <button type="submit"
-                    class="bg-secondary-main text-gray-dark text-lg rounded-xs leading-18 h-4/5 w-14 mt-1/6 cursor-pointer"
+                    class="bg-secondary-main text-gray-dark text-lg rounded-xs leading-18 h-4/5 mt-1/6 cursor-pointer"
                     name="login" value="ورود">ورود
             </button>
+            <div id="register_mo" >
+                <p>حساب کاربری ندارید؟ <a style="font-weight: 800;text-decoration: underline;">ثبت نام کنید</a></p>
+            </div>
         </form>
     </div>
-    <div class="w-5/5 h-5/5 rounded-full leading-5/5 text-center absolute top-half left-half bg-white z-10 border border-border text-lg transform text-gray-main custom-translate -translate-x-1/2 -translate-y-8 lg--translate-y-6">
-        یا
-    </div>
-    <div class="c-register pt-5 lg-pt-0 lg-pr-13 border-t lg-border-t-0 lg-border-r border-border">
+<!--    <div class="w-5/5 h-5/5 rounded-full leading-5/5 text-center absolute top-half left-half bg-white z-10 border border-border text-lg transform text-gray-main custom-translate -translate-x-1/2 -translate-y-8 lg--translate-y-6">-->
+<!--        یا-->
+<!--    </div>-->
+    <div class="c-register lg-pt-0 lg-pr-13 border-t lg-border-t-0 lg-border-r border-border">
         <div class="flex items-center">
             <div class="icon-identification text-xl leading-2 flex items-center justify-center flex-shrink-0"></div>
             <div class="text-lg font-bold flex-shrink-0 mr-1/5 ml-2/5"> ثبت نام</div>
@@ -102,7 +126,7 @@ do_action( 'woocommerce_before_customer_login_form' );
                 دسترسی به حساب کاربری و یا دیگر اهداف ذکر شده در سیاست حفظ حریم خصوصی استفاده می گردد.</p>
 			<?php wp_nonce_field( 'woocommerce-register', 'woocommerce-register-nonce' ); ?>
             <button type="submit"
-                    class="bg-secondary-main text-gray-dark text-lg rounded-xs leading-18 h-4/5 w-14 mt-1/5 cursor-pointer"
+                    class="bg-secondary-main text-gray-dark text-lg rounded-xs leading-18 h-4/5 mt-1/5 cursor-pointer"
                     name="register" value="ثبت نام">ثبت نام
             </button>
         </form>
