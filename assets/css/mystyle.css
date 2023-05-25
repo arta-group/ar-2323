@@ -542,3 +542,7 @@ td {
     border-left: 1px solid #e2e2e2;
     border-bottom: 1px solid #e2e2e2;
 }
+
+.intro-content > table > tbody > tr:nth-child(odd) {
+    background-color: #e2e2e2;
+}
