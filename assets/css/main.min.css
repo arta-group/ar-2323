@@ -302,7 +302,7 @@ ul.has-disc li:hover a{color:#f6412d}
 .comments-area .comment-list .comment-author .fn{font-size:1.4rem;line-height:2.2rem;color:#333}
 .comments-area .comment-list .comment-author .says{display:none}
 .comments-area .comment-list .comment-reply-link{position:absolute;top:3.1rem;left:3.7rem;font-size:0;line-height:0}
-.comments-area .comment-list .comment-reply-link:before{content:"\E00B";font-size:2rem;height:2rem;line-height:2rem;font-family:"Icons";color:#8a8a8a}
+.comments-area .comment-list .comment-reply-link:before{content:"پاسخ";font-size:1.5rem;height:2rem;line-height:2rem;color:#8a8a8a;background-color: #fed100;padding: 3px 7px;border-radius: 8px;}
 #comments .commentlist ul{padding-right:6rem}
 #comments .commentlist ul li>div{padding-right:2rem;padding-left:2rem;background-color:#f6f6f6}
 .woocommerce-Reviews .must-log-in a{color:#f6412d}

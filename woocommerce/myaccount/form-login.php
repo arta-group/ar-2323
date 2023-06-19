@@ -70,11 +70,11 @@ do_action( 'woocommerce_before_customer_login_form' );
                 <input class="h-4/5 border-2 border-border w-full rounded-xs text-base leading-4/5 px-2" type="password"
                        name="password" id="password"/>
             </div>
-            <div class="flex items-center justify-between pt-1/4">
+            <div class="flex justify-between pt-1/4">
                 <div class="flex items-center">
                     <input type="checkbox" class="w-2 h-2 rounded-xs" name="rememberme" id="rememberme"
                            value="forever"/>
-                    <label for="rememberme" class="mr-1/5 text-base"> مرا به خاطر بسپار</label>
+                    <label for="rememberme" class="mr-1/5 text-base" style="white-space: nowrap;padding-left: 10px;"> مرا به خاطر بسپار</label>
                 </div>
                 <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="text-primary-main text-base">
                     <?php
@@ -90,7 +90,7 @@ do_action( 'woocommerce_before_customer_login_form' );
                     name="login" value="ورود">ورود
             </button>
             <div id="register_mo" >
-                <p>حساب کاربری ندارید؟ <a style="font-weight: 800;text-decoration: underline;">ثبت نام کنید</a></p>
+                <p style="font-size: 1.75rem;">حساب کاربری ندارید؟ <a style="font-weight: 800;text-decoration: underline;">ثبت نام کنید</a></p>
             </div>
         </form>
     </div>
