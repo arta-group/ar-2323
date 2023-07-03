@@ -15,7 +15,7 @@
  * @version 3.8.0
  */
 
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 ?>
 <div class="shop_table woocommerce-checkout-review-order-table mt-0">
     <div class="mb-5">
@@ -32,77 +32,84 @@ defined('ABSPATH') || exit;
                     <span class="text-base font-normal inline-block">تومان</span>
                 </div>
             </div>
-            <?php
-            $discount_total = WC()->cart->get_cart_discount_total();
-            if ($discount_total > 0) {
-                ?>
+			<?php
+			$discount_total = WC()->cart->get_cart_discount_total();
+			if ( $discount_total > 0 ) {
+				?>
                 <div class="py-1/6 flex items-center justify-between">
                     <div class="text-base font-bold text-gray-600 ">تخفیف کالاها</div>
                     <div class="text-lg font-bold text-gray-dark">
-                        <span class="ml-0/2 inline-block cart-subtotal cart-discount"><?php echo wc_price($discount_total); ?></span>
+                        <span class="ml-0/2 inline-block cart-subtotal cart-discount"><?php echo wc_price( $discount_total ); ?></span>
                         <span class="text-base font-normal inline-block">تومان</span>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
+				<?php
+			}
+			?>
             <div class="py-1/6 flex items-center justify-between">
                 <div class="text-base font-bold text-gray-600">حمل و نقل</div>
                 <div class="text-lg font-bold text-gray-dark">
 					<span class="ml-0/2 inline-block woocommerce-shipping-totals shipping">
 						<?php
-                        $shipping_total = 0;
+						$shipping_total = 0;
 
-                        foreach ((array)WC()->session->get('shipping_for_package_0')['rates'] as $method_id => $rate) {
-                            if (WC()->session->get('chosen_shipping_methods')[0] == $method_id) {
-                                // The shipping method label name
-                                $rate_label = $rate->label;
+						foreach ( (array) WC()->session->get( 'shipping_for_package_0' )['rates'] as $method_id => $rate ) {
 
-                                // The cost excluding tax
-                                $rate_cost_excl_tax = floatval($rate->cost);
+							if ( WC()->session->get( 'chosen_shipping_methods' )[0] == $method_id ) {
+								// The shipping method label name
+								$rate_label = $rate->label;
 
-                                // The taxes cost
-                                $rate_taxes = 0;
-                                foreach ($rate->taxes as $rate_tax)
-                                    $rate_taxes += floatval($rate_tax);
+								// The cost excluding tax
+								$rate_cost_excl_tax = floatval( $rate->cost );
 
-                                // The cost including tax
-                                $rate_cost_incl_tax = $rate_cost_excl_tax + $rate_taxes;
-                                $shipping_total = floatval(preg_replace('#[^\d.]#', '', WC()->cart->get_cart_shipping_total()));
+								// The taxes cost
+								$rate_taxes = 0;
+								foreach ( $rate->taxes as $rate_tax ) {
+									$rate_taxes += floatval( $rate_tax );
+								}
 
-                                if ($shipping_total > 0)
-                                    echo wc_price($shipping_total);
-                                else {
-                                    $title = '';
-                                    $extract_method_id = explode(':', $method_id);
+								// The cost including tax
+								$rate_cost_incl_tax = $rate_cost_excl_tax + $rate_taxes;
+								$shipping_total     = floatval( preg_replace( '#[^\d.]#', '', WC()->cart->get_cart_shipping_total() ) );
 
-                                    if (isset($extract_method_id[0]) && isset($extract_method_id[1])) {
-                                        $option = get_option('woocommerce_' . $extract_method_id[0] . '_' . $extract_method_id[1] . '_settings');
-                                        $title = isset($option ['extra_description']) ? $option ['extra_description'] : '';
-                                    }
+								if ( isset( $rate->description ) && ! empty( $rate->description ) ) {
+									echo $rate->description;
+								} else {
+									if ( $shipping_total > 0 ) {
+										echo wc_price( $shipping_total );
+									} else {
+										$title             = '';
+										$extract_method_id = explode( ':', $method_id );
 
-                                    echo !empty($title) ? $title : 'رایگان';
-                                }
+										if ( isset( $extract_method_id[0] ) && isset( $extract_method_id[1] ) ) {
+											$option = get_option( 'woocommerce_' . $extract_method_id[0] . '_' . $extract_method_id[1] . '_settings' );
+											$title  = isset( $option ['extra_description'] ) ? $option ['extra_description'] : '';
+										}
 
-                                break;
-                            }
-                        }
-                        ?>
+										echo ! empty( $title ) ? $title : 'رایگان';
+									}
+								}
+
+
+								break;
+							}
+						}
+						?>
 					</span>
-                    <?php if ($shipping_total > 0) { ?>
+					<?php if ( $shipping_total > 0 ) { ?>
                         <span class="text-base font-normal inline-block">تومان</span>
-                    <?php } ?>
+					<?php } ?>
                 </div>
             </div>
-            <?php foreach (WC()->cart->get_fees() as $fee) : ?>
+			<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
                 <div class="py-1/6 flex items-center justify-between">
-                    <div class="text-base font-bold text-gray-600 "><?php echo esc_html($fee->name); ?></div>
+                    <div class="text-base font-bold text-gray-600 "><?php echo esc_html( $fee->name ); ?></div>
                     <div class="text-lg font-bold text-gray-dark">
-                        <span class="ml-0/2 inline-block"><?php wc_cart_totals_fee_html($fee); ?></span>
+                        <span class="ml-0/2 inline-block"><?php wc_cart_totals_fee_html( $fee ); ?></span>
                         <span class="text-base font-normal inline-block">تومان</span>
                     </div>
                 </div>
-            <?php endforeach; ?>
+			<?php endforeach; ?>
             <div class="py-1/6 flex items-center justify-between">
                 <div class="text-lg font-bold text-primary-main">مبلغ قابل پرداخت</div>
                 <div class="text-2/2 font-bold text-primary-main">
@@ -110,28 +117,28 @@ defined('ABSPATH') || exit;
                     <span class="text-lg font-normal inline-block">تومان</span>
                 </div>
             </div>
-            <?php
-            $current_wallet_amount = apply_filters( 'woo_wallet_partial_payment_amount', woo_wallet()->wallet->get_wallet_balance( get_current_user_id(), 'edit' ) );
-            if ($current_wallet_amount != '0') : ?>
+			<?php
+			$current_wallet_amount = apply_filters( 'woo_wallet_partial_payment_amount', woo_wallet()->wallet->get_wallet_balance( get_current_user_id(), 'edit' ) );
+			if ( $current_wallet_amount != '0' ) : ?>
                 <div class="py-1/6 flex items-center justify-between">
-                    <div class="text-base font-bold text-gray-600"><?php do_action('woocommerce_review_order_after_order_total'); ?></div>
+                    <div class="text-base font-bold text-gray-600"><?php do_action( 'woocommerce_review_order_after_order_total' ); ?></div>
                     <div class="text-lg text-1/3 text-gray-dark">
-                        (<span class="ml-0/2 inline-block"><?php echo wc_price($current_wallet_amount); ?></span>
+                        (<span class="ml-0/2 inline-block"><?php echo wc_price( $current_wallet_amount ); ?></span>
                         <span class="text-base font-normal inline-block">تومان</span>)
                     </div>
                 </div>
-            <?php endif; ?>
+			<?php endif; ?>
         </div>
     </div>
     <div class="mb-5">
         <table class="websites-depot-checkout-review-shipping-table">
-            <?php
-            if (WC()->cart->needs_shipping() && WC()->cart->show_shipping()) {
-                do_action('woocommerce_review_order_before_shipping');
-                wc_cart_totals_shipping_html();
-                do_action('woocommerce_review_order_after_shipping');
-            }
-            ?>
+			<?php
+			if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) {
+				do_action( 'woocommerce_review_order_before_shipping' );
+				wc_cart_totals_shipping_html();
+				do_action( 'woocommerce_review_order_after_shipping' );
+			}
+			?>
         </table>
     </div>
 </div>
