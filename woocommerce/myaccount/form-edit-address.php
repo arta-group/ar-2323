@@ -81,7 +81,7 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
                        value="<?php echo get_user_meta( $user_id, 'billing_company', true ); ?>">
                 </span>
             </p>
-            <input type="hidden" id="billing_country" name="billing_country" value="IR">
+            <input type="hidden" name="billing_country" value="IR">
             <p class="form-row form-row-wide address-field validate-required">
                 <label for="billing_address_1" class="">آدرس خیابان&nbsp;<abbr class="required"
                                                                                title="ضروری">*</abbr></label>
