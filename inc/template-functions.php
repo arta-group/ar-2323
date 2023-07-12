@@ -626,32 +626,34 @@ add_action( 'wp_body_open', 'sa_add_schema' );
 
 if ( ! function_exists( 'fs_validate_melli_code' ) ) {
 	function fs_validate_melli_code( $code ) {
-		$en_numbers = [
-			"0",
-			"1",
-			"2",
-			"3",
-			"4",
-			"5",
-			"6",
-			"7",
-			"8",
-			"9"
-		];
-		$fa_numbers = [
-			"۰",
-			"۱",
-			"۲",
-			"۳",
-			"۴",
-			"۵",
-			"۶",
-			"۷",
-			"۸",
-			"۹"
-		];
+//		$en_numbers = [
+//			"0",
+//			"1",
+//			"2",
+//			"3",
+//			"4",
+//			"5",
+//			"6",
+//			"7",
+//			"8",
+//			"9"
+//		];
+//		$fa_numbers = [
+//			"۰",
+//			"۱",
+//			"۲",
+//			"۳",
+//			"۴",
+//			"۵",
+//			"۶",
+//			"۷",
+//			"۸",
+//			"۹"
+//		];
+//
+//		$code = str_replace( $fa_numbers, $en_numbers, $code );
 
-		$code = str_replace( $fa_numbers, $en_numbers, $code );
+        $code = mdr_convert_persian_to_english_number($code);
 
 		if ( ! preg_match( '/^[0-9]{10}$/', $code ) ) {
 			return false;

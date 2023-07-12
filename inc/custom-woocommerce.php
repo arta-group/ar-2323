@@ -950,6 +950,7 @@ add_action( 'woocommerce_checkout_process', 'fs_melli_code_checkout_process' );
 function fs_checkout_update_user_meta( $customer_id, $fields ) {
 	if ( isset( $fields['billing_melli_code'] ) ) {
 		$code = sanitize_text_field( $fields['billing_melli_code'] );
+		$code = mdr_convert_persian_to_english_number( $code );
 		update_user_meta( $customer_id, 'billing_melli_code', $code );
 	}
 }
