@@ -354,21 +354,26 @@ function fs_get_product_prices( $product ) {
 		$variations = $product->get_available_variations();
 
 		if ( $variations ) {
-			$price         = $variations[0]['display_price'];
-			$regular_price = $variations[0]['display_regular_price'];
+			$price         = 0;
+			$regular_price = 0;
 
 			foreach ( $variations as $variation ) {
-				if ( $min_max == 'max' ) {
-					if ( $variation['display_price'] >= $price ) {
+
+				if ( $variation['is_in_stock'] == true ) {
+
+					if ( $price == 0 && $variation['display_price'] > $price ) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
-					}
-				} else {
-					if ( $variation['display_price'] <= $price ) {
+					}elseif ($price != 0 && $min_max == 'max' && $variation['display_price'] > $price) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
-					}
+                    }elseif ($price != 0 && $variation['display_price'] < $price) {
+						$price         = $variation['display_price'];
+						$regular_price = $variation['display_regular_price'];
+                    }
+
 				}
+
 			}
 
 			if ( $price - $regular_price == 0 ) {
