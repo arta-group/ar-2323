@@ -578,6 +578,7 @@ div[data-id="tab-description"].single-product-content h4,.c-archive-shop-info h4
 div[data-id="tab-description"].single-product-content h5,.c-archive-shop-info h5,.intro-content h5{font-size:1.2rem;line-height:3.2rem;font-weight:700;margin-bottom:.75rem}
 div[data-id="tab-description"].single-product-content p,div[data-id="tab-description"].single-product-content div,.c-archive-shop-info p,.c-archive-shop-info div,.intro-content p,.intro-content div{font-size:1.4rem;line-height:3rem;text-align:justify}
 div[data-id="tab-description"].single-product-content p>a,.c-archive-shop-info p>a,.intro-content p>a{color:#07d !important}
+div[data-id="tab-description"].single-product-content p>a,.c-archive-shop-info p>a,.intro-content p>span>a{color:#07d !important}
 div[data-id="tab-description"].single-product-content img,.c-archive-shop-info img,.intro-content img{width:auto;border-radius:5px;margin:3rem auto}
 div[data-id="tab-description"].single-product-content ul,.c-archive-shop-info ul,.intro-content ul{padding-right:4rem;margin:2rem 0}
 div[data-id="tab-description"].single-product-content ul li,.c-archive-shop-info ul li,.intro-content ul li{position:relative;font-size:1.4rem;line-height:3rem;margin-bottom:.3rem}
