@@ -33,13 +33,14 @@ while ( have_posts() ) {
 
             /* width */
             .mdr-scroll::-webkit-scrollbar {
-                height: 8px;
-                background: #d0d0d0;
+                height: 12px;
+                background: #fed100;
             }
 
             /* Handle */
             .mdr-scroll::-webkit-scrollbar-thumb {
-                background: #888;
+                background: #ef4041;
+                border-radius: 8px;
             }
 
             /* Handle on hover */
@@ -212,13 +213,14 @@ while ( have_posts() ) {
             @media (max-width: 768px) {
                 /* width */
                 .mdr-scroll::-webkit-scrollbar {
-                    height: 3px;
-                    background: #d0d0d0;
+                    height: 12px;
+                    background: #fed100;
                 }
 
                 /* Handle */
                 .mdr-scroll::-webkit-scrollbar-thumb {
-                    background: #888;
+                    background: #ef4041;
+                    border-radius: 8px;
                 }
 
                 /* Handle on hover */

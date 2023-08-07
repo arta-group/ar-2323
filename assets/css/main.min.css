@@ -302,7 +302,7 @@ ul.has-disc li:hover a{color:#f6412d}
 .comments-area .comment-list .comment-author .fn{font-size:1.4rem;line-height:2.2rem;color:#333}
 .comments-area .comment-list .comment-author .says{display:none}
 .comments-area .comment-list .comment-reply-link{position:absolute;top:3.1rem;left:3.7rem;font-size:0;line-height:0}
-.comments-area .comment-list .comment-reply-link:before{content:"پاسخ";font-size:1.5rem;height:2rem;line-height:2rem;color:#8a8a8a;background-color: #fed100;padding: 3px 7px;border-radius: 8px;}
+.comments-area .comment-list .comment-reply-link:before{background-image: url(http://artaelectric.ir/wp-content/themes/arta/assets/img/png/reply.png);background-repeat: no-repeat;background-size: contain;content:" ";display: block;width: 100px;height: 33px;padding: 3px 7px;border-radius: 8px;}
 #comments .commentlist ul{padding-right:6rem}
 #comments .commentlist ul li>div{padding-right:2rem;padding-left:2rem;background-color:#f6f6f6}
 .woocommerce-Reviews .must-log-in a{color:#f6412d}
@@ -510,6 +510,7 @@ div#map{width:100% !important}
 #commentform{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));row-gap:3rem}
 .comment-respond{margin-bottom:1rem;margin-top:4rem}
 .comment-respond h3.comment-reply-title,.comment-respond .comment-notes{font-size:1.4rem;line-height:2.2rem;margin-bottom:3rem}
+.comment-reply-title{display: flex;}
 .comment-respond .logged-in-as a{font-size:1.4rem;line-height:2.2rem}
 .comment-respond .logged-in-as a:nth-of-type(2){color:#f6412d}
 .comment-respond .comment-form-comment{grid-column:span 2 / span 2}
