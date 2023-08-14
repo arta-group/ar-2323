@@ -36,7 +36,7 @@
 <div class="flex flex-col lg-flex-row bottom-pic">
     <div style="width: 33%;padding: 30px;">
         <div class="w-full h-30 md-h-auto rounded-xs bg-gray-200 flex-shrink-0 lg-ml-3/2 img-frame">
-            <img src="https://artaelectric.ir/wp-content/uploads/2022/03/2.jpg"
+            <img src="https://artaelectric.ir/wp-content/uploads/2023/08/%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87-%D8%A2%D8%B1%D8%AA%D8%A7-%D8%A7%D9%84%DA%A9%D8%AA%D8%B1%DB%8C%DA%A9.jpg"
                  class="rounded-xs grayscale w-full h-full object-center object-cover"
                  alt="">
         </div>
