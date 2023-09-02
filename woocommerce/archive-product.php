@@ -137,10 +137,10 @@ if ($current_term_id)
 
             $show_description = true;
 
-	        if (strpos('category/industrial-electricity/industrial-fans', $slug ) &&
-	            strpos('/page/', $slug)) {
+	        if (strpos($slug,'industrial-electricity/industrial-fans' ) &&
+	            strpos($slug, '/page/')) {
 
-                $show_description  = false;
+		        $show_description  = false;
 	        }
 
 	        if ($description && $show_description) {
