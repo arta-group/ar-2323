@@ -40,7 +40,7 @@ $allowed_html = array(
 	else
 		$full_name = $current_user->display_name;
 	?>
-	<div class="text-base leading-2/2 flex items-center">
+	<div class="text-base leading-2/2 flex items-center" style="display: contents;">
 		سلام<span class="inline-block mx-0/3 font-bold"> <?php echo esc_html( $full_name ); ?> </span> (
 		<span class="inline-block mx-0/3 font-bold"> <?php echo esc_html( $full_name ); ?> </span> نیستید؟
 		<a href="<?php echo esc_url( wc_logout_url() ); ?>" class="font-bold inline-block text-primary-main mx-0/3"> خارج شوید </a> )
