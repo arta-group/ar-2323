@@ -130,7 +130,20 @@ if ($current_term_id)
         <?php
         if (isset($current_term)) {
             $description = $current_term->description;
-            if ($description) {
+
+	        global $wp;
+
+	        $slug = $wp->request;
+
+            $show_description = true;
+
+	        if (strpos('category/industrial-electricity/industrial-fans', $slug ) &&
+	            strpos('/page/', $slug)) {
+
+                $show_description  = false;
+	        }
+
+	        if ($description && $show_description) {
                 ?>
                 <section class="py-6 bg-gray-50 px-2 md-px-3 lg-px-0">
                     <div class="container mx-auto">
