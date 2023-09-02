@@ -268,7 +268,9 @@ while ( have_posts() ) {
                         $("#sub-menu-page").slideUp("fast");
                         $("#sub-menu-page").children().remove()
                         $("#sub2-menu-page").slideUp("fast");
-                        $("#sub2-menu-page").children().remove()
+                        $("#sub2-menu-page").children().remove();
+                        $("#sub3-menu-page").slideUp("fast");
+                        $("#sub3-menu-page").children().remove();
                         $("#sub-menu-page").append($(this).find("> ul").children().clone());
                         $("#sub-menu-page").slideDown("slow");
                     });
@@ -281,6 +283,8 @@ while ( have_posts() ) {
 
                         $("#sub2-menu-page").slideUp("fast");
                         $("#sub2-menu-page").children().remove()
+                        $("#sub3-menu-page").slideUp("fast");
+                        $("#sub3-menu-page").children().remove();
                         $("#sub2-menu-page").append($(this).find("> ul").children().clone().slideDown("slow"));
                         $("#sub2-menu-page").slideDown("slow");
                     });
