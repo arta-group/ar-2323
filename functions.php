@@ -240,6 +240,9 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 		case 8:
 			$bodyId = 91138;
 			break;
+		case 9:
+			$bodyId = 164367;
+			break;
 	}
 
 	$url         = 'https://console.melipayamak.com/api/send/shared/da3f7d44521242a882186ed37c5b77a2';
