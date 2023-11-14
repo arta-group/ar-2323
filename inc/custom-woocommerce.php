@@ -308,9 +308,11 @@ function fs_add_to_cart_message_html( $message, $product ) {
 		$titles[] = get_the_title( $product[0] );
 
 		$titles     = array_filter( $titles );
-		$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', sizeof( $titles ), 'woocommerce' ), wc_format_list_of_items( $titles ) );
+		$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.',
+			sizeof( $titles ), 'woocommerce' ), wc_format_list_of_items( $titles ) );
 
-		$message = sprintf( '%s <a href="%s" class="button">%s</a>', esc_html( $added_text ), esc_url( wc_get_page_permalink( 'cart' ) ), 'مشاهده سبد خرید' );
+		$message = sprintf( '%s <a href="%s" class="button">%s</a>', esc_html( $added_text ),
+			esc_url( wc_get_page_permalink( 'cart' ) ), 'مشاهده سبد خرید' );
 	}
 
 	return $message;
@@ -364,13 +366,13 @@ function fs_get_product_prices( $product ) {
 					if ( $price == 0 && $variation['display_price'] > $price ) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
-					}elseif ($price != 0 && $min_max == 'max' && $variation['display_price'] > $price) {
+					} elseif ( $price != 0 && $min_max == 'max' && $variation['display_price'] > $price ) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
-                    }elseif ($price != 0 && $variation['display_price'] < $price) {
+					} elseif ( $price != 0 && $variation['display_price'] < $price ) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
-                    }
+					}
 
 				}
 
@@ -402,7 +404,8 @@ function fs_set_user_recently_viewed_products() {
 	if ( empty( $_COOKIE['woocommerce_recently_viewed'] ) ) {
 		$viewed_products = [];
 	} else {
-		$viewed_products = wp_parse_id_list( (array) explode( '|', wp_unslash( $_COOKIE['woocommerce_recently_viewed'] ) ) );
+		$viewed_products = wp_parse_id_list( (array) explode( '|',
+			wp_unslash( $_COOKIE['woocommerce_recently_viewed'] ) ) );
 	}
 
 	$keys = is_array( $viewed_products ) ? array_flip( $viewed_products ) : array_flip( [ $viewed_products ] );
@@ -984,16 +987,31 @@ function fs_admin_order_data_billing_address( $order ) {
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'fs_admin_order_data_billing_address', 10, 1 );
 
 function sa_sms_success_order( $order_id ) {
-	$order           = wc_get_order( $order_id );
+	$order    = wc_get_order( $order_id );
+	$shipping = $order->get_shipping_method();
+
+	if ( $shipping == 'پست پیشتاز' ) {
+		$sms = 10;
+	} elseif ( $shipping == 'پیک موتوری' ) {
+		$sms = 11;
+	} elseif ( $shipping == 'تیپاکس' ) {
+		$sms = 12;
+	} elseif ( $shipping == 'تحویل حضوری' ) {
+		$sms = 13;
+	} elseif ( $shipping == 'باربری' ) {
+		$sms = 14;
+	} else {
+		$sms = 2;
+	}
+
 	$price           = $order->get_total();
 	$user_id         = $order->get_user()->id;
 	$user_mobile     = get_user_meta( $user_id, 'mobile', true );
 	$user_first_name = get_user_meta( $user_id, 'first_name', true );
-	$sms             = 2;
 	$sms_value       = [
 		sanitize_text_field( $user_first_name ),
 		sanitize_text_field( $order_id ),
-		sanitize_text_field( $price )
+		number_format( $price )
 	];
 	sa_sms( sanitize_text_field( $user_mobile ), $sms, $sms_value );
 }
