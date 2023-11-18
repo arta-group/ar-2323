@@ -236,7 +236,7 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 			$bodyId = 78822;
 			break;
 		case 6:
-			$bodyId = 78825;
+			$bodyId = 174727;
 			break;
 		case 8:
 			$bodyId = 91138;
