@@ -80,9 +80,9 @@ function mv_add_other_fields_for_packaging()
     echo '<label style="font-weight: bold;">کد رهگیری پستی</label>
             <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
                 <input type="number" style="width:250px;" name="_send_post_code" placeholder="کد 12 رقمی پستی را وارد نمایید" value="' . $send_post_code . '"></p>
-               <label style="font-weight: bold;">آدرس پیگیری ارسال مرسوله</label>
+               <label style="font-weight: bold;">ارسال با پیک</label>
             <p style="border-bottom:solid 1px #eee;padding-bottom:13px;">
-                <input type="url" style="width:250px;" name="_send_peyk_url" placeholder="آدرس اینترنتی پیگیری ارسال" value="' . $send_peyk_url . '"></p>';
+                <input type="number" style="width:250px;" name="_send_peyk_url" placeholder="کد تحویل مرسوله" value="' . $send_peyk_url . '"></p>';
 
 }
 
