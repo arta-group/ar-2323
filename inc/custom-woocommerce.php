@@ -990,6 +990,8 @@ function sa_sms_success_order( $order_id ) {
 	$order    = wc_get_order( $order_id );
 	$shipping = $order->get_shipping_method();
 
+    logit('shipping: '. $shipping. ' order_id: '. $order_id);
+
 	if ( $shipping == 'پست پیشتاز' ) {
 		$sms = 10;
 	} elseif ( $shipping == 'پیک موتوری' ) {
