@@ -173,10 +173,11 @@ if ($show_downloads) {
                                 ?>
                             </div>
                             <?php
-                            if ($send_peyk_url) {
-                                echo '<a href="' . $send_peyk_url . '" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white items-center" target="_blank">پیگیری
-                        مرسوله</a>';
-                            } elseif ($send_post_code && $send_post_code != 1) {
+//                            if ($send_peyk_url) {
+//                                echo '<a href="' . $send_peyk_url . '" class="bg-primary-main btn-effect rounded-xs pr-1/3 pl-1/3 pt-0/8 pb-0/6 text-base leading-2/2 text-white items-center" target="_blank">پیگیری
+//                        مرسوله</a>';
+//                            } else
+                                if ($send_post_code && $send_post_code != 1) {
                                 echo '<span style="font-size: 10px;">کد رهگیری مرسوله</span>';
                                 echo '<input id="PostCode" style="text-align: center; background-color: #ffffff; border: 2px solid #d7d7d7; border-radius: 6px;" value="' . $send_post_code . '" disabled >';
                                 echo '<button onclick="CopyToClipboard()" class="px-1 mt-0/8" style="background-color: #c7c7c7; font-size: 11px; border-radius: 6px;">کپی کنید</button>';

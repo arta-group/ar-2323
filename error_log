@@ -1,0 +1,8 @@
+[23-Mar-2022 15:34:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/artaelec/public_html/wp-content/themes/arta/index.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/artaelec/public_html/wp-content/themes/arta/index.php on line 15
+[08-Jul-2022 17:44:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/artaelec/public_html/wp-content/themes/arta/index.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/artaelec/public_html/wp-content/themes/arta/index.php on line 15

@@ -308,9 +308,11 @@ function fs_add_to_cart_message_html( $message, $product ) {
 		$titles[] = get_the_title( $product[0] );
 
 		$titles     = array_filter( $titles );
-		$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.', sizeof( $titles ), 'woocommerce' ), wc_format_list_of_items( $titles ) );
+		$added_text = sprintf( _n( '%s has been added to your cart.', '%s have been added to your cart.',
+			sizeof( $titles ), 'woocommerce' ), wc_format_list_of_items( $titles ) );
 
-		$message = sprintf( '%s <a href="%s" class="button">%s</a>', esc_html( $added_text ), esc_url( wc_get_page_permalink( 'cart' ) ), 'مشاهده سبد خرید' );
+		$message = sprintf( '%s <a href="%s" class="button">%s</a>', esc_html( $added_text ),
+			esc_url( wc_get_page_permalink( 'cart' ) ), 'مشاهده سبد خرید' );
 	}
 
 	return $message;
@@ -354,21 +356,26 @@ function fs_get_product_prices( $product ) {
 		$variations = $product->get_available_variations();
 
 		if ( $variations ) {
-			$price         = $variations[0]['display_price'];
-			$regular_price = $variations[0]['display_regular_price'];
+			$price         = 0;
+			$regular_price = 0;
 
 			foreach ( $variations as $variation ) {
-				if ( $min_max == 'max' ) {
-					if ( $variation['display_price'] >= $price ) {
+
+				if ( $variation['is_in_stock'] == true ) {
+
+					if ( $price == 0 && $variation['display_price'] > $price ) {
+						$price         = $variation['display_price'];
+						$regular_price = $variation['display_regular_price'];
+					} elseif ( $price != 0 && $min_max == 'max' && $variation['display_price'] > $price ) {
+						$price         = $variation['display_price'];
+						$regular_price = $variation['display_regular_price'];
+					} elseif ( $price != 0 && $variation['display_price'] < $price ) {
 						$price         = $variation['display_price'];
 						$regular_price = $variation['display_regular_price'];
 					}
-				} else {
-					if ( $variation['display_price'] <= $price ) {
-						$price         = $variation['display_price'];
-						$regular_price = $variation['display_regular_price'];
-					}
+
 				}
+
 			}
 
 			if ( $price - $regular_price == 0 ) {
@@ -397,7 +404,8 @@ function fs_set_user_recently_viewed_products() {
 	if ( empty( $_COOKIE['woocommerce_recently_viewed'] ) ) {
 		$viewed_products = [];
 	} else {
-		$viewed_products = wp_parse_id_list( (array) explode( '|', wp_unslash( $_COOKIE['woocommerce_recently_viewed'] ) ) );
+		$viewed_products = wp_parse_id_list( (array) explode( '|',
+			wp_unslash( $_COOKIE['woocommerce_recently_viewed'] ) ) );
 	}
 
 	$keys = is_array( $viewed_products ) ? array_flip( $viewed_products ) : array_flip( [ $viewed_products ] );
@@ -891,67 +899,6 @@ add_filter( 'woocommerce_gallery_image_size	', function ( $size ) {
 //
 //add_filter( 'woocommerce_default_catalog_orderby', 'ws_default_catalog_orderby' );
 
-/*
- *add filter by stock and date
- */
-function sa_custom_woocommerce_get_catalog_ordering_args( $args ) {
-	$orderby_value = isset( $_GET['orderby'] ) ? wc_clean( $_GET['orderby'] ) : 'stock';
-
-	if ( $orderby_value == 'price' ) {
-		$args['orderby']  = 'meta_value_num';
-		$args['order']    = 'ASC';
-		$args['meta_key'] = '_price';
-	}
-
-	if ( $orderby_value == 'stock' ) {
-		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-		$args['meta_key'] = '_stock_status';
-	}
-
-//	if ( 'stock' == $orderby_value ) {
-//		$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-//		$args['meta_key'] = '_stock_status';
-//	} elseif ( 'price' == $orderby_value ) {
-//		$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
-//		$args['meta_key'] = '_price';
-//	}
-
-//	switch ( $orderby_value ) :
-//		case 'stock' :
-//			$args['orderby']  = [ '_stock_status' => 'asc', 'date' => 'dec' ];
-//			$args['meta_key'] = '_stock_status';
-//			break;
-//		case 'price' :
-//			$args['orderby']  = [ '_stock_status' => 'asc', 'meta_value_num' => 'asc' ];
-//			$args['meta_key'] = '_price';
-//			break;
-//        case 'date_asc' :
-//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'asc'];
-//            $args['meta_key'] = '';
-//            break;
-//        case 'price_desc' :
-//            $args['orderby'] = ['_stock_status' => 'asc', 'meta_value_num' => 'dec'];
-//            $args['meta_key'] = '_price';
-//            break;
-//	endswitch;
-
-	return $args;
-}
-
-add_filter( 'woocommerce_get_catalog_ordering_args', 'sa_custom_woocommerce_get_catalog_ordering_args', 999, 1 );
-
-/*
- *add filter to option in catalogs
- */
-function sa_custom_woocommerce_catalog_orderby( $sortby ) {
-	$sortby['stock'] = 'مرتب سازی بر اساس موجودی';
-
-	return $sortby;
-}
-
-add_filter( 'woocommerce_catalog_orderby', 'sa_custom_woocommerce_catalog_orderby' );
-add_filter( 'woocommerce_default_catalog_orderby_options', 'sa_custom_woocommerce_catalog_orderby' );
-
 function fs_override_checkout_fields( $fields ) {
 	unset( $fields['billing']['billing_country'] );
 	unset( $fields['billing']['billing_address_2'] );
@@ -1011,6 +958,7 @@ add_action( 'woocommerce_checkout_process', 'fs_melli_code_checkout_process' );
 function fs_checkout_update_user_meta( $customer_id, $fields ) {
 	if ( isset( $fields['billing_melli_code'] ) ) {
 		$code = sanitize_text_field( $fields['billing_melli_code'] );
+		$code = mdr_convert_persian_to_english_number( $code );
 		update_user_meta( $customer_id, 'billing_melli_code', $code );
 	}
 }
@@ -1039,16 +987,33 @@ function fs_admin_order_data_billing_address( $order ) {
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'fs_admin_order_data_billing_address', 10, 1 );
 
 function sa_sms_success_order( $order_id ) {
-	$order           = wc_get_order( $order_id );
+	$order    = wc_get_order( $order_id );
+	$shipping = $order->get_shipping_method();
+
+    logit('shipping: '. $shipping. ' order_id: '. $order_id);
+
+	if ( $shipping == 'پست پیشتاز' ) {
+		$sms = 10;
+	} elseif ( $shipping == 'پیک موتوری' ) {
+		$sms = 11;
+	} elseif ( $shipping == 'تیپاکس' ) {
+		$sms = 12;
+	} elseif ( $shipping == 'تحویل حضوری' ) {
+		$sms = 13;
+	} elseif ( $shipping == 'باربری' ) {
+		$sms = 14;
+	} else {
+		$sms = 2;
+	}
+
 	$price           = $order->get_total();
 	$user_id         = $order->get_user()->id;
 	$user_mobile     = get_user_meta( $user_id, 'mobile', true );
 	$user_first_name = get_user_meta( $user_id, 'first_name', true );
-	$sms             = 2;
 	$sms_value       = [
 		sanitize_text_field( $user_first_name ),
 		sanitize_text_field( $order_id ),
-		sanitize_text_field( $price )
+		number_format( $price )
 	];
 	sa_sms( sanitize_text_field( $user_mobile ), $sms, $sms_value );
 }
@@ -1141,91 +1106,90 @@ function wc_get_carousel_cart_down_on_sales_section() {
 //add_action( 'save_post', 'wc_get_carousel_cart_down_on_sales_section', 10, 3 );
 add_action( 'before_delete_post', 'wc_get_carousel_cart_down_on_sales_section' );
 
-/*
- * carousel cart gray section
- */
-function wc_get_carousel_cart_gray_section() {
-	$product_category = get_field( 'first-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
+function mdr_save_acf_carousel_form( $post_id ) {
 
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
+	// Get newly saved values.
+	$values = get_fields( $post_id );
 
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
+	/*
+	 * carousel cart gray section
+	 */
+	$first_row_category = get_field( 'first-row-category', $post_id );
+	if ( $first_row_category ) {
+		$category = get_term_by( 'id', $first_row_category, 'product_cat' );
 
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_gray_section', $products, 'no' );
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_gray_section', $products, 'no' );
+	}
+
+	/*
+	 * carousel cart first white section
+	 */
+	$second_row_category = get_field( 'second-row-category', $post_id );
+	if ( $second_row_category ) {
+		$category = get_term_by( 'id', $second_row_category, 'product_cat' );
+
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_first_white_section', $products, 'no' );
+	}
+
+	/*
+	 * carousel cart second white section
+	 */
+	$third_row_category = get_field( 'third-row-category', $post_id );
+	if ( $third_row_category ) {
+		$category = get_term_by( 'id', $third_row_category, 'product_cat' );
+
+		$args = array(
+			'category'   => $category->slug,
+			'orderby'    => 'name',
+			'status'     => 'publish',
+			'limit'      => 12,
+			'meta_key'   => '_stock_status',
+			'meta_value' => 'instock'
+		);
+
+		$products = wc_get_products( $args );
+		/* Restore original Post Data */
+		wp_reset_postdata();
+
+		/* Set Content to Option Table */
+		update_option( 'my_theme_carousel_cart_second_white_section', $products, 'no' );
+	}
 }
 
-//add_action( 'save_post', 'wc_get_carousel_cart_gray_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_gray_section' );
-
-/*
- * carousel cart first white section
- */
-function wc_get_carousel_cart_first_white_section() {
-	$product_category = get_field( 'second-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
-
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
-
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
-
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_first_white_section', $products, 'no' );
-}
-
-//add_action( 'save_post', 'wc_get_carousel_cart_first_white_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_first_white_section' );
-
-/*
- * carousel cart second white section
- */
-function wc_get_carousel_cart_second_white_section() {
-	$product_category = get_field( 'third-row-category', 'option' );
-	$category         = get_term_by( 'id', $product_category, 'product_cat' );
-
-	$args = array(
-		'category'   => $category->slug,
-		'orderby'    => 'name',
-		'status'     => 'publish',
-		'limit'      => 12,
-		'meta_key'   => '_stock_status',
-		'meta_value' => 'instock'
-	);
-
-	$products = wc_get_products( $args );
-	/* Restore original Post Data */
-	wp_reset_postdata();
-
-	/* Set Content to Option Table */
-	update_option( 'my_theme_carousel_cart_second_white_section', $products, 'no' );
-}
-
-//add_action( 'save_post', 'wc_get_carousel_cart_second_white_section', 10, 3 );
-add_action( 'before_delete_post', 'wc_get_carousel_cart_second_white_section' );
+add_action( 'acf/save_post', 'mdr_save_acf_carousel_form' );
 
 /*
  * product Not available in stock show related product in up.
  */
-function realated_in_up() {
+function related_in_up() {
 	global $product;
 
 	if ( ! $product->is_in_stock() ) {
@@ -1241,7 +1205,7 @@ function realated_in_up() {
 	}
 }
 
-add_filter( 'woocommerce_before_single_product', 'realated_in_up' );
+add_filter( 'woocommerce_before_single_product', 'related_in_up' );
 
 // remove the cross sell from hook
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );

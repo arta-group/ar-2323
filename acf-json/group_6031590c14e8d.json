@@ -801,6 +801,78 @@
             "max_height": 62,
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_637bd5227153c",
+            "label": "داغ ترین ها",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_637bd5847153d",
+            "label": "لینک های داغ ترین ها در صفحه بلاگ",
+            "name": "blog-hotlink",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_637bd5aa7153e",
+                    "label": "نام لینک",
+                    "name": "hotlink-name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_637bd5f47153f",
+                    "label": "لینک",
+                    "name": "hotlink",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -821,5 +893,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1646731376
+    "modified": 1669060398
 }

@@ -424,6 +424,14 @@ td {
         height: 580px !important;
     }
 
+    .text-sm {
+        font-size: 1.5rem;
+    }
+
+    .text-base {
+        font-size: 1.5rem;
+    }
+
 }
 
 @media (min-width: 768px) {
@@ -445,6 +453,10 @@ td {
         width: 13px !important;
         height: 11px !important;
         margin-bottom: 0px !important;
+    }
+
+    .mdr-flex{
+        display: flex;
     }
 
 }
@@ -512,4 +524,25 @@ td {
     text-align: center;
     width: 98%;
     justify-self: center;
+}
+
+.intro-content > table {
+    display: flex;
+    justify-content: center;
+    margin: 30px 20px;
+    border:none;
+}
+
+.intro-content > table > tbody {
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.intro-content > table > tbody > tr > td {
+    border-left: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+}
+
+.intro-content > table > tbody > tr:nth-child(odd) {
+    background-color: #e2e2e2;
 }

@@ -49,7 +49,7 @@ if ( post_password_required() )
 
 		$fields = array(
 			'author' => '<div><div class="comment-form-author"><label for="author">نام<span class="required">*</span></label><input type="text" id="author" name="author" required="required" value ="' . esc_attr( $commenter[ 'comment_author' ] ) . '"></div>',
-			'email'  => '<div class="comment-form-email"><label for="email">ایمیل<span class="required">*</span></label><input type="email" id="email" name="email" required="required" value="' . esc_attr( $commenter[ 'comment_author_email' ] ) . '"></div>',
+//			'email'  => '<div class="comment-form-email"><label for="email">ایمیل</label><input type="email" id="email" name="email" value="' . esc_attr( $commenter[ 'comment_author_email' ] ) . '"></div>',
 			'url'    => '<div class="comment-form-url"><label for="url">وب سابت</label><input type="url" id="url" name="url" value="' . esc_attr( $commenter[ 'comment_author_url' ] ) . '"></div></div>'
 		);
 

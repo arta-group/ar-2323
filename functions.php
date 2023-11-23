@@ -151,7 +151,8 @@ add_action( 'widgets_init', 'fs_widgets_init' );
 function fs_scripts() {
 	wp_dequeue_style( 'wc-block-style' );
 
-	wp_enqueue_style( 'fs-design-system-style', get_template_directory_uri() . '/assets/css/tailwind.min.css', array(), _FS_VERSION );
+	wp_enqueue_style( 'fs-design-system-style', get_template_directory_uri() . '/assets/css/tailwind.min.css', array(),
+		_FS_VERSION );
 	wp_enqueue_style( 'fs-style', get_template_directory_uri() . '/assets/css/main.min.css', array(), _FS_VERSION );
 	wp_enqueue_style( 'sa-style', get_template_directory_uri() . '/assets/css/mystyle.css', array(), "1.0.0" );
 	wp_enqueue_script( 'sa-js', get_template_directory_uri() . '/assets/js/n_custom.js', array(), "1.0.0", true );
@@ -235,10 +236,28 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 			$bodyId = 78822;
 			break;
 		case 6:
-			$bodyId = 78825;
+			$bodyId = 174727;
 			break;
 		case 8:
 			$bodyId = 91138;
+			break;
+		case 9:
+			$bodyId = 164367;
+			break;
+		case 10:
+			$bodyId = 174058;//success send post pishtaz
+			break;
+		case 11:
+			$bodyId = 174057;//success send peyk motori
+			break;
+		case 12:
+			$bodyId = 174056;//success send tipax
+			break;
+		case 13:
+			$bodyId = 174055;//success send hozori
+			break;
+		case 14:
+			$bodyId = 174043;//success send barbari
 			break;
 	}
 
@@ -266,10 +285,11 @@ function sa_sms( string $user_login, string $sms, array $sms_value ) {
 		)
 	);
 	$result = json_decode( curl_exec( $ch ) );
+	$error  = curl_errno( $ch );
 	curl_close( $ch );
 
 // to debug
-	if ( curl_errno( $ch ) ) {
+	if ( $error ) {
 		error_log( 'Curl error: ' . curl_error( $ch ) );
 
 		return false;
